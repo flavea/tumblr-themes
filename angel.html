@@ -1,0 +1,712 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{title}</title>
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+{block:Description}
+    <meta name="description" content="{MetaDescription}" />
+{/block:Description}
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+{block:IfInfiniteScroll}<script type="text/javascript" src="http://codysherman.com/tools/infinite-scrolling/code"></script> {/block:IfInfiniteScroll}
+<script src="http://static.tumblr.com/ikeq9mi/DfYl6o46t/scrolltotop.min.js"></script>
+<script src="http://static.tumblr.com/iuw14ew/VSQma1786/jquery.style-my-tooltips.js"></script>
+<script>
+(function($){
+$(document).ready(function(){
+$("a[title]").style_my_tooltips({
+tip_follows_cursor:true,
+tip_delay_time:0,
+tip_fade_speed:0,
+attribute:"title"
+});
+});
+})(jQuery);
+</script>
+
+</head>
+    <meta name="color:Text Selection Background" content="#f2f2f2"/>
+    <meta name="color:Text Selection" content="#cccccc"/>
+    <meta name="color:Background" content="#f2f2f2"/>
+    <meta name="color:Scrollbar" content="#ffffff"/>
+    <meta name="color:Blockquote" content="#666666"/>
+    <meta name="color:Posts" content="#ffffff"/>
+    <meta name="color:Texts" content="#7d7d7d"/>
+    <meta name="color:Links" content="#cccccc"/>
+    <meta name="color:Sidebar" content="#d6d6d6"/>
+    <meta name="color:Main Title" content="#333333"/>
+    <meta name="color:Main Title Shadow" content="#ffffff"/>
+    <meta name="color:Subtitle Background" content="#7d7d7d"/>
+    <meta name="color:Subtitle" content="#ffffff"/>
+    <meta name="color:Post Captions Background" content="#f8f8f8f"/>
+    <meta name="color:Post Captions Text" content="#666666"/>
+    <meta name="color:Blog Description Background" content="#ffffff"/>
+    <meta name="color:Blog Description" content="#7d7d7d"/>
+    <meta name="color:Sidebar Links Background" content="#7d7d7d"/>
+    <meta name="color:Sidebar Links" content="#ffffff"/>
+    <meta name="color:Sidebar Links Shadow on Hover" content="#cccccc"/>
+    <meta name="color:Sidebar Links on Hover" content="#7d7d7d"/>
+    <meta name="color:Post Info" content="#7d7d7d"/>
+    <meta name="color:Pagination Background" content="#cccccc"/>
+    <meta name="color:Pagination" content="#7d7d7d"/>
+    <meta name="color:Scroll to Top" content="#ffffff"/>
+    <meta name="color:Scroll to Top Background" content="#7d7d7d"/>
+    <meta name="color:Chat Background" content="#f8f8f8"/>
+    <meta name="color:Sidebar Icons Border" content="#cccccc"/>
+    <meta name="color:Post Titles" content="#333333"/>
+    <meta name="color:Question Background" content="#f8f8f8"/>
+    <meta name="color:Questions" content="#333333"/>
+    <meta name="color:Asker Border" content="#ffffff"/>
+    <meta name="color:Tooltips Background" content="#7d7d7d"/>
+    <meta name="color:Tooltips" content="#ffffff"/>
+    <meta name="color:Description Links" content="#cccccc"/>
+    
+    <meta name="image:Sidebar Image" content="http://i.imgur.com/bW7Db2Q.png"/>
+    
+    <meta name="text:Grayscale" content="70"/>
+    <meta name="text:Sidebar Image Height" content="330"/>
+    <meta name="text:Link1URL" content=""/>
+    <meta name="text:Link1" content=""/>
+    <meta name="text:Link2URL" content=""/>
+    <meta name="text:Link2" content=""/>
+    <meta name="text:Link3URL" content=""/>
+    <meta name="text:Link3" content=""/>
+    <meta name="text:Link4URL" content=""/>
+    <meta name="text:Link4" content=""/>
+    <meta name="text:Link5URL" content=""/>
+    <meta name="text:Link5" content=""/>
+    <meta name="text:Link6URL" content=""/>
+    <meta name="text:Link6" content=""/>
+    <meta name="text:Link7URL" content=""/>
+    <meta name="text:Link7" content=""/>
+    <meta name="text:Link8URL" content=""/>
+    <meta name="text:Link8" content=""/>
+    
+    <meta name="if:Grayscale" content="1" />
+    <meta name="if:ShowSidebarIcons" content="1" />
+    <meta name="if:InfiniteScroll" content="0" />
+
+<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100|Oswald|Source+Sans+Pro|Roboto' rel='stylesheet' type='text/css'>
+<style>
+
+     ::-moz-selection {
+        background-color:{color:Text Selection Background};
+        color:{color:Text Selection};
+    }
+    
+    ::selection {
+        background-color:{color:Text Selection Background};
+        color:{color:Text Selection};
+    }
+
+    ::-webkit-scrollbar { 
+        width: 8px; 
+    }
+    
+    /*scrollbar background */
+    ::-webkit-scrollbar-track-piece { 
+        background-color: {color:Background};
+        
+    }
+    
+    /* scrollbar */    
+    ::-webkit-scrollbar-thumb:vertical {
+        width: 2px;
+        background-color: {color:Scrollbar};
+    }
+    
+    ::-webkit-scrollbar-thumb:vertical {
+        height: 2px;
+        background-color: {color:Scrollbar};
+    }
+    
+    body {
+        background:{color:Background};
+        text-align:justify;
+    }
+    
+    a {
+        text-decoration:none;
+    }
+    
+    img, iframe {
+        max-width:100%;
+    }
+    
+    pre {
+        word-break:break-word;
+    }
+    
+    .image_thumbnail {
+        float:left;
+        width:25px;
+        border:2px solid {color:background};
+        margin-right:5px
+    }
+    
+    #content {
+        margin-left:525px;
+        margin-top:50px;
+        width:660px;
+        position:absolute;
+        z-index:10000;
+        margin-bottom:30px;
+    }
+    
+    blockquote {
+        padding-left:5px;
+        border-left:2px solid {color:Blockquote};
+    }
+    
+    .post {
+        padding:80px;
+        background:{color:Posts};
+        font-family:Roboto;
+        color:{color:Texts};
+        font-size:11px;
+        letter-spacing:1px;
+        width:500px;
+        margin-bottom:50px;
+    }
+    
+    .post a {
+        color:{color:Links};
+        -webkit-transition: all 0.3s ease-out; 
+        -moz-transition: all 0.3s ease-out; 
+        -o-transition: all 0.3s ease-out; 
+        transition: all 0.3s ease-out;
+    }
+    
+    .post a:hover {
+        text-shadow:-2px 0px 0px {color:Links}, 2px 0px 0px {color:Links};
+    }
+    
+    #gyusoo {
+        position:fixed;
+        width:453px;
+        height:{text:Sidebar Image Height}px;
+        padding-left:10px;
+        top:0;
+        background:url({image:Sidebar Image}) no-repeat {color:Sidebar};
+        left:0px;
+    }
+    
+    #maintitle {
+        margin-top:270px;
+        position:absolute;
+        font-size:48px;
+        text-transform:uppercase;
+        font-family: 'Oswald', sans-serif;
+        color:{color:Main Title};
+        text-shadow:2px -2px 0px {color:Main Title Shadow}; 
+    }
+    
+    #tagline {
+        position:fixed;
+        top:330px;
+        left:0px;
+        width:443px;
+        height:20px;
+        padding:5px 10px;
+        background:{color:Subtitle Background};
+        color:{color:Subtitle};
+       font-family: 'Roboto Slab', serif;
+       letter-spacing:2px;
+       font-size:14px;
+       text-transform:uppercase;
+    }
+    
+    .caption {
+        background:{Post Captions Background};
+        color:{color:Post Captions Text};
+        padding:10px;
+        margin-top:10px;
+    }
+    
+    #description {
+        position:fixed;
+        top:370px;
+        left:0px;
+        width:480px;
+        z-index:999999;
+    }
+    
+    .desc {
+        padding:5px;
+        background:{color:Blog Description Background};
+        color:{color:Blog Description};
+        width:100px;
+        height:75px;
+        float:left;
+        font-family: 'Roboto Slab', serif;
+        font-size:11px;
+        text-align:justify;
+        margin-right:10px;
+    }
+    
+    #links, #pagination {
+        text-align:center;
+        font-size:11px;
+    }
+    
+    #links a {
+        padding:5.4px;
+        background:{color:Sidebar Links Background};
+        color:{color:Sidebar Links};
+        width:70px;
+        margin-right:5px;
+        text-align:center;
+        display:inline-block;
+        font-family: 'Georgia', serif;
+        font-size:11px;
+        text-transform:lowercase;
+        float:left;
+        margin-bottom:5px;
+        font-style:italic;
+        -webkit-transition: all 0.3s ease-out; 
+        -moz-transition: all 0.3s ease-out; 
+        -o-transition: all 0.3s ease-out; 
+        transition: all 0.3s ease-out;
+    }
+    
+    #links a:hover {
+        text-shadow:-4px 0px 0px {color:Sidebar Links Shadow on Hover},4px 0px 0px {color:Sidebar Links Shadow on Hover};
+        box-shadow:inset -80px 0px 0px {color:Background},inset 80px 0px 0px {color:Background};
+        color:{color:Sidebar Links on Hover};
+    }
+    
+    .info {
+        font-family: 'Oswald', sans-serif;
+        font-size:24px;
+        text-align:center;
+        margin-top:30px;
+    }
+    
+    .info a, .tag a, .secinfo a {
+        color:{color:Post Info};
+    }
+    
+    .tag {
+        text-align:center;
+        font-family: 'Georgia', serif;
+        font-size:9px;
+        font-style:italic;
+    }
+    
+    .tag a {
+        background:#f8f8f8;
+        padding:2px;
+    }
+    
+    #pagination {
+        background:{color:Pagination Background};
+        width:455px;
+        height:500px;
+        display:block;
+        margin-top:5px;
+        font-family: 'Oswald', sans-serif;
+        {block:ifShowSidebarIcons}margin-top:146px;{/block:ifShowSidebarIcons}
+        margin-right:30px;
+        padding:5px;
+        text-shadow:none;
+    }
+    
+    #pagination a {
+        color:{color:Pagination};
+    }
+    
+    #links:after, .top:after, #description:after {
+          content: "";
+          display: table;
+          clear: both;
+    }
+    
+    #scrollToTop:link,
+    #scrollToTop:visited {
+        color: {color:Scroll to Top};
+        background-color: transparent;
+        display: none;
+        position: fixed;
+        bottom:10px;
+        right: 10px;
+        font-family:georgia;
+        font-size:9px;
+        text-transform:uppercase;
+        z-index:999;
+        font-style:italic;
+        background:{color:Scroll to Top Background};
+        padding:3px;
+    }
+    
+    .secinfo {
+        text-align:center;
+        font-family: 'Roboto Slab', serif;
+        font-size:11px;
+        text-transform:uppercase;
+        color:{color:Post Info};
+        margin-bottom:5px;
+        margin-top:-5px;
+    }
+    
+    .my-like {
+        cursor:pointer;
+        display:inline-block;
+        vertical-align:top;
+    }
+    .my-liked, .my-like:hover {
+        color: red;
+        cursor:pointer;
+        display:inline-block;
+        vertical-align:top;
+    }
+    
+    .music {
+        height:150px;
+        position:absolute;
+        margin-left:150px;
+        width:240px;
+        margin-top:-190px;
+    }
+    
+    #musicaudio {
+        border:15px solid rgba(0,0,0,.1);
+        margin-right:5px;
+        width:150px;
+        height:150px;
+    }
+    
+    .audio {
+        position:absolute;
+        width:15px;
+        height:15px;
+        padding:10px 20px 20px 10px;
+        opacity:.7;
+        border-radius:100%;
+        margin:55px;
+        overflow:hidden;
+        background:#e5e5e5;
+    }
+    
+    {block:ifGrayscale}
+    .post img,.photoset {
+        filter:gray;
+        -webkit-filter:grayscale({text:Grayscale}%);
+        -webkit-transition:all .5s ease-in-out;
+        -moz-transition:all .5s ease-in-out;
+        -o-transition:all .5s ease-in-out;
+        -ms-transition:all .5s ease-in-out;
+        transition:all .5s ease-in-out;
+    }
+    
+    .post:hover img,.post:hover .photoset {
+        filter:gray;
+        -webkit-filter:grayscale(0%);
+    }
+    {/block:ifGrayscale}
+    
+    .chat ul, ul.chat {
+        list-style:none;
+        margin-left:-40px;
+    }
+    
+    ul.chat {
+        margin-left:0px;
+        width:310px;
+    }
+    
+    ul.chat li {
+        padding:14px;
+    }
+    
+    .chat li {
+        background:{color:Chat Background};
+        padding:10px;
+        margin-bottom:2px;
+    }
+    
+    #description img {
+        width:54.5px;
+        border:5px solid {color:Sidebar Icons Border};
+        float:left;
+        margin:2px 2px 0px 0px;
+    }
+    
+    .icons {
+        margin-top:5px;
+    }
+    
+    h2 {
+        margin-top:0;
+        font-size:28px;
+        text-transform:uppercase;
+        font-family: 'Oswald', sans-serif;
+        color:{color:Post Titles};
+        text-align:center;
+    }
+    
+    .quote {
+        font-family:georgia;
+        font-size:16px;
+    }
+    
+    #question {
+        padding:10px;
+        background:{color:Question Background};
+        color:{color:Questions};
+    }
+    
+    .askers {
+        font-family:Georgia;
+        font-weight:700;
+        font-style:italic;
+        border-bottom:1px solid {color:Asker Border};
+        padding-bottom:5px;
+        margin-bottom:5px;
+    }
+    
+    #s-m-t-tooltip {
+        padding:5px;
+        background:{color:Tooltips Background};
+        color:{color:Tooltips};
+        font:9px Roboto;
+        text-transform:uppercase;
+        text-align:center;
+        z-index:1000;
+        margin:15px;
+    }
+    
+    .desc a {
+        color:{color:Description Links};
+    }
+</style>
+<script>
+window.onload = function () {
+document.body.insertAdjacentHTML( 'beforeEnd', '<iframe id="my-like-frame" style="display:none;"></iframe>' );
+document.addEventListener( 'click', function ( event ) {
+    var myLike = event.target;
+    if( myLike.className.indexOf( 'my-like' ) > -1 ) {
+        var frame = document.getElementById( 'my-like-frame' ),
+            liked = ( myLike.className == 'my-liked' ),
+            command = liked ? 'unlike' : 'like',
+            reblog = myLike.getAttribute( 'data-reblog' ),
+            id = myLike.getAttribute( 'data-id' ),
+            oauth = reblog.slice( -8 );
+        frame.src = 'http://www.tumblr.com/' + command + '/' + oauth + '?id=' + id;
+        liked ? myLike.className = 'my-like' : myLike.className = 'my-liked';
+    };
+}, false );
+};
+</script>
+<body>
+
+<div id="gyusoo">
+    <div id="maintitle">{text:Custom Title}</div>
+    <meta name="text:Custom Title" content="I'm just looking for"/>
+    <div id="tagline">{text:Subtitle}</div>
+    <meta name="text:Subtitle" content="An Angel With A Broken Wing"/>
+    <div id="description">
+    <div class="top">
+        <div class="desc">{description}</div>
+       
+       <div id="links">
+           <a href="/">refresh</a>
+           <a href="/ask">message</a>
+           <a href="/archive">archive</a>
+            <a href="http://hellolittlered.org">theme</a>
+            {block:iflink1}<a href="{text:Link1URL}">{text:Link1}</a>{/block:iflink1}
+            {block:iflink2}<a href="{text:Link2URL}" class="two">{text:Link2}</a>{/block:iflink2}
+            {block:iflink3}<a href="{text:Link3URL}">{text:Link3}</a>{/block:iflink3}
+            {block:iflink4}<a href="{text:Link4URL}" class="two">{text:Link4}</a>{/block:iflink4}
+            {block:iflink5}<a href="{text:Link5URL}">{text:Link5}</a>{/block:iflink5}
+            {block:iflink6}<a href="{text:Link6URL}" class="two">{text:Link6}</a>{/block:iflink6}
+            {block:iflink7}<a href="{text:Link7URL}">{text:Link7}</a>{/block:iflink7}
+            {block:iflink8}<a href="{text:Link8URL}" class="two">{text:Link8}</a>{/block:iflink8}
+           
+       </div>
+       
+      </div>
+      {block:ifShowSidebarIcons}
+      <div class="icons">
+      <img src="{image:First Icon}">
+      <meta name="image:First Icon" content="http://i.imgur.com/wZyLi84.png"/>
+      <img src="{image:Second Icon}">
+      <meta name="image:Second Icon" content="http://i.imgur.com/trD2RlM.png"/>
+      <img src="{image:Third Icon}">
+      <meta name="image:Third Icon" content="http://i.imgur.com/impyp8V.png"/>
+      <img src="{image:Fourth Icon}">
+      <meta name="image:Fourth Icon" content="http://i.imgur.com/qliCEJ7.png"/>
+      <img src="{image:Fifth Icon}">
+      <meta name="image:Fifth Icon" content="http://i.imgur.com/BBkC2jZ.png"/>
+      <img src="{image:Sixth Icon}">
+      <meta name="image:Sixth Icon" content="http://i.imgur.com/xOLysRW.png"/>
+      <img src="{image:Seventh Icon}">
+      <meta name="image:Seventh Icon" content="http://i.imgur.com/GzKAiUS.png"/>
+      <img src="{image:Eight Icon}">
+      <meta name="image:Eight Icon" content="http://i.imgur.com/kxMGr5d.png"/>
+      <img src="{image:Ninth Icon}">
+      <meta name="image:Ninth Icon" content="http://i.imgur.com/aAWSUgj.png"/>
+      <img src="{image:Tenth Icons}">
+      <meta name="image:Tenth Icons" content="http://i.imgur.com/XCZSxmN.png"/>
+      <img src="{image:Eleventh Icon}">
+      <meta name="image:Eleventh Icon" content="http://i.imgur.com/rm5ivT4.png"/>
+      <img src="{image:Twelfth Icon}">
+      <meta name="image:Twelfth Icon" content="http://i.imgur.com/AfOP33G.png"/>
+      <img src="{image:Thirteenth Icon}">
+      <meta name="image:Thirteenth Icon" content="http://i.imgur.com/WNsyaU1.png"/>
+      <img src="{image:Fourteenth Icon}">
+      <meta name="image:Fourteenth Icon" content="http://i.imgur.com/0d7ODhO.png"/>
+      </div>
+      {/block:ifShowSidebarIcons}
+     
+      <div id="pagination">
+        {block:ifNotInfiniteScroll}
+        {block:Pagination}
+        {block:PreviousPage}
+        <a href="{PreviousPage}">
+          «
+        </a>
+        &nbsp;&nbsp;{/block:PreviousPage} {block:JumpPagination length="4"} {block:CurrentPage}
+        <span class="current_page">
+          ✘
+        </span>
+        &nbsp;&nbsp;{/block:CurrentPage} {block:JumpPage}
+        <a class="jump_page" href="{URL}">
+          {PageNumber}
+        </a>
+        &nbsp;&nbsp;{/block:JumpPage} {/block:JumpPagination} {block:NextPage}
+        <a href="{NextPage}">
+          »
+        </a>
+        {/block:NextPage}
+      {/block:Pagination}
+      {/block:ifNotInfiniteScroll}
+      </div>
+    </div>
+    
+</div>
+
+
+<div class="topp">
+  <a href="javascript:;" id="scrollToTop">
+    back to top
+  </a>
+</div>
+
+
+<div id="content" class="autopagerize_page_element">
+
+{block:posts}
+
+{block:ContentSource}
+<!-- {SourceURL}{block:SourceLogo}<img src="{BlackLogoURL}"
+width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
+{/block:SourceLogo}
+{block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+{/block:ContentSource}{block:ReblogParent}{/block:ReblogParent}
+
+    <div class="post">
+
+        {block:Text}
+        {block:Title}<a href="{permalink}"><h2>{Title}</h2></a>
+        {/block:Title}{Body}
+        {/block:Text}
+ 
+        {block:Photo}
+        {LinkOpenTag}<img src="{PhotoURL-500}">{LinkCloseTag}
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+        {/block:Photo}
+         
+        {block:Link}
+        <a href="{URL}" {Target}><h2>{Name} »</h2></a>
+        {block:Description}{Description}{/block:Description}
+        {/block:Link}
+         
+        {block:Photoset}
+        {Photoset-500}
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+        {/block:Photoset}
+         
+        {block:quote}
+        <div class="quote">
+              “{Quote}" <span style="font-weight:300">— {Source}</span>
+            </div>
+         {/block:quote}
+         
+        {block:Audio}
+        <div class="ask">
+            <div id="musicaudio">
+            {block:AlbumArt}
+                <img src="{AlbumArtURL}" width="150px" height="150px" align="left">
+            {/block:AlbumArt}
+
+            <div class="audio">
+            {AudioPlayerGrey}
+            </div>
+            </div>
+
+            <div class="music">
+                <ul class="chat">
+                {block:TrackName}<li><b>Title:</b> {TrackName}</li>{/block:TrackName} 
+                {block:Artist}<li><b>Artist:</b> {Artist}</li>{/block:Artist}
+                {block:Album}<li><b>Album:</b> {Album}</li>{/block:Album}
+                <li><b>Played:</b> {PlayCountWithLabel}</li>
+                </ul>
+            </div>
+        </div>
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+    {/block:Audio} 
+         
+        {block:Video}
+        {Video-500}
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+        {/block:Video}
+         
+        {block:Chat}
+        {block:title}<a href="{permalink}"><h2>{Title}</h2></a>{/block:title}
+        <div class="chat">
+          <ul>
+            {block:Lines}
+            <li class="{Alt}">
+              {block:Label}
+              <b>
+                {Label}
+              </b>
+              {/block:Label}{Line}
+            </li>
+            {/block:Lines}
+          </ul>
+        </div>
+        {/block:Chat}
+         
+        {block:Answer}
+        <div id="question">
+            <div class="askers"><b>{Asker}</b> asked:</div>
+        {Question}
+          </div> 
+        {Answer}
+        {/block:Answer}
+ 
+ <div class="info">
+    {block:date}<a href="{Permalink}" title="Posted on {DayOfWeek}, {Month} {DayOfMonthWithZero}{DayOfMonthSuffix} {Year}">{MonthNumberWithZero}{DayOfMonthWithZero}{ShortYear}</a>{/block:date}{block:NoteCount} <small>✦</small> 
+    <a href="{Permalink}#noted">{NoteCount}</a>{/block:NoteCount}
+</div>
+<div class="secinfo"><a class="my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like">like</a>{block:RebloggedFrom}<a href="{ReblogRootURL}" title="{ReblogRootTitle}"> - {ReblogRootName}</a>{/block:RebloggedFrom}<a href="{ReblogURL}"> - Reblog</a></div>
+<div class="tag">{block:HasTags}{block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}</div>
+</div>
+
+
+{block:PostNotes}<div class="post">
+    {PostNotes-16}
+</div>
+{/block:PostNotes}
+
+{/block:Posts}
+
+</div>
+
+
+</body>
+</html>
