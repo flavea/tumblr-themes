@@ -1,0 +1,984 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{title}</title>
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto+Slab' rel='stylesheet' type='text/css'>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+{block:Description}
+    <meta name="description" content="{MetaDescription}" />
+{/block:Description}
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://static.tumblr.com/avd6qy6/9BUn323jg/qtip.js"></script>
+<script src="http://static.tumblr.com/hzv1lz4/I7Nmugrrm/pace.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro|Raleway:500' rel='stylesheet' type='text/css'>
+<script src="http://hellolittlered.org/js/jquery.flexslider-min.js"></script>
+{block:ifNotBackgroundSlider}
+<script type="text/javascript">
+    $(window).load(function() {
+       
+      $('#main').flexslider({
+        animation: "slide",
+        slideshow: false
+      });
+    });
+  </script>
+{block:ifNotBackgroundSlider}
+  {block:ifBackgroundSlider}
+  <script type="text/javascript">
+    $(window).load(function() {
+        $('#back').flexslider({
+        animation: "slide",
+        reverse: true,
+        slideshow: true,
+        slideshowSpeed: 4000,
+        direction: "vertical",
+        controlNav: false
+      });
+       
+      $('#main').flexslider({
+        animation: "slide",
+        slideshow: false,
+        sync: "#back"
+      });
+    });
+  </script>
+  {/block:ifBackgroundSlider}
+  {block:ifTwoColumns}
+<script src="http://static.tumblr.com/twte3d7/H8Glm663z/masonry.js"></script>
+ <script type="text/javascript">
+$(window).load(function () {
+$('#posts').masonry({
+itemSelector : ".post",
+},
+function() { $('#posts').masonry({ appendedContent: $(this) }); }
+);
+});
+</script>
+  {/block:ifTwoColumns}
+</head>
+<meta name="if:Two Columns" content="0"/>
+<meta name="if:One Column" content="0"/>
+<meta name="if:One Column with Sidebar" content="1"/>
+<meta name="if:Background Slider" content="0"/>
+<meta name="color:Background" content="#f2f2f2"/>
+<meta name="color:Text" content="#222222"/>
+<meta name="color:Links" content="#7d7d7d"/>
+<meta name="color:Border and Content" content="#ffffff"/>
+<meta name="color:Container Background" content="#f1f1f1"/>
+<meta name="color:Contents Border" content="#cccccc"/>
+<meta name="color:blockquote" content="#7d7d7d"/>
+<meta name="color:Sidebar Titles Border" content="#f2f2f2"/>
+<meta name="color:Chat and Ask Border" content="#666666"/>
+        
+<style>
+
+   body,
+html {
+    background:{color:Background} ;
+    margin: 0px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    color: {color:Text};
+    overflow: hidden;
+    text-align: justify;
+}
+a {
+    color: {color:Links};
+    text-decoration: none;
+}
+
+a:hover {
+    opacity:.7;
+}
+
+img {
+    max-width: 100%;
+}
+.border {
+    background: {color:Border and Content};
+    position: fixed;
+    z-index: 99;
+}
+#header {
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+#back {
+    z-index: -1;
+}
+
+#box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 350px;
+    height: 350px;
+    padding: 25px;
+    margin-top: -200px;
+    margin-left: -200px;
+    background: {color:Border and Content};
+    font-family: 'Playfair Display', serif;
+    z-index: 99;
+}
+.title {
+    font-size: 60px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 80px;
+    margin-top: 27%;
+}
+.line {
+    width: 50px;
+    height: 1px;
+    background: #999999;
+    margin: 5px auto;
+}
+.move {
+    width: 30%;
+    margin: 0px 30%;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-align: center;
+    position: absolute;
+    bottom: 25px;
+}
+.desc {
+    width: 80%;
+    margin: auto;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-top: 25%;
+}
+.boxtext {
+    overflow: auto;
+    width: 100%;
+}
+.boxtext li {
+    list-style: none;
+    width: 350px;
+    height: 350px;
+}
+.boxtext ul li {
+    float: left;
+}
+.flexslider {
+    margin: 0;
+    padding: 0;
+}
+.flexslider .slides > li {
+    display: none;
+    -webkit-backface-visibility: hidden;
+}
+.flexslider .slides img {
+    width: 100%;
+    display: block;
+}
+.flexslider .slides:after {
+    content: "\0020";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+html[xmlns] .flexslider .slides {
+    display: block;
+}
+* html .flexslider .slides {
+    height: 1%;
+}
+.no-js .flexslider .slides > li:first-child {
+    display: block;
+}
+#back .flex-direction-nav {
+    display: none;
+}
+.flex-direction-nav {
+    *height: 0;
+}
+.flex-direction-nav a {
+    text-decoration: none;
+    display: block;
+    font-size: 18px;
+    width: 30px;
+    height: 20px;
+    position: absolute;
+    z-index: 10;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.flex-direction-nav a:before {
+    display: inline-block;
+    content: '←';
+}
+.flex-direction-nav a.flex-next:before {
+    content: '→';
+}
+.flex-direction-nav .flex-prev {
+    top: 25px;
+    left: 25px;
+    position: absolute;
+}
+.flex-direction-nav .flex-next {
+    bottom: 25px;
+    right: 25px;
+    position: absolute;
+    text-align: right;
+}
+.flex-direction-nav .flex-disabled {
+    opacity: 0!important;
+    filter: alpha(opacity=0);
+    cursor: default;
+    z-index: -1;
+}
+.flex-pauseplay a {
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+    opacity: 0.8;
+    z-index: 10;
+    overflow: hidden;
+    cursor: pointer;
+    color: #000;
+}
+.flex-pauseplay a:before {
+    font-family: "flexslider-icon";
+    font-size: 20px;
+    display: inline-block;
+    content: '\f004';
+}
+.flex-pauseplay a:hover {
+    opacity: 1;
+}
+.flex-pauseplay a.flex-play:before {
+    content: '←';
+}
+.flex-control-nav {
+    width: 100%;
+    position: absolute;
+    bottom: -40px;
+    text-align: center;
+    display: none;
+}
+.flex-control-nav li {
+    margin: 0 6px;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+}
+.flex-control-paging li a {
+    width: 11px;
+    height: 11px;
+    display: block;
+    background: #666;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    text-indent: -9999px;
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    -o-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+.flex-control-paging li a:hover {
+    background: #333;
+    background: rgba(0, 0, 0, 0.7);
+}
+.flex-control-paging li a.flex-active {
+    background: #000;
+    background: rgba(0, 0, 0, 0.9);
+    cursor: default;
+}
+.flex-control-thumbs {
+    margin: 5px 0 0;
+    position: static;
+    overflow: hidden;
+}
+.flex-control-thumbs li {
+    width: 25%;
+    float: left;
+    margin: 0;
+}
+.flex-control-thumbs img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: .7;
+    cursor: pointer;
+    -moz-user-select: none;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.flex-control-thumbs img:hover {
+    opacity: 1;
+}
+.flex-control-thumbs .flex-active {
+    opacity: 1;
+    cursor: default;
+}
+#back {
+    margin-left: -40px;
+    margin-top: -50px;
+}
+#box ul,
+#box li {
+    list-style: none;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+#top,
+#bottom {
+    display: block;
+    width: 100%;
+    height: 50%;
+}
+#box {
+    overflow: none;
+}
+.p {
+    {block:ifOneColumnwithSidebar}
+    width:910px;
+    margin:auto;
+    {/block:ifOneColumnwithSidebar}
+    {block:ifOneColumn}
+    width:910px;
+    margin:auto;
+    {/block:ifOneColumn}
+}
+#posts {
+    width: 80%;
+    height: 82%;
+    padding: 7%;
+    background: {color:Container Background};
+    overflow: auto;
+    margin: 100% auto 0px 3%;
+    position: absolute;
+    float:right;
+}
+.post {
+    width:500px;
+    margin:10px 0px 10px 250px;
+    {block:ifTwoColumns}width:400px;margin:3%;{/block:ifTwoColumns}
+    padding:10px;
+    background:{color:Border and Content};
+    border:1px solid {color:Contents Border};
+    position:relative;
+}
+
+blockquote {
+    border-left: 1px solid {color:blockquote};
+    margin-left: 10px;
+    padding-left: 10px;
+}
+#btt {
+    font-family: Raleway;
+    font-size: 18px;
+    float: left;
+}
+#credit {
+    font-family: Raleway;
+    font-size: 18px;
+    float: right;
+}
+#menu {
+    font-family: Raleway;
+    font-size: 16px;
+    float: left;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+#menu a,
+#controls a {
+    display: inline-block;
+    margin-right: 10px;
+}
+{block: IndexPage}
+#tumblr_controls {
+    display: none!important;
+}
+{/block: IndexPage}
+#controls {
+    font-family: Raleway;
+    font-size: 16px;
+    float: right;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+.nav {
+    font-size: 30px;
+    top: 45%;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    opacity: .8;
+}
+
+h2 a,
+a h2,
+h2 {
+    font-family: Raleway;
+    font-weight: 700;
+    margin-top: 10px;
+    font-size: 30px;
+    line-height: 40px;
+}
+h2:before {
+    content: "—";
+}
+
+h3 {
+    margin:0px 0px 10px 0px;
+    padding:0px 0px 5px 0px;
+    font-family:Raleway;
+    text-transform:uppercase;
+    border-bottom:1px solid {color:Sidebar Titles Border};
+    color:#666;
+}
+.chat ul,
+.chat li {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2px;
+}
+.chat b {
+    display: inline-block;
+    border-bottom: 1px solid {color:Chat and Ask Border};
+    text-transform: uppercase;
+    padding-bottom: 2px;
+}
+.ava {
+    float: left;
+    padding-right: 5px;
+    margin-right: 5px;
+    border-right: 1px dotted {color:Chat and Ask Border};
+}
+.ask-box img {
+    margin-bottom: 0;
+    display: block;
+}
+.ask-box {
+    min-height: 64px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid {color:Contents Border};
+}
+.ask-box span {
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+#musicplayer {
+    padding: 10px;
+    border: 1px solid {color:Contents Border};
+    height: 90px;
+    overflow: hidden;
+}
+#tplayer {
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    padding: 30px 40px 40px 20px;
+    float: left;
+    margin-right: 10px;
+    border-right: 1px solid {color:Contents Border};
+    background: {color:Border and Content};
+}
+#tplayer iframe {
+    width: 20px;
+    height: 20px;
+    overflow: hidden
+}
+#musicplayer span {
+    padding: 6px;
+    display: block;
+    border-bottom: 1px solid {color:Contents Border};
+}
+#s-m-t-tooltip {
+    padding: 5px;
+    background: #000000;
+    color: {color:Border and Content};
+    font: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    z-index: 1000;
+    margin: 15px;
+    border-radius: 3px;
+    z-index: 10000000000;
+}
+.quote {
+    font-family: Playfair Display;
+    font-size: 26px;
+    line-height: 34px;
+    text-transform: uppercase;
+}
+.qsource {
+    padding-top: 10px;
+    border-top: 1px dotted {color:Contents Border};
+}
+#notes ul,
+#notes li {
+    list-style: none;
+    padding-left: 0;
+}
+#notes li {
+    padding: 10px 5px;
+    border-bottom: 1px solid {color:Contents Border};
+}
+.pace {
+    -webkit-pointer-events: none;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+.pace-inactive {
+    display: none;
+}
+.pace .pace-progress {
+    background: {color:Text};
+    position: fixed;
+    z-index: 9999999999999999999999999999999999999;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 2px;
+}
+.pace .pace-progress-inner {
+    display: block;
+    position: absolute;
+    right: 0px;
+    width: 100px;
+    height: 100%;
+    box-shadow: 0 0 10px {color:Text}, 0 0 5px {color:Text};
+    opacity: 1.0;
+    -webkit-transform: rotate(3deg) translate(0px, -4px);
+    -moz-transform: rotate(3deg) translate(0px, -4px);
+    -ms-transform: rotate(3deg) translate(0px, -4px);
+    -o-transform: rotate(3deg) translate(0px, -4px);
+    transform: rotate(3deg) translate(0px, -4px);
+}
+.pace .pace-activity {
+    display: block;
+    position: fixed;
+    z-index: 2000;
+    top: 15px;
+    right: 15px;
+    width: 14px;
+    height: 14px;
+    border: solid 2px transparent;
+    border-top-color: {color:Text};
+    border-left-color: {color:Text};
+    border-radius: 10px;
+    -webkit-animation: pace-spinner 400ms linear infinite;
+    -moz-animation: pace-spinner 400ms linear infinite;
+    -ms-animation: pace-spinner 400ms linear infinite;
+    -o-animation: pace-spinner 400ms linear infinite;
+    animation: pace-spinner 400ms linear infinite;
+}
+@-webkit-keyframes pace-spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@-moz-keyframes pace-spinner {
+    0% {
+        -moz-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@-o-keyframes pace-spinner {
+    0% {
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@-ms-keyframes pace-spinner {
+    0% {
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes pace-spinner {
+    0% {
+        transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+#sidebar {
+    float:left;
+    width:250px;margin-left:-260px;margin-top:-10px;
+}
+
+#sidebar .post {
+    width:230px;
+}
+
+#blogroll {
+    max-height:150px;
+    overflow:auto;
+}
+
+#blogroll img {
+    border-radius:100%;
+}
+
+#blogroll a {
+    width:50px;
+    height:50px;
+    margin:5px;
+    display:inline-block;
+}
+
+#pinfo {
+        margin-top:10px;
+        border:1px solid {color:Contents Border};
+        background:{color:Border and Content};
+        padding:10px;
+        text-transform:uppercase;;
+    }
+    
+    .tags {
+        text-transform:lowercase;
+    }
+    .reblog {
+        float:right;
+    }
+    
+.slinks a {
+    display:block;
+    padding:3px 0px;
+    text-align:center;
+    text-transform:lowercase;
+    border-bottom:1px solid {color:Sidebar Titles Border};
+}
+
+    
+
+</style>
+<body>
+    <div class="border" style="top:0;left:0;width:94%;padding:10px 3%">
+    <div id="menu">
+        <a href="/">Index</a>
+        <a href="/ask">Message</a>
+        <a href="/archive">Archive</a>
+        {block:ifLink1}<a href="{text:Link 1 URL}">{text:Link 1}</a>{/block:ifLink1}
+        <meta name="text:Link 1 URL" content=""/>
+        <meta name="text:Link 1" content=""/>
+        {block:ifLink2}<a href="{text:Link 2 URL}">{text:Link 2}</a>{/block:ifLink2}
+        <meta name="text:Link 2 URL" content=""/>
+        <meta name="text:Link 2" content=""/>
+        {block:ifLink3}<a href="{text:Link 3 URL}">{text:Link 3}</a>{/block:ifLink3}
+        <meta name="text:Link 3 URL" content=""/>
+        <meta name="text:Link 3" content=""/>
+        {block:ifLink4}<a href="{text:Link 4 URL}">{text:Link 4}</a>{/block:ifLink4}
+        <meta name="text:Link 4 URL" content=""/>
+        <meta name="text:Link 4" content=""/>
+    </div>
+    <div id="controls">
+        <a href="http://tumblr.com/follow/{name}"><span class="fa fa-plus"></span> follow</a>
+        <a href="https://www.tumblr.com/dashboard?conversation={name}"><span class="fa fa-comment"></span> chat</a>
+        <a href="http://tumblr.com/"><span class="fa fa-tumblr"></span> dashboard</a>
+    </div></div>
+    <div class="border" style="bottom:0;left:0;width:94%;padding:10px 3%">
+    <a id="credit" href="#popup1" class="fa fa-heartbeat"></a>
+    <div id="btt"><a href="#header">View Header</a> // <a href="#posts">View Posts</a></div></div>
+    <div class="border" style="top:0;left:0;height:100%;width:3%">{block:Pagination}{block:PreviousPage}<div class="nav"><a class="fa fa-arrow-circle-o-left" href="{PreviousPage}#posts"></a></div>{/block:PreviousPage}{/block:Pagination}</div>
+    <div class="border" style="top:0;right:0;height:100%;width:3%">{block:Pagination}{block:NextPage}<div class="nav"><a class="fa fa-arrow-circle-o-right" href="{NextPage}#posts"></a></div>{/block:NextPage}{/block:Pagination}</div>
+    
+    <div id="header">
+    
+        <div id="back" {block:ifBackgroundSlider}class="flexslider"{/block:ifBackgroundSlider}>
+        <ul class="slides">
+            <meta name="image:First Background" content="http://i.imgur.com/o84fdC0.jpg"/>
+            <meta name="image:Second Background" content="http://i.imgur.com/9IBvOn0.jpg"/>
+            <meta name="image:Third Background" content="http://i.imgur.com/dE7dgHl.jpg"/>
+            <li><img src="{image:First Background}"></li>        
+            {block:ifBackgroundSlider}
+            <li><img src="{image:Second Background}"></li>
+            <li><img src="{image:Third Background}"></li>
+            {/block:ifBackgroundSlider}
+        </ul>
+        </div>
+        <div id="bottom"></div>
+        <div id="box">
+            <div id="main" class="flexslider" style="overflow:hidden">
+            <ul class="slides">
+             <li>
+        <center>1 / {block:ifSocialMedia}3{/block:ifSocialMedia}{block:ifnotSocialMedia}2{/block:ifnotSocialMedia}</center>
+            <div class="title">{title}</div>
+            </li>
+             <li><center>2 / {block:ifSocialMedia}3{/block:ifSocialMedia}{block:ifnotSocialMedia}2{/block:ifnotSocialMedia}</center>
+            <div class="desc">{description}</div>
+            </li>
+            <meta name="if:SocialMedia" content="1"/>
+            {block:ifSocialMedia}
+             <li><center>3 / 3</center>
+            <div class="desc" style="font-size:20px;margin-top:35%">
+                {block:ifInstagramUsername}<a href="http://instagram.com/{text:Instagram Username}" class="fa fa-instagram"></a>{/block:ifInstagramUsername}
+                <meta name="text:Instagram Username" content=""/>
+                {block:ifTwitterUsername}<a href="http://twitter.com/{text:Twitter Username}" class="fa fa-twitter"></a> {/block:ifTwitterUsername}
+                <meta name="text:Twitter Username" content=""/>
+                {block:ifFacebookName}<a href="http://facebook.com/{text:Facebook Name}" class="fa fa-facebook-square"></a> {/block:ifFacebookName}
+                <meta name="text:Facebook Name" content=""/>
+                {block:ifFlickrLink}<a href="{text:Flickr Link}" class="fa fa-flickr"></a> {/block:ifFlickrLink}
+                <meta name="text:Flickr Link" content=""/>
+                {block:ifGooglePlusLink}<a href="{text:GooglePlus Link}" class="fa fa-google-plus"></a> {/block:ifGooglePlusLink}
+                <meta name="text:GooglePlus Link" content=""/>
+                {block:ifRedditLink}<a href="{text:Reddit Link}" class="fa fa-reddit"></a> {/block:ifRedditLink}
+                <meta name="text:Reddit Link" content=""/>
+                {block:ifPinterestLink}<a href="{text:Pinterest Link}" class="fa fa-pinterest"></a> {/block:ifPinterestLink}
+                <meta name="text:Pinterest Link" content=""/>
+                {block:ifVineLink}<a href="{text:Vine Link}" class="fa fa-vine"></a> {/block:ifVineLink}
+                <meta name="text:Vine Link" content=""/>
+                {block:ifYoutubeLink}<a href="{text:Youtube Link}" class="fa fa-youtube"></a> {/block:ifYoutubeLink}
+                <meta name="text:Youtube Link" content=""/>
+            </div>
+            </li>
+            {/block:ifSocialMedia}
+            </ul>
+            </div>
+            <a class="move" href="#posts">
+                <div class="line"></div>
+                Skip to Posts
+                <div class="line"></div>
+            </a>
+        </div>
+    </div>
+    
+    
+    <div id="posts">
+        
+        {block:ifOneColumnwithSidebar}<div class="p">
+        <div id="sidebar">
+            <div class="post">
+                <h3>{title}</h3>
+                {description}
+            </div>
+            <meta name="if:Blogroll" content="1"/>
+            {block:ifBlogroll}
+            <div class="post">
+                <h3>Blogroll</h3>
+                <div id="blogroll">
+                <center>
+                    {block:Following}{block:Followed}<a target='_blank' href='{FollowedURL}' title='{FollowedTitle}'>src='{FollowedPortraitURL-64}' />{/block:Followed}{/block:Following}
+                </center>
+                </div>
+            </div>
+            {/block:ifBlogroll}
+            <div class="post slinks">
+                <h3>Sidebar Links</h3>
+                {block:ifSidebarLink1}<a href="{text:Sidebar Link 1 URL}">{text:Sidebar Link 1}</a>{/block:ifSidebarLink1}
+                <meta name="text:Sidebar Link 1 URL" content=""/>
+                <meta name="text:Sidebar Link 1" content=""/>
+                {block:ifSidebarLink2}<a href="{text:Sidebar Link 2 URL}">{text:Sidebar Link 2}</a>{/block:ifSidebarLink2}
+                <meta name="text:Sidebar Link 2 URL" content=""/>
+                <meta name="text:Sidebar Link 2" content=""/>
+                {block:ifSidebarLink3}<a href="{text:Sidebar Link 3 URL}">{text:Sidebar Link 3}</a>{/block:ifSidebarLink3}
+                <meta name="text:Sidebar Link 3 URL" content=""/>
+                <meta name="text:Sidebar Link 3" content=""/>
+                {block:ifSidebarLink4}<a href="{text:Sidebar Link 4 URL}">{text:Sidebar Link 4}</a>{/block:ifSidebarLink4}
+                <meta name="text:Sidebar Link 4 URL" content=""/>
+                <meta name="text:Sidebar Link 4" content=""/>
+                {block:ifSidebarLink5}<a href="{text:Sidebar Link 5 URL}">{text:Sidebar Link 5}</a>{/block:ifSidebarLink5}
+                <meta name="text:Sidebar Link 5 URL" content=""/>
+                <meta name="text:Sidebar Link 5" content=""/>
+                {block:ifSidebarLink6}<a href="{text:Sidebar Link 6 URL}">{text:Sidebar Link 6}</a>{/block:ifSidebarLink6}
+                <meta name="text:Sidebar Link 6 URL" content=""/>
+                <meta name="text:Sidebar Link 6" content=""/>
+                {block:ifSidebarLink7}<a href="{text:Sidebar Link 7 URL}">{text:Sidebar Link 7}</a>{/block:ifSidebarLink7}
+                <meta name="text:Sidebar Link 7 URL" content=""/>
+                <meta name="text:Sidebar Link 7" content=""/>
+                {block:ifSidebarLink8}<a href="{text:Sidebar Link 8 URL}">{text:Sidebar Link 8}</a>{/block:ifSidebarLink8}
+                <meta name="text:Sidebar Link 8 URL" content=""/>
+                <meta name="text:Sidebar Link 8" content=""/>
+            </div>
+            <meta name="text:Additional Sidebar Title 1" content=""/>
+            <meta name="text:Additional Sidebar Content 1" content=""/>
+            {block:ifAdditionalSidebarContent1}<div class="post">
+                {block:ifAdditionalSidebarTitle1}<h3>{text:Additional Sidebar Title 1}</h3>{/block:ifAdditionalSidebarTitle1}
+                {text:Additional Sidebar Content 1}
+            </div>{block:ifAdditionalSidebarContent1}
+            <meta name="text:Additional Sidebar Title 2" content=""/>
+            <meta name="text:Additional Sidebar Content 2" content=""/>
+            {block:ifAdditionalSidebarContent2}<div class="post">
+                {block:ifAdditionalSidebarTitle2}<h3>{text:Additional Sidebar Title 2}</h3>{/block:ifAdditionalSidebarTitle2}
+                {text:Additional Sidebar Content 2}
+            </div>{block:ifAdditionalSidebarContent2}
+            <meta name="text:Additional Sidebar Title 3" content=""/>
+            <meta name="text:Additional Sidebar Content 3" content=""/>
+            {block:ifAdditionalSidebarContent3}<div class="post">
+                {block:ifAdditionalSidebarTitle3}<h3>{text:Additional Sidebar Title 3}</h3>{/block:ifAdditionalSidebarTitle3}
+                {text:Additional Sidebar Content 3}
+            </div>{block:ifAdditionalSidebarContent3}
+        </div>{/block:ifOneColumnwithSidebar}
+            {block:posts}
+            
+            <!-- {block:NoRebloggedFrom}
+            {block:RebloggedFrom}{ReblogParentName}{/block:RebloggedFrom}
+            {/block:NoRebloggedFrom} -->
+            
+            {block:ContentSource}<!-- {SourceURL}
+            {block:SourceLogo}<img src="{BlackLogoURL}"width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />{/block:SourceLogo}
+            {block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+            {/block:ContentSource}
+            
+            <div class="post">
+            <!-- text post -->
+            {block:Text}
+                {block:Title}
+                    <a href="{Permalink}#posts">
+                      <h2>{Title}</h2>
+                    </a>
+                    <div class="bar"></div>
+                {/block:Title}
+                {Body}
+            {/block:Text}
+            
+            <!-- quote post -->
+            {block:Quote}
+                <div class="quote">
+                  {Quote}
+                </div>
+                <div class="qsource">— {Source}</div>
+            {/block:Quote}
+    
+             <!-- link post -->
+            {block:Link}
+                <a href="{URL}">
+                  <h2>{Name} »</h2>
+                </a>
+                    <div class="bar"></div>
+                {block:Description}{Description}{/block:Description}
+            {/block:Link}
+            
+            <!-- photo post -->
+            {block:Photo}
+                <center>
+                  <a href="{PhotoURL-HighRes}"><img src="{PhotoURL-HighRes}"></a>
+                </center>
+                {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+            {/block:Photo}
+    
+            <!-- photoset post -->
+            {block:Photoset}
+                <center>
+                {Photoset}
+                </center>
+                {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+            {/block:Photoset}
+            
+            <!-- chat post -->
+            {block:Chat}
+            {block:Title}
+                    <a href="{Permalink}#posts">
+                      <h2>{Title}</h2>
+                    </a>
+                    <div class="bar"></div>
+                {/block:Title}
+                <div class="chat">
+                  <ul>
+                    {block:Lines}
+                    <li>
+                       {block:Label}<b>{Label}</b>{/block:Label}
+                      {Line}
+                    </li>
+                    {/block:Lines}
+                  </ul>
+                </div>
+            {/block:Chat}
+            
+            <!-- video post -->
+            {block:Video}
+                {Video}
+                {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+            {/block:Video}
+            
+            <!-- audio post -->
+            {block:Audio}
+			<div id="musicplayer">
+    			{block:AudioPlayer}
+    				<div id="tplayer">{AudioPlayer}</div>
+    			{/block:AudioPlayer}
+				{block:TrackName}
+                    <span><b>Title:</b> {TrackName}</span>
+                {/block:TrackName}
+                {block:Artist}
+                    <span><b>Artist:</b> {Artist}</span>
+                {/block:Artist}<span style="border-bottom:none"><b>Album:</b> {block:Album}
+{Album}</span>
+{/block:Album}
+			</div>
+                {block:Caption}{Caption}{/block:Caption}
+            {/block:Audio}
+            
+            <!-- ask post -->
+            {block:Answer}
+               <div class="ask-box">
+                <div class="ava"><img src="{AskerPortraitURL-64}"></div><span>{Asker} Said:</span>
+                    {Question}
+                </div> 
+                <div id="answer">{Answer}</div>
+            {/block:Answer}
+            
+			<div id="pinfo">
+			    <a href="{Permalink}#posts">{block:Date}{ShortMonth} {DayOfMonthWithZero}{DayOfMonthSuffix} {year}{/block:Date} {block:NoteCount}+{NoteCount}{/block:NoteCount}</a>{block:RebloggedFrom} <a href="{ReblogParentURL}" title="{ReblogParentName}">Via</a>/<a href="{ReblogRootURL}" title="{ReblogRootName}">Source</a>{/block:RebloggedFrom}
+			    <div class="reblog">
+			        <div style="display:inline-block;">{ReblogButton size="15"}</div>
+			        <div style="display:inline-block;">{LikeButton size="15"} </div>
+			    </div>
+			    {block:HasTags}<div class="tags">{block:Tags}<a href="{TagURL}">#{tag}</a>{/block:Tags}</div>{/block:HasTags}
+			</div>
+            </div>
+        {/block:posts}
+        
+            
+        </div>
+        </div>
+</body>
+</html>
