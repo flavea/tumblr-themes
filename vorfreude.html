@@ -1,1 +1,741 @@
 
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{title}</title>
+<link rel="shortcut icon" href="{Favicon}">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script src="http://static.tumblr.com/ikeq9mi/DfYl6o46t/scrolltotop.min.js"></script>
+{block:IfInfiniteScroll}<script type="text/javascript" src="http://codysherman.com/tools/infinite-scrolling/code"></script> {/block:IfInfiniteScroll}
+<script src="http://static.tumblr.com/iuw14ew/VSQma1786/jquery.style-my-tooltips.js"></script>
+<script>
+(function($){
+$(document).ready(function(){
+$("a[title]").style_my_tooltips({
+tip_follows_cursor:true,
+tip_delay_time:0,
+tip_fade_speed:0,
+attribute:"title"
+});
+});
+})(jQuery);
+</script>
+
+        <meta name="color:Background" content="#ffffff"/>
+    <meta name="color:Texts" content="#7d7d7d"/>
+    <meta name="color:Background" content="#cccccc"/>
+    <meta name="color:Header" content="#feb2cb"/>
+    <meta name="color:Links" content="#cccccc"/>
+    <meta name="color:Description" content="#ffffff"/>
+    <meta name="color:Description Text" content="#7d7d7d"/>
+    <meta name="color:Header Links" content="#ffffff"/>
+    <meta name="color:Header Links Text" content="#cccccc"/>
+    <meta name="color:Blog Title" content="#ffffff"/>
+    <meta name="color:Post" content="#f8f8f8"/>
+    <meta name="color:Hovered Info Text" content="#555555"/>
+    <meta name="color:Hover Info Note Text" content="#ffffff"/>
+    <meta name="color:Hovered Info Note BG" content="#feb2cb"/>
+    <meta name="color:Post Title" content="#333333"/>
+    <meta name="color:Post Title Border" content="#ffffff"/>
+    <meta name="color:Question Background" content="#f2f2f2"/>
+    <meta name="color:Question Text" content="#333333"/>
+    <meta name="color:Question Border" content="#f8f8f8"/>
+    <meta name="color:Tooltips BG" content="#cccccc"/>
+    <meta name="color:Tooltips" content="#ffffff"/>
+    <meta name="color:Info Text" content="#7d7d7d"/>
+    <meta name="color:Chat BG" content="#ffffff"/>
+    <meta name="color:Info Links" content="#666666"/>
+    <meta name="color:Tags BG" content="#ffffff"/>
+    <meta name="color:Link Hover" content="#cccccc"/>
+    <meta name="color:Blockquote" content="#666666"/>
+    <meta name="color:Pagination" content="#feb2cb"/>
+    <meta name="color:Music BG" content="#feb2cb"/>
+    
+    <meta name="text:Music" content=""/>
+    <meta name="text:Link1URL" content=""/>
+    <meta name="text:Link1" content=""/>
+    <meta name="text:Link2URL" content=""/>
+    <meta name="text:Link2" content=""/>
+    <meta name="text:Link3URL" content=""/>
+    <meta name="text:Link3" content=""/>
+    <meta name="text:Link4URL" content=""/>
+    <meta name="text:Link4" content=""/>
+    <meta name="text:Link5URL" content=""/>
+    <meta name="text:Link5" content=""/>
+    <meta name="text:Link6URL" content=""/>
+    <meta name="text:Link6" content=""/>
+    <meta name="text:Hovered Info BG" content="rgba(255,255,255,.8)"/>
+    
+    <meta name="if:ShowCaptions" content="1" />
+    <meta name="if:InfiniteScroll" content="0" />
+    
+</head>
+<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100|Oswald|Source+Sans+Pro|Roboto' rel='stylesheet' type='text/css'>
+<style>
+@font-face {
+    font-family: Channel;
+    src: url(http://static.tumblr.com/hzv1lz4/mgon8ufmq/channel.ttf);
+}
+
+body {
+    background:{color:Background};
+    color:{color:Texts};
+    font-family:Roboto;
+    font-size:11px;
+    letter-spacing:1px;
+    text-align:justify;
+}
+
+a {
+    text-decoration:none;
+        color:{color:links};
+        -webkit-transition: all 0.3s ease-out; 
+        -moz-transition: all 0.3s ease-out; 
+        -o-transition: all 0.3s ease-out; 
+        transition: all 0.3s ease-out;
+}
+#header {
+    background:{color:Header};
+    padding:20px;
+    width:500px;
+    height:110px;
+    border-top:100px solid {color:Background};
+    position:fixed;
+    left:50%;
+    top:0;
+    margin-left:-270px;
+    z-index:999;
+    overflow:hidden;
+}
+
+#desc {
+    position:absolute;
+    margin-left:-540px;
+    z-index:8888;
+    -webkit-transition: all 1s ease-out; 
+    -moz-transition: all 1s ease-out; 
+    -o-transition: all 1s ease-out; 
+    transition: all 1s ease-out;
+}
+
+.desc {
+    background:{color:Description};
+    color:{color:Description Text};
+    width:200px;
+    height:90px;
+    padding:10px;
+    float:left;
+}
+
+#link {
+    float:right;
+    margin-left:20px;
+    margin-top:13px;
+    width:270px;
+}
+
+#link a {
+    background:{color:Header Links};
+    padding:3px;
+    outline:1px solid {color:Header Links};
+    outline-offset:2px;
+    display:inline-block;
+    margin:0px 10px 10px 0px;
+    width:65px;
+    color:{color:Header Links Text};
+    text-align:center;
+    letter-spacing:0px;
+    font-family:georgia;
+    font-style:italic;
+}
+
+#header:hover #desc {
+    margin-left:0;
+}
+
+#header:hover #title {
+    opacity:0;
+}
+#title {
+    font-size:44px;
+    color:{color:Blog Title};
+    font-family:Channel;
+    text-shadow:0px 1px 1px rgba(0,0,0,.2);
+    letter-spacing:-3px;
+    -webkit-transition: all .5s ease-out; 
+    -moz-transition: all .5s ease-out; 
+    -o-transition: all .5s ease-out; 
+    transition: all .5s ease-out;
+}
+#posts {
+    margin:250px auto;
+    width:540px;
+}
+
+img, .photoset, iframe {
+    max-width:100%;
+}
+
+.post {
+    padding:20px;
+    background:{color:Post};
+    width:500px;
+    margin-bottom:25px;
+    overflow:hidden;
+        position:relative;
+}
+
+.infos {
+    position:absolute;
+    height:100%;
+    width:540px;
+    -webkit-transition: opacity 2s ease-out, box-shadow 1s ease-out; 
+    -moz-transition: opacity 2s ease-out, box-shadow 1s ease-out;  
+    -o-transition: opacity 2s ease-out, box-shadow 1s ease-out;  
+    transition: opacity 2s ease-out, box-shadow 1s ease-out; 
+    margin-left:-20px;
+    text-align:center;
+    z-index:1;
+    margin-top:-20px;
+    opacity:0;
+}
+
+.infos a {
+    color:{color:Hovered Info Text};
+}
+
+.post:hover .infos {
+    box-shadow:inset 0px 4000px 0px {text:Hovered Info BG};
+    opacity:1;
+}
+
+.noted {
+    color:{color:Hover Info Note Text};
+    background:{color:Hovered Info Note BG};
+    border-top:4px solid {color:Hover Info Note Text};
+    border-bottom:4px solid {color:Hover Info Note Text};
+    text-decoration:none;
+    text-align:center;
+    width:540px;
+    margin-top:20px;
+    display:block;
+    font-size:22px;
+        text-transform:uppercase;
+        font-family: 'Oswald', sans-serif;
+}
+
+a.noted, .noted a {
+    color:{color:Hover Info Note Text};
+}
+
+h2 {
+        margin-top:0;
+        font-size:28px;
+        text-transform:uppercase;
+        font-family: 'Oswald', sans-serif;
+        color:{color:Post Title};
+        text-align:center;
+        border-bottom:1px dashed {color:Post Title Border};
+    }
+    
+.quote {
+        font-family:georgia;
+        font-size:16px;
+    }
+    
+    #question {
+        padding:10px;
+        background:{color:Question Background};
+        color:{color:Question Text};
+        
+    }
+    
+    .askers {
+        font-family:Georgia;
+        font-weight:700;
+        font-style:italic;
+        border-bottom:1px solid {color:Question Border};
+        padding-bottom:5px;
+        margin-bottom:5px;
+    }
+    
+    #s-m-t-tooltip {
+        padding:5px;
+        background:{color:Tooltips BG};
+        color:{color:Tooltips};
+        font:9px Roboto;
+        text-transform:uppercase;
+        text-align:center;
+        z-index:1000;
+        margin:15px;
+    }
+    
+    
+    #scrollToTop:link,
+    #scrollToTop:visited {
+        background-color: transparent;
+        display: none;
+        position: fixed;
+        top: 335px;
+        right: 10px;
+        font-family:georgia;
+        font-size:13px;
+        font-style:italic;
+    }
+    
+    .secinfo {
+        text-align:center;
+        font-family: 'Roboto Slab', serif;
+        font-size:11px;
+        text-transform:uppercase;
+        color:{color:Info Text};
+        margin-bottom:5px;
+        margin-top:-5px;
+    }
+    
+    .my-like {
+        cursor:pointer;
+        display:inline-block;
+        vertical-align:top;
+    }
+    .my-liked, .my-like:hover {
+        color: red;
+        cursor:pointer;
+        display:inline-block;
+        vertical-align:top;
+    }
+    
+    .music {
+        height:150px;
+        position:absolute;
+        margin-left:150px;
+        width:240px;
+        margin-top:-190px;
+    }
+    
+    #musicaudio {
+        border:15px solid rgba(0,0,0,.1);
+        margin-right:5px;
+        width:150px;
+        height:150px;
+    }
+    
+    .audio {
+        position:absolute;
+        width:15px;
+        height:15px;
+        padding:10px 20px 20px 10px;
+        opacity:.7;
+        border-radius:100%;
+        margin:55px;
+        overflow:hidden;
+        background:#e5e5e5;
+    }
+    
+    .chat ul, ul.chat {
+        list-style:none;
+        margin-left:-40px;
+    }
+    
+    ul.chat {
+        margin-left:0px;
+        width:310px;
+    }
+    
+    ul.chat li {
+        padding:14px;
+    }
+    
+    .chat li {
+        background:{color:Chat BG};
+        padding:10px;
+        margin-bottom:2px;
+    }
+    
+    .info {
+        font-family: 'Oswald', sans-serif;
+        font-size:24px;
+        text-align:center;
+        margin-top:30px;
+    }
+    
+    .info a, .tag a, .secinfo a {
+        color:{color:Info Links};
+    }
+    
+    .tag {
+        text-align:center;
+        font-family: 'Georgia', serif;
+        font-size:9px;
+        font-style:italic;
+    }
+    
+    .tag a {
+        background:{color:Tags BG};
+        padding:2px;
+    }
+
+    
+    .post a:hover {
+        text-shadow:-2px 0px 0px {color:Link Hover}, 2px 0px 0px {color:Link Hover};
+    }
+    
+     pre {
+        word-break:break-word;
+    }
+blockquote {
+        padding-left:5px;
+        border-left:2px solid {color:Blockquote};
+    }
+    
+    .cred {
+        width:50px;
+        bottom:20px;
+        right:20px;
+        position:fixed;
+    }
+    
+    #pagination {
+        position:fixed;
+        left:50%;
+        margin-left:-300px;
+        top:100px;
+    }
+    
+    #pagination div {
+        width:20px;
+        height:20px;
+        display:block;
+        border:1px solid {color:Pagination};
+        margin-bottom:5px;
+        -webkit-transition: all 0.3s ease-out; 
+        -moz-transition: all 0.3s ease-out; 
+        -o-transition: all 0.3s ease-out; 
+        transition: all 0.3s ease-out;
+        
+    }
+    
+    #pagination div:hover{
+        box-shadow:inset 0px -20px 0px {color:Pagination};
+    }
+    
+    
+    #musicplayer {
+        position: fixed;
+        z-index: 99999999999999;
+        bottom: 20px;
+        left: 20px;
+        width: 31px;
+        height: 31px;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        border-radius: 100%;
+        background:{color:Music BG}; /* icon background */
+        -webkit-transition: all .7s ease;
+        -moz-transition: all .7s ease;
+        -o-transition: all .7s ease;
+        transition: all .7s ease;
+    }
+     
+    #musicplayer img {
+        width: 15px;
+        padding: 8px 0px 0px 8px;
+    }
+     
+    #line {
+        position:absolute;
+        background: {color:Music BG}; 
+    }
+     
+    .line {
+        top: 13px;
+        left: 30px;
+        width: 0px;
+        height: 3px;
+        -webkit-transition:all .4s ease;
+        -moz-transition:all .4s ease;
+        -o-transition:all .4s ease;
+        transition-delay: 0s;
+        -webkit-transition-delay: 0s;
+    }
+     
+    #musicplayer:hover .line {
+        width: 20px;
+        -webkit-transition-delay: 0s;
+    }
+     
+    .play {
+        z-index: 9999;
+        top: 0px;
+        left: 50px;
+        width: 140px;
+        height: 0px;
+        padding: 0px 5px 5px 5px;
+        overflow: hidden;
+        position: absolute;
+        text-align: center;
+        background: #ffffff; 
+        border-left: 3px solid {color:Music BG}; 
+        opacity: 0;
+        -webkit-transition: all .4s ease;
+        -moz-transition: all .4s ease;
+        -o-transition: all .4s ease;
+        transition-delay: .4s;
+        -webkit-transition-delay: .4s;
+    }
+     
+    #musicplayer:hover .play {
+        height: 25px;
+        opacity: 1;
+        transition-delay: .6s;
+        -webkit-transition-delay: .6s;
+    }
+</style>
+<body>
+
+{block:ifMusic}
+<div id="musicplayer">
+  <img src="http://static.tumblr.com/n9vj50j/cxEn20wqg/12.gif">
+  <div id="line" class="line"></div>
+  <div class="play">
+      {text:Music}
+  </div>
+</div>
+{/block:ifMusic}
+
+<div class="topp">
+  <a href="javascript:;" id="scrollToTop">
+    back to top
+  </a>
+</div>
+
+<a class="cred" href="http://hellolittlered.org">code.</a>
+    
+    {block:ifNotInfiniteScroll}
+    {block:Pagination}
+    <div id="pagination">
+        {block:PreviousPage}<a href="{PreviousPage}" title="Previous"><div></div></a>{/block:PreviousPage}
+        {block:NextPage}<a href="{NextPage}" title="Forward"><div></div></a>{/block:NextPage}
+    </div>
+    {/block:Pagination}
+    {/block:ifNotInfiniteScroll}
+    
+<div id="header">
+    <div id="desc">
+        <div class="desc">{description}</div>
+        <div id="link">
+            <center>
+            <a href="/">refresh</a>
+            <a href="/ask">message</a>
+            <a href="/archive">archive</a>
+            {block:iflink1}<a href="{text:Link1URL}">{text:Link1}</a>{/block:iflink1}
+        {block:iflink2}<a href="{text:Link2URL}" class="two">{text:Link2}</a>{/block:iflink2}
+        {block:iflink3}<a href="{text:Link3URL}">{text:Link3}</a>{/block:iflink3}
+        {block:iflink4}<a href="{text:Link4URL}" class="two">{text:Link4}</a>{/block:iflink4}
+        {block:iflink5}<a href="{text:Link5URL}">{text:Link5}</a>{/block:iflink5}
+        {block:iflink6}<a href="{text:Link6URL}" class="two">{text:Link6}</a>{/block:iflink6}
+            </center>
+        </div>
+    </div>
+    <div id="title">
+        {title}
+    </div>
+</div>
+
+<div id="posts" class="autopagerize_page_element">
+
+{block:posts}
+
+{block:ContentSource}
+<!-- {SourceURL}{block:SourceLogo}<img src="{BlackLogoURL}"
+width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
+{/block:SourceLogo}
+{block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+{/block:ContentSource}{block:ReblogParent}{/block:ReblogParent}
+
+<div class="post">
+
+ 
+    {block:Text}
+        {block:Title}<a href="{permalink}"><h2>{Title}</h2></a>{/block:Title}{Body}
+        {block:IndexPage}
+            <div class="info">
+                {block:date}<a href="{Permalink}" title="Posted on {DayOfWeek}, {Month} {DayOfMonthWithZero}{DayOfMonthSuffix} {Year}">{MonthNumberWithZero}{DayOfMonthWithZero}{ShortYear}</a>{/block:date}{block:NoteCount} <small>✦</small> 
+                <a href="{Permalink}#noted">{NoteCount}</a>{/block:NoteCount}
+            </div>
+            <div class="secinfo"><a class="my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like">like</a>{block:RebloggedFrom}<a href="{ReblogRootURL}" title="{ReblogRootTitle}"> - {ReblogRootName}</a>{/block:RebloggedFrom}<a href="{ReblogURL}"> - Reblog</a></div>
+            <div class="tag">{block:HasTags}{block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}</div>
+            {/block:IndexPage}
+        {/block:Text}
+ 
+        {block:Photo}
+        {block:IndexPage}
+            <div class="infos">
+             {block:NoteCount}
+                <a href="{Permalink}#noted"class="noted">{NoteCountWithLabel}</a>
+            {/block:NoteCount}
+                <div class="secinfo" style="margin-top:10px"><a class="my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like">like</a>{block:RebloggedFrom}<a href="{ReblogRootURL}" title="{ReblogRootTitle}"> - {ReblogRootName}</a>{/block:RebloggedFrom}<a href="{ReblogURL}"> - Reblog</a></div>
+            <div class="tag">{block:HasTags}{block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}</div>
+             </div>
+        {/block:IndexPage}
+            {LinkOpenTag}<img src="{PhotoURL-500}">{LinkCloseTag}
+            {block:IndexPage}{block:ifShowCaptions}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:ifShowCaptions}{/block:IndexPage}
+            {block:PermalinkPage}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:PermalinkPage}
+            {/block:Photo}
+         
+        {block:Link}
+        <a href="{URL}" {Target}><h2>{Name} »</h2></a>
+        {block:Description}{Description}{/block:Description}
+        {block:IndexPage}
+            <div class="info">
+                {block:date}<a href="{Permalink}" title="Posted on {DayOfWeek}, {Month} {DayOfMonthWithZero}{DayOfMonthSuffix} {Year}">{MonthNumberWithZero}{DayOfMonthWithZero}{ShortYear}</a>{/block:date}{block:NoteCount} <small>✦</small> 
+                <a href="{Permalink}#noted">{NoteCount}</a>{/block:NoteCount}
+            </div>
+            <div class="secinfo"><a class="my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like">like</a>{block:RebloggedFrom}<a href="{ReblogRootURL}" title="{ReblogRootTitle}"> - {ReblogRootName}</a>{/block:RebloggedFrom}<a href="{ReblogURL}"> - Reblog</a></div>
+            <div class="tag">{block:HasTags}{block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}</div>
+            {/block:IndexPage}
+        {/block:Link}
+         
+        {block:Photoset}
+        {block:IndexPage}
+            <div class="infos">
+             {block:NoteCount}
+                <a href="{Permalink}#noted"class="noted">{NoteCountWithLabel}</a>
+            {/block:NoteCount}
+                <div class="secinfo" style="margin-top:10px"><a class="my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like">like</a>{block:RebloggedFrom}<a href="{ReblogRootURL}" title="{ReblogRootTitle}"> - {ReblogRootName}</a>{/block:RebloggedFrom}<a href="{ReblogURL}"> - Reblog</a></div>
+            <div class="tag">{block:HasTags}{block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}</div>
+             </div>
+        {/block:IndexPage}
+        {Photoset-500}
+        {block:IndexPage}{block:ifShowCaptions}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:ifShowCaptions}{/block:IndexPage}
+            {block:PermalinkPage}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:PermalinkPage}
+        {/block:Photoset}
+         
+        {block:quote}
+            <div class="quote">
+              “{Quote}" <span style="font-weight:300">— {Source}</span>
+            </div>
+            {block:IndexPage}
+            <div class="info">
+                {block:date}<a href="{Permalink}" title="Posted on {DayOfWeek}, {Month} {DayOfMonthWithZero}{DayOfMonthSuffix} {Year}">{MonthNumberWithZero}{DayOfMonthWithZero}{ShortYear}</a>{/block:date}{block:NoteCount} <small>✦</small> 
+                <a href="{Permalink}#noted">{NoteCount}</a>{/block:NoteCount}
+            </div>
+            <div class="secinfo"><a class="my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like">like</a>{block:RebloggedFrom}<a href="{ReblogRootURL}" title="{ReblogRootTitle}"> - {ReblogRootName}</a>{/block:RebloggedFrom}<a href="{ReblogURL}"> - Reblog</a></div>
+            <div class="tag">{block:HasTags}{block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}</div>
+            {/block:IndexPage}
+         {/block:quote}
+         
+        {block:Audio}
+        <div class="ask">
+            <div id="musicaudio">
+            {block:AlbumArt}
+                <img src="{AlbumArtURL}" width="150px" height="150px" align="left">
+            {/block:AlbumArt}
+
+            <div class="audio">
+            {AudioPlayerGrey}
+            </div>
+            </div>
+
+            <div class="music">
+                <ul class="chat">
+                {block:TrackName}<li><b>Title:</b> {TrackName}</li>{/block:TrackName} 
+                {block:Artist}<li><b>Artist:</b> {Artist}</li>{/block:Artist}
+                {block:Album}<li><b>Artist:</b> {Album}</li>{/block:Album}
+                <li><b>Played:</b> {PlayCountWithLabel}</li>
+                </ul>
+            </div>
+        </div>
+        {block:IndexPage}{block:ifShowCaptions}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:ifShowCaptions}{/block:IndexPage}
+            {block:PermalinkPage}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:PermalinkPage}
+        {block:IndexPage}
+            <div class="info">
+                {block:date}<a href="{Permalink}" title="Posted on {DayOfWeek}, {Month} {DayOfMonthWithZero}{DayOfMonthSuffix} {Year}">{MonthNumberWithZero}{DayOfMonthWithZero}{ShortYear}</a>{/block:date}{block:NoteCount} <small>✦</small> 
+                <a href="{Permalink}#noted">{NoteCount}</a>{/block:NoteCount}
+            </div>
+            <div class="secinfo"><a class="my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like">like</a>{block:RebloggedFrom}<a href="{ReblogRootURL}" title="{ReblogRootTitle}"> - {ReblogRootName}</a>{/block:RebloggedFrom}<a href="{ReblogURL}"> - Reblog</a></div>
+            <div class="tag">{block:HasTags}{block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}</div>
+            {/block:IndexPage}
+    {/block:Audio} 
+         
+        {block:Video}
+        {Video-500}
+        {block:IndexPage}{block:ifShowCaptions}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:ifShowCaptions}{/block:IndexPage}
+            {block:PermalinkPage}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:PermalinkPage}
+        {block:IndexPage}
+            <div class="info">
+                {block:date}<a href="{Permalink}" title="Posted on {DayOfWeek}, {Month} {DayOfMonthWithZero}{DayOfMonthSuffix} {Year}">{MonthNumberWithZero}{DayOfMonthWithZero}{ShortYear}</a>{/block:date}{block:NoteCount} <small>✦</small> 
+                <a href="{Permalink}#noted">{NoteCount}</a>{/block:NoteCount}
+            </div>
+            <div class="secinfo"><a class="my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like">like</a>{block:RebloggedFrom}<a href="{ReblogRootURL}" title="{ReblogRootTitle}"> - {ReblogRootName}</a>{/block:RebloggedFrom}<a href="{ReblogURL}"> - Reblog</a></div>
+            <div class="tag">{block:HasTags}{block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}</div>
+            {/block:IndexPage}
+        {/block:Video}
+         
+        {block:Chat}
+        {block:title}<a href="{permalink}"><h2>{Title}</h2></a>{/block:title}
+        <div class="chat">
+          <ul>
+            {block:Lines}
+            <li class="{Alt}">
+              {block:Label}
+              <b>
+                {Label}
+              </b>
+              {/block:Label}{Line}
+            </li>
+            {/block:Lines}
+          </ul>
+        </div>
+        {block:IndexPage}{block:ifShowCaptions}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:ifShowCaptions}{/block:IndexPage}
+            {block:PermalinkPage}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:PermalinkPage}
+        {block:IndexPage}
+            <div class="info">
+                {block:date}<a href="{Permalink}" title="Posted on {DayOfWeek}, {Month} {DayOfMonthWithZero}{DayOfMonthSuffix} {Year}">{MonthNumberWithZero}{DayOfMonthWithZero}{ShortYear}</a>{/block:date}{block:NoteCount} <small>✦</small> 
+                <a href="{Permalink}#noted">{NoteCount}</a>{/block:NoteCount}
+            </div>
+            <div class="secinfo"><a class="my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like">like</a>{block:RebloggedFrom}<a href="{ReblogRootURL}" title="{ReblogRootTitle}"> - {ReblogRootName}</a>{/block:RebloggedFrom}<a href="{ReblogURL}"> - Reblog</a></div>
+            <div class="tag">{block:HasTags}{block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}</div>
+            {/block:IndexPage}
+    {/block:Chat}
+         
+        {block:Answer}
+        <div id="question">
+            <div class="askers"><b>{Asker}</b> asked:</div>
+            {Question}
+        </div> 
+        {Answer}
+        {block:IndexPage}
+            <div class="info">
+                {block:date}<a href="{Permalink}" title="Posted on {DayOfWeek}, {Month} {DayOfMonthWithZero}{DayOfMonthSuffix} {Year}">{MonthNumberWithZero}{DayOfMonthWithZero}{ShortYear}</a>{/block:date}{block:NoteCount} <small>✦</small> 
+                <a href="{Permalink}#noted">{NoteCount}</a>{/block:NoteCount}
+            </div>
+            <div class="secinfo"><a class="my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like">like</a>{block:RebloggedFrom}<a href="{ReblogRootURL}" title="{ReblogRootTitle}"> - {ReblogRootName}</a>{/block:RebloggedFrom}<a href="{ReblogURL}"> - Reblog</a></div>
+            <div class="tag">{block:HasTags}{block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}</div>
+            {/block:IndexPage}
+{/block:Answer}
+ 
+
+     {block:PermalinkPage}<div class="info">
+    {block:date}<a href="{Permalink}" title="Posted on {DayOfWeek}, {Month} {DayOfMonthWithZero}{DayOfMonthSuffix} {Year}">{MonthNumberWithZero}{DayOfMonthWithZero}{ShortYear}</a>{/block:date}{block:NoteCount} <small>✦</small> 
+    <a href="{Permalink}#noted">{NoteCount}</a>{/block:NoteCount}
+</div>
+<div class="secinfo"><a class="my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like">like</a>{block:RebloggedFrom}<a href="{ReblogRootURL}" title="{ReblogRootTitle}"> - {ReblogRootName}</a>{/block:RebloggedFrom}<a href="{ReblogURL}"> - Reblog</a></div>
+<div class="tag">{block:HasTags}{block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}</div>{/block:PermalinkPage}
+</div>
+
+
+{block:PostNotes}<div class="post">
+    {PostNotes-16}
+</div>
+{/block:PostNotes}
+
+{/block:Posts}
+
+</div>
+
+
+</body>
+</html>
