@@ -1,0 +1,598 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{title}</title>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        <meta name="description" content="{MetaDescription}" />
+    </head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    {block:IfInfiniteScroll}<script type="text/javascript" src="http://codysherman.com/tools/infinite-scrolling/code"></script> {/block:IfInfiniteScroll}
+<script src="http://static.tumblr.com/ikeq9mi/DfYl6o46t/scrolltotop.min.js"></script>
+<script src="http://static.tumblr.com/iuw14ew/VSQma1786/jquery.style-my-tooltips.js"></script>
+<script>
+(function($){
+$(document).ready(function(){
+$("a[title]").style_my_tooltips({
+tip_follows_cursor:true,
+tip_delay_time:0,
+tip_fade_speed:0,
+attribute:"title"
+});
+});
+})(jQuery);
+</script>
+
+    <meta name="color:Background" content="#f8f8f8"/>
+    <meta name="color:Text" content="#999999"/>
+    <meta name="color:Links" content="#333333"/>
+    <meta name="color:Blockquote Border" content="#cccccc"/>
+    <meta name="color:Blockquote Background" content="#f9f9f9"/>
+    <meta name="color:Top Bar" content="#f2f2f2"/>
+    <meta name="color:Description" content="#7d7d7d"/>
+    <meta name="color:Description Background" content="#f8f8f8"/>
+    <meta name="color:Main Links" content="#cccccc"/>
+    <meta name="color:Main Links Shadow" content="#f8f8f8"/>
+    <meta name="color:Main Links Hover" content="#f8f8f8"/>
+    <meta name="color:Main Links Hover Shadow" content="#7d7d7d"/>
+    <meta name="color:Credit Background" content="#ffffff"/>
+    <meta name="color:Credit Border" content="#7d7d7d"/>
+    <meta name="color:Credit Text" content="#7d7d7d"/>
+    <meta name="color:Posts Container" content="#ffffff"/>
+    <meta name="color:Posts Container Border" content="#f2f2f2"/>
+    <meta name="color:Pagination Color" content="#cccccc"/>
+    <meta name="color:Current Page Number" content="#7d7d7d"/>
+    <meta name="color:Post Info Background" content="#f8f8f8"/>
+    <meta name="color:Post Info Color" content="#7d7d7d"/>
+    <meta name="color:Search Box Background" content="#ffffff"/>
+    <meta name="color:Search Box Text" content="#999999"/>
+    <meta name="color:Additional Links Color" content="#cccccc"/>
+    <meta name="color:Additional Links Background" content="#ffffff"/>
+    <meta name="color:Additional Links Hover" content="#f9f9f9"/>
+    <meta name="color:Question Background" content="#f9f9f9"/>
+    <meta name="color:Question Border" content="#f2f2f2"/>
+    <meta name="color:Asker Background" content="#f2f2f2"/>
+    <meta name="color:Chat Odd Line" content="#f9f9f9"/>
+    <meta name="color:Chat Even Line" content="#ffffff"/>
+    <meta name="color:Post Titles Borders" content="#f8f8f8"/>
+    <meta name="color:Post Title" content="#7d7d7d"/>
+    <meta name="color:Tooltips Background" content="#7d7d7d"/>
+    <meta name="color:Tooltips" content="#ffffff"/>
+    
+    <meta name="image:Background" content=""/>
+    <meta name="text:Grayscale" content="0%"/>
+    <meta name="text:Music" content=""/>
+    <meta name="text:Link1URL" content=""/>
+    <meta name="text:Link1" content=""/>
+    <meta name="text:Link2URL" content=""/>
+    <meta name="text:Link2" content=""/>
+    <meta name="text:Link3URL" content=""/>
+    <meta name="text:Link3" content=""/>
+    <meta name="text:Link4URL" content=""/>
+    <meta name="text:Link4" content=""/>
+    <meta name="text:Link5URL" content=""/>
+    <meta name="text:Link5" content=""/>
+    <meta name="text:Link6URL" content=""/>
+    <meta name="text:Link6" content=""/>
+    
+    <meta name="if:InfiniteScroll" content="0" />
+    <meta name="if:FadingImages" content="1" />
+    
+    <style>
+    #s-m-t-tooltip {
+        padding:5px;
+        background:{color:Tooltips Background};
+        color:{color:Tooltips};
+        font:9px;
+        text-transform:uppercase;
+        text-align:center;
+        z-index:1000;
+        margin:15px;
+    }
+    
+    body {
+        background:url({image:background}) no-repeat fixed {color:Background};
+        Padding:0px;
+        margin:0px;
+        font-family: calibri, helvetica, arial;
+        font-size:12px;
+        color:{color:Text};
+        text-align:justify;
+        letter-spacing:1px;
+    }
+    
+    a {
+        color:{color:Links};
+        text-decoration:none;
+    }
+    
+    blockquote {
+        border-left:2px solid {color:Blockquote Border};
+        background:{color:Blockquote Background};
+        padding:5px 10px;
+        display:block;
+    }
+    
+    pre {
+        word-break:break-word;
+        background:{color:Blockquote Background};
+    }
+        
+    #head {
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:20px;
+        background:{color:Top Bar};
+        padding:5px {block:ifMusic}30px{/block:ifMusic};
+        letter-spacing: 1px; 
+        font-size: 12px; 
+        text-transform: uppercase;
+        z-index:99;
+    }
+        
+    #menu {
+        position:fixed;
+        bottom:10px;
+        left:115px;
+        text-align:right;
+        width:300px;
+        font-family:georgia;
+        color:{color:Description};
+        text-shadow:0px 2px {color:Description Background};
+    }
+        
+    #menu a {
+        font-size:60px;
+        font-family:georgia;
+        font-weight:bold;
+        color:{color:Main Links};
+        display:block;
+        letter-spacing:-3px;
+        line-height: 45px;
+        text-shadow:0px 4px {color:Main Links Shadow};
+        -webkit-transition:all .5s ease-in-out;
+        -moz-transition:all .5s ease-in-out;
+        -o-transition:all .5s ease-in-out;
+        -ms-transition:all .5s ease-in-out;
+        transition:all .5s ease-in-out;
+    }
+        
+    #menu a:nth-child(even) {
+        font-style:italic;
+        font-size:70px;
+    }
+    
+    #menu a:hover {
+        color:{color:Main Links Hover};
+        text-shadow:0px 4px {color:Main Links Hover Shadow};
+    }
+        
+    .cred {
+        background:{color:Credit Background};
+        padding:5px;
+        border-bottom:2px solid {color:Credit Border};
+        color:{color:Credit Text};
+        text-transform:uppercase;
+        font-size:9px;
+        position:fixed;
+        bottom:5px;
+        right:5px;
+    }
+        
+    #content {
+        background:{color:Posts Container};
+        border:1px solid {color:Posts Container Border};
+        {block:ifLink1}margin:24px 0px -1px 425px;{/block:ifLink1}
+        {block:ifNotLink1}margin:-1px 425px;{/block:ifNotLink1}
+        width:500px;
+        padding:50px;
+    }
+        
+    .post {
+        margin-bottom:50px;
+    }
+        
+    #pagination {
+        position:fixed;
+        left:1050px;
+        top:25%;
+        height:80%;
+        font-size:40px;
+        font-weight:bold;
+        font-style:italic;
+    }
+    
+    #pagination a {
+        display:block;
+        color:{color:Pagination Color};
+        padding-left:10px;
+        border-left:5px solid {color:Pagination Color};
+        -webkit-transition:all .5s ease-in-out;
+        -moz-transition:all .5s ease-in-out;
+        -o-transition:all .5s ease-in-out;
+        -ms-transition:all .5s ease-in-out;
+        transition:all .5s ease-in-out;
+    }
+    
+    #pagination span, #pagination a:hover {
+        display:block;
+        color:{color:Current Page Number};
+        padding-left:10px;
+        border-left:5px solid {color:Current Page Number};
+    }
+    
+    .info {
+        padding:5px;
+        background:{color:Post Info Background};
+        color:{color:Post Info Color};
+        text-transform:uppercase;
+        font-size:9px;
+        text-align:center;
+        margin-top:10px;
+    }
+    
+    .info a {
+        color:{color:Post Info Color};
+    }
+    
+    .sfm {
+        float:left;
+        margin-right:5px;
+    }
+    
+    .sfm input {
+        background-color:{color:Search Box Background}; 
+        font-size: 8px; 
+        border: 0px; 
+        text-transform: uppercase; 
+        margin-top: 0px; 
+        color: {color:Search Box Text}; 
+        letter-spacing: 1px; 
+        padding: 5px 8px; vertical-align: top;
+        font-family: calibri, helvetica, arial;
+    }
+        
+    #sb {
+        height: 10px; 
+        vertical-align: top;
+    }
+    
+    .links a {
+        display:inline-block;
+        padding:3px 10px;
+        color:{color:Additional Links Color};
+        background:{color:Additional Links Background};
+        font-size:10px;
+        text-align:center;
+        vertical-align:top;
+        -webkit-transition:all .5s ease-in-out;
+        -moz-transition:all .5s ease-in-out;
+        -o-transition:all .5s ease-in-out;
+        -ms-transition:all .5s ease-in-out;
+        transition:all .5s ease-in-out;
+    }
+    
+    .links a:hover {
+        background:{color:Additional Links Hover};
+    }
+    
+    .ava {
+        background:{color:Question Background};
+        padding:10px;
+        width:75px;
+        border:1px solid {color:Question Border};
+        border-radius:100%;
+        -o-border-radius:100%;
+        -moz-border-radius:100%;
+        -webkit-border-radius:100%;
+        float:left;
+        margin-right:25px;
+    }
+    
+    .askd {
+        background:{color:Question Background};
+        border:1px solid {color:Question Border};
+        padding:10px;
+        position:relative;
+        margin-left:120px;
+        min-height:75px;
+    }
+    
+    .askd:after, .askd:before {
+    	right: 100%;
+    	top: 50%;
+    	border: solid transparent;
+    	content: " ";
+    	height: 0;
+    	width: 0;
+    	position: absolute;
+    	pointer-events: none;
+    }
+    
+    .askd:after {
+    	border-color: rgba(248, 248, 248, 0);
+    	border-right-color: {color:Question Background};
+    	border-width: 15px;
+    	margin-top: -15px;
+    }
+    .askd:before {
+    	border-color: rgba(242, 242, 242, 0);
+    	border-right-color: {color:Question Border};
+    	border-width: 16px;
+    	margin-top: -16px;
+    }
+    
+    .askerd {
+        background:{color:Asker Background};
+        text-transform:uppercase;
+        font-size:9px;
+        padding:2px;
+    }
+    
+    .chat ul {
+        list-style:none;
+        margin-left:-40px;
+    }
+    
+    .chat li {
+        padding:10px;
+        margin-bottom:1px;
+    }
+    
+    .chat .odd {
+        background:{color:Chat Odd Line};
+    }
+    
+    .chat .even {
+        background:{color:Chat Even Line};
+    }
+    
+    h2 {
+        border-top:1px solid {color:Post Titles Borders};
+        border-bottom:1px solid {color:Post Titles Borders};
+        margin-top:0px;
+        padding:5px;
+        color:{color:Post Title};
+        text-transform:uppercase;
+        text-align:center;
+        font-weight:300;
+        font-size:25px;
+    }
+    
+    #melody #micon {
+        margin-top:0;
+        padding:5px;
+        -webkit-transition:all .5s ease-in-out;
+        -moz-transition:all .5s ease-in-out;
+        -o-transition:all .5s ease-in-out;
+        -ms-transition:all .5s ease-in-out;
+        transition:all .5s ease-in-out;
+    }
+
+    #melody {
+        position:fixed;
+        top:5px;
+        left:2px;
+        z-index:999;
+        height:20px;
+        overflow:hidden;
+        width:30px;
+    }
+    
+    #musicplayer {
+        overflow:hidden;
+        height:20px;
+        width:25px;
+        margin-top:2px;
+        margin-left:3px;
+    }
+    
+    #melody:hover #micon {
+        margin-top:-25px;
+    }
+    
+    {block:ifFadingImages}
+    .post img, .html_photoset {
+        opacity:.7;
+        -webkit-transition:all .5s ease-in-out;
+        -moz-transition:all .5s ease-in-out;
+        -o-transition:all .5s ease-in-out;
+        -ms-transition:all .5s ease-in-out;
+        transition:all .5s ease-in-out;
+    }
+    
+    .post:hover img, .post:hover .html_photoset {
+        opacity:1;
+    }
+    {/block:ifFadingImages}
+    
+    img, iframe {
+        max-width:100%;
+    }
+    
+    .post img,.photoset, #sidebar img {
+        filter:gray;
+        -webkit-filter:grayscale({text:grayscale});
+        -webkit-transition:all 1s ease-in-out;
+        -moz-transition:all 1s ease-in-out;
+        -o-transition:all 1s ease-in-out;
+        -ms-transition:all 1s ease-in-out;
+        transition:all 1s ease-in-out;
+    }
+    
+    .post:hover img,.post:hover .photoset, #sidebar:hover img {
+        filter:gray;
+        -webkit-filter:grayscale(0%);
+    }
+    </style>
+    {block:ifMusic}
+    <div id="melody">
+        <div id="micon"><img src="http://media.tumblr.com/tumblr_m7w2n46Pdl1r6o8v2.gif"></div>
+        <div id="musicplayer">
+            {text:Music}
+        </div>
+    </div>
+    {/block:ifMusic}
+    
+    {block:ifLink1}
+    <div id="head">
+        <form action="/search" method="get" class="sfm">
+            <input type="text" name="q" value="{SearchQuery}" id="sf" />
+            <input type="image" value="Search" src="http://static.tumblr.com/f1skqpy/Oxbn13qun/search_icon.png" id="sb"/>
+        </form>
+        <div class="links">
+            {block:iflink1}<a href="{text:Link1URL}">{text:Link1}</a>{/block:iflink1}
+            {block:iflink2}<a href="{text:Link2URL}" class="two">{text:Link2}</a>{/block:iflink2}
+            {block:iflink3}<a href="{text:Link3URL}">{text:Link3}</a>{/block:iflink3}
+            {block:iflink4}<a href="{text:Link4URL}" class="two">{text:Link4}</a>{/block:iflink4}
+            {block:iflink5}<a href="{text:Link5URL}">{text:Link5}</a>{/block:iflink5}
+            {block:iflink6}<a href="{text:Link6URL}" class="two">{text:Link6}</a>{/block:iflink6}
+        </div>
+    </div>
+    {/block:ifLink1}
+    
+    {block:ifNotInfiniteScroll}
+    {block:Pagination}
+   <div id="pagination">
+        {block:PreviousPage}
+        <a href="{PreviousPage}">
+          «
+        </a>{/block:PreviousPage} {block:JumpPagination length="6"} {block:CurrentPage}
+        <span class="current_page">
+          {CurrentPage}
+        </span>{/block:CurrentPage} {block:JumpPage}
+        <a class="jump_page" href="{URL}">
+          {PageNumber}
+        </a>{/block:JumpPage} {/block:JumpPagination} {block:NextPage}
+        <a href="{NextPage}">
+          »
+        </a>
+        {/block:NextPage}
+    </div>
+     {/block:Pagination}
+     {block:ifNotInfiniteScroll}
+     
+    <a class="cred" href="http://41days.org" title="Theme By 41Days">41days</a>
+    <body>
+        <div id="menu">
+        <a href="/">home</a>
+        <a href="/ask">message</a>
+        <a href="/archive">archive</a>
+        <a href="/submit">submit</a><br>
+            {description}
+        </div>
+        
+        <div id="content" class="autopagerize_page_element">
+        {block:posts}
+            <div class="post">
+			
+			<!-- text post -->
+            {block:Text}
+				{block:Title}
+					<a href="{Permalink}">
+					  <h2>
+					  <span>{Title}</span>
+					 
+					  </h2>
+					</a>
+				{/block:Title}
+				{Body}
+			{/block:Text}
+			
+			<!-- quote post -->
+			{block:Quote}
+				<blockquote>
+				  “{Quote}”  — <b><i>{Source}</i></b>
+				</blockquote>
+			{/block:Quote}
+    
+             <!-- link post -->
+			{block:Link}
+				<a href="{URL}">
+				  <h2>{Name} »</h2>
+				</a>
+				{block:Description}{Description}{/block:Description}
+			{/block:Link}
+			
+			<!-- photo post -->
+			{block:Photo}
+				<center>
+				  <a href="{PhotoURL-HighRes}"><img src="{PhotoURL-500}"/></a>
+				</center>
+				{block:Caption}{Caption}{/block:Caption}
+			{/block:Photo}
+    
+            <!-- photoset post -->
+			{block:Photoset}
+				<center>
+				  {Photoset-500}
+				</center>
+				{block:Caption}{Caption}{/block:Caption}
+			{/block:Photoset}
+			
+			<!-- chat post -->
+			{block:Chat}
+				<div class="chat">
+				  <ul>
+					{block:Lines}
+					<li class="{Alt}">
+					  {block:Label}<b>{Label}</b>{/block:Label}
+					  {Line}
+					</li>
+					{/block:Lines}
+				  </ul>
+				</div>
+			{/block:Chat}
+			
+            <!-- video post -->
+			{block:Video}
+				{Video-500}
+				{block:Caption}{Caption}{/block:Caption}
+			{/block:Video}
+			
+			<!-- audio post -->
+			{block:Audio}
+			{block:AudioEmbed}{AudioEmbed-500}{/block:AudioEmbed}
+           
+        {block:Caption}{Caption}{/block:Caption}
+    {/block:Audio} 
+			
+			<!-- ask post -->
+			{block:Answer}
+			   <img src="{AskerPortraitURL-96}" class="ava">
+			   <div class="askd">
+			        <div class="askerd">{Asker} said:</div>
+                	{Question}
+                </div> 
+                {Answer}
+            {/block:Answer}
+            
+            {block:Date}<div class="info">
+				    <a href="{permalink}">Posted on {Month}
+				{DayOfMonthWithZero}<sup>{DayOfMonthSuffix}</sup>
+				{Year}</a>
+				{/block:Date}
+				{block:NoteCount}with <a class="notec" href="{PostNotesURL}">{NoteCountWithLabel}</a>{/block:NoteCount}
+				{block:HasTags}<br>{block:Tags}<a href="{TagURL}">#{Tag} </a>{/block:Tags}{/block:HasTags}
+				</center>
+			</div>
+	
+        </div> 
+
+           
+        {block:PostNotes}
+        <div class="post">
+        {PostNotes}
+        </div>
+        {/block:PostNotes}
+        
+        {/block:posts}
+        </div>
+    </body>
+</html>
