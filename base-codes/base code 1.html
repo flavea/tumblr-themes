@@ -1,0 +1,447 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{title}</title>
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+{block:Description}
+    <meta name="description" content="{MetaDescription}" />
+{/block:Description}
+    <meta name="color:first color" content="#333333" />
+    <meta name="color:second color" content="#f8f8f8" />
+    <meta name="color:third color" content="#ffffff" />
+    <meta name="color:fourth color" content="#7d7d7d" />
+    <meta name="color:fifth color" content="#f1f1f1" />
+    
+    <meta name="image:background" content="" />
+    <meta name="image:sidebar" content="http://i.imgur.com/gJgPUTy.png" />
+    
+    <meta name="if:FadingImages" content="0"/>
+    
+    <meta name="text:Link1URL" content=""/>
+    <meta name="text:Link2URL" content=""/>
+    <meta name="text:Link3URL" content=""/>
+    <meta name="text:Link4URL" content=""/>
+    <meta name="text:Link9URL" content=""/>
+    <meta name="text:Link1" content=""/>
+    <meta name="text:Link2" content=""/>
+    <meta name="text:Link3" content=""/>
+    <meta name="text:Link4" content=""/>
+    
+</head>
+<style>
+body {
+        background:url({image:background}) {color:second color};
+        padding:0px;
+        margin:0px;
+        font-family:Trebuchet MS, Arial, Helvetica, Sans-Serif;
+        color:{color:first color};
+        font-size:12px;
+}
+
+a {
+        color:{color:fourth color};
+        text-decoration:none;
+        -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+}
+
+a:hover {
+    color:{color:fourth color};
+}
+
+blockquote {
+        border-left:5px solid {color:first color};
+        padding-left:5px;
+}
+
+img {
+    margin:0px;
+    max-width:100%;
+}
+
+/* sidebar */
+
+#sidebar {
+        background-image:url({image:sidebar});
+        display:block;
+        text-align:center;
+        position:fixed;
+        top:0px;
+        left:0px;
+        width:300px;
+        height:100%;
+}
+
+
+
+/* main menu styling */
+
+/* menu container */
+menu {
+        padding:5px;
+        text-align:center;
+        color:{color:third color};
+        font-size:12px;
+        font-weight:700;
+        margin-top:-20px;
+}
+
+/* menu links */
+menu a {
+    background:{color:first color};
+        color:{color:third color};
+        margin:1px;
+        width:120px;
+        display:inline-block;
+        padding:5px;
+        -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+}
+
+menu a:hover {
+        background:{color:third color};
+        color:{color:first color};
+}
+
+/* blog title style */
+.title {
+    font-size:80px;
+        color:{color:first color};
+        margin-top:90%;
+        text-shadow:0px 1px {color:third color};
+}
+
+/* blog's description style */
+.description {
+        padding:10px;
+        margin-left:10px;
+        margin-right:10px;
+        display:block;
+        text-align:center;
+        background:{color:first color};
+        color:{color:third color};
+        font-size:11px;
+        margin-bottom:25px;
+}
+
+/* posts container */
+
+#content {
+        margin-top:25px;
+        margin-bottom:25px;
+        margin-left:325px;
+}
+
+/* posts style */
+.post {
+        padding:50px;
+        width:500px;
+        display:block;
+        background:{color:third color};
+}
+
+/* post title */
+h2 {
+    font-size:20px;
+    font-weight:700;
+    margin:0px 0px 10px 0px;
+    color:{color:first color};
+    background:{color:second color};
+    border-left:40px solid {color:first color};
+    padding:5px;
+}
+
+a. h2 {
+    color:{color:first color};
+}
+
+/* posts info style */
+
+.information {
+        width:580px;
+        padding:10px;
+        height:14px;
+        background:{color:first color};
+        color:{color:third color};
+        margin-bottom:25px;
+}
+
+/* posts info's links */
+
+.information a {
+        color:{color:third color};
+}
+
+/* note count */
+
+.notec {
+    float:right;
+}
+
+/*fading images */
+{block:ifFadingImages}
+#content img, .html_photoset {
+    opacity:.7;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+}
+
+#content img:hover, .html_photoset:hover {
+    opacity:1;
+}
+{/block:ifFadingImages}
+
+/* posted time style */
+.time {
+    float:left;
+}
+
+/* quote posts style */
+
+.quote {
+    font-size:20px;
+}
+
+/* ask posts style */
+
+.ask {
+    padding:5px;
+    background:{color:second color};
+}
+
+/* chat posts style */
+.chat ul {
+    display:block;
+    list-style:none;
+    margin-left:-40px;
+}
+
+/* chat lines style */
+.chat li {
+    padding:3px;
+    display:block;
+}
+
+/* odd lines style */
+.chat .odd {
+    background:{color:third color};
+}
+
+/* even lines style */
+.chat .even {
+    background:{color:second color};
+}
+
+.musicinfo {
+    padding:10px;
+    height:80px;
+    background:#f8f8f8;
+    text-align:center;
+}
+
+/* posts's tags style */
+#tags {
+        margin-top:-40px;
+        margin-left:560px;
+        font-size:11px;
+        position:absolute;
+        line-height:24px;
+}
+
+#tags a {
+    background:{color:first color};
+    color:{color:fifth color};
+    padding:3px;
+    margin-bottom:10px;
+}
+
+
+/* pagination styles */
+
+#pagination {
+        text-align:center;
+        margin:20px;
+        font-size:16px;
+        color:{color:fifth color};
+}
+
+#pagination a {
+        color:{color:third color};
+}
+
+
+/* credit */
+
+#credit {
+    position:fixed;
+    right:5px;
+    bottom:5px;
+}
+
+</style>
+<body>
+
+<a id="credit" href="http://hellolittlered.org">© base code</a>
+
+<!-- sidebar -->
+<div id="sidebar">
+    
+    <div class="title">{title}</div>
+    <!-- blog's description -->
+        {block:description}
+        <div class="description">
+                {description}
+        </div>
+        {/block:description}
+        
+        <!-- main menu -->
+        <menu>
+    <a href="/">index</a>
+    <a href="/ask">message</a>
+    <a href="/archive">archive</a>
+    <a href="/mobile">mobile</a>
+    {block:iflink1}<a href="{text:Link1URL}">{text:Link1}</a>{/block:iflink1}
+        {block:iflink2}<a href="{text:Link2URL}">{text:Link2}</a>{/block:iflink2}
+        {block:iflink3}<a href="{text:Link3URL}">{text:Link3}</a>{/block:iflink3}
+        {block:iflink4}<a href="{text:Link4URL}">{text:Link4}</a>{/block:iflink4}
+    </menu>
+    {block:Pagination}
+        <div id="pagination">
+        {block:PreviousPage}<a href="{PreviousPage}">« </a>{/block:PreviousPage}
+        <a>{CurrentPage}/{TotalPages}</a>
+        {block:NextPage}<a href="{NextPage}">»</a>{/block:NextPage}
+        </div>
+    {/block:Pagination}
+</div>
+
+
+<!-- content container -->
+<div id="content">
+        
+        <!-- posts start -->
+        {block:posts}
+                        
+                        <div class="post">
+                        
+                        {block:HasTags}<div id="tags">
+            {block:Tags}<a href="{TagURL}">{Tag}</a><br>{/block:Tags}
+            </div>
+            {/block:HasTags}
+
+                        <!-- text post -->
+            {block:Text}
+                                {block:Title}
+                                        <a href="{Permalink}">
+                                          <h2>{Title}</h2>
+                                        </a>
+                                {/block:Title}
+                                {Body}
+                        {/block:Text}
+                        
+                        <!-- quote post -->
+                        {block:Quote}
+                                <div class="quote">
+                                  “{Quote}”  — <b><i>{Source}</i></b>
+                                </div>
+                        {/block:Quote}
+    
+             <!-- link post -->
+                        {block:Link}
+                                <a href="{URL}">
+                                  <h2>{Name} »</h2>
+                                </a>
+                                {block:Description}{Description}{/block:Description}
+                        {/block:Link}
+                        
+                        <!-- photo post -->
+                        {block:Photo}
+                                <center>
+                                  <a href="{PhotoURL-HighRes}"><img src="{PhotoURL-500}"/></a>
+                                </center>
+                                {block:Caption}{Caption}{/block:Caption}
+                        {/block:Photo}
+    
+            <!-- photoset post -->
+                        {block:Photoset}
+                                <center>
+                                  {Photoset-500}
+                                </center>
+                                {block:Caption}{Caption}{/block:Caption}
+                        {/block:Photoset}
+                        
+                        <!-- chat post -->
+                        {block:Chat}
+                                <div class="chat">
+                                  <ul>
+                                        {block:Lines}
+                                        <li class="{Alt}">
+                                          {block:Label}<b>{Label}</b>{/block:Label}
+                                          {Line}
+                                        </li>
+                                        {/block:Lines}
+                                  </ul>
+                                </div>
+                        {/block:Chat}
+                        
+            <!-- video post -->
+                        {block:Video}
+                                {Video-500}
+                                {block:Caption}{Caption}{/block:Caption}
+                        {/block:Video}
+                        
+                        <!-- audio post -->
+                        {block:Audio}
+                                {block:AlbumArt}
+                                        <img src="{AlbumArtURL}" width="100" align="left" style="margin-right:5px">
+                                {/block:AlbumArt}
+                                
+                                <div class="musicinfo">
+                                {AudioPlayerGrey}
+                                {block:Artist}<b>Artist:</b> {Artist}<br>{/block:Artist}
+                                {block:TrackName}<b>Title:</b> {TrackName}{/block:TrackName}              </div>
+                                {block:Caption}{Caption}{/block:Caption}
+                        {/block:Audio}
+                        
+                        <!-- ask post -->
+                        {block:Answer}
+                                <div class="ask">
+                                        <b>{Asker} asked:</b> {question}
+                                </div>
+                                {Answer}
+                        {/block:Answer}
+                        
+        </div>
+        <!-- posts information -->
+                        <div class="information">
+                                <!-- posts's date -->
+                                {block:Date} 
+                                    <div class="time"><a href="{permalink}">{12HourWithZero}:{Minutes}{CapitalAmPm} {DayOfMonthWithZero}/{MonthNumberWithZero}/{Year}</a></div>
+                                {/block:Date}
+                                <!-- notes count -->
+                                {block:NoteCount}<div class="notec"><a href="{PostNotesURL}">{NoteCountWithLabel}</a></div>{/block:NoteCount}
+                                
+                        </div>
+
+        <!-- post's notes list -->
+        
+        {block:PostNotes}
+        <div class="post">
+            {PostNotes}
+        </div>
+        {/block:PostNotes}
+
+
+{/block:posts}
+        <!-- end posts -->
+
+</body>
+</html>
