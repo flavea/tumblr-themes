@@ -1,1 +1,728 @@
 
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+<title>{title}</title>
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+{block:Description}
+    <meta name="description" content="{MetaDescription}" />
+{/block:Description}
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://static.tumblr.com/ikeq9mi/DfYl6o46t/scrolltotop.min.js"></script>
+{block:IfInfiniteScroll}<script type="text/javascript" src="http://codysherman.com/tools/infinite-scrolling/code"></script> {/block:IfInfiniteScroll}
+
+<meta name="color:background" content="#f8f8f8" />
+<meta name="color:texts" content="#666666" />
+<meta name="color:links" content="#f59ead" />
+<meta name="color:links hover" content="#7d7d7d" />
+<meta name="color:blockquote" content="#fcfcfc" />
+<meta name="color:blockquote text" content="#333333" />
+<meta name="color:blockquote border" content="#f59ead" />
+<meta name="color:blog title background" content="#f59ead" />
+<meta name="color:blog title border 1" content="#ffffff" />
+<meta name="color:blog title border 2" content="#f9ced5" />
+<meta name="color:posts container" content="#f9f9f9" />
+<meta name="color:posts container border" content="#f4f4f4" />
+<meta name="color:posts" content="#ffffff" />
+<meta name="color:posts border 2" content="#eaeaea" />
+<meta name="color:posts border 1" content="#fcfcfc" />
+<meta name="color:posts titles" content="#f59ead" />
+<meta name="color:info" content="#cccccc" />
+<meta name="color:chats" content="#fcfcfc" />
+<meta name="color:chats border" content="#f59ead" />
+<meta name="color:question musicinfo text" content="#7d7d7d" />
+
+<meta name="image:background" content="http://i.imgur.com/u5EdPBF.png" />
+<meta name="image:sidebar" content="http://i.imgur.com/yJsQgMy.png" />
+
+<meta name="if:FadingImages" content="0"/>
+<meta name="if:InfiniteScroll" content="0" />
+    
+<meta name="text:Link1URL" content=""/>
+<meta name="text:Link1" content=""/>
+<meta name="text:Link2URL" content=""/>
+<meta name="text:Link2" content=""/>
+<meta name="text:Link3URL" content=""/>
+<meta name="text:Link3" content=""/>
+<meta name="text:Link4URL" content=""/>
+<meta name="text:Link4" content=""/>
+<meta name="text:Link5URL" content=""/>
+<meta name="text:Link5" content=""/>
+<meta name="text:Link6URL" content=""/>
+<meta name="text:Link6" content=""/>
+<meta name="text:Link7URL" content=""/>
+<meta name="text:Link7" content=""/>
+<meta name="text:Music" content=""/>
+</head>
+
+<style>
+
+@import url(http://weloveiconfonts.com/api/?family=iconicfill);
+
+/* iconicfill */
+[class*="iconicfill-"]:before {
+  font-family: 'IconicFill', sans-serif;
+}
+
+::-moz-selection {
+    background-color:{color:blog title background};
+    color:{color:posts};
+}
+
+::selection {
+    background-color:{color:blog title background};
+    color:{color:posts};
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    height:12px;
+    background-color:{color:blog title background};
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    background-color:{color:blog title background};
+}
+
+::-webkit-scrollbar {
+    background-color:{color:background};
+    width:5px;
+    height:5px;
+}
+
+body {
+    background:url({image:background}) {color:background} fixed;
+    font-family:Trebuchet MS, Arial, Helvetica, Sans-Serif;
+    font-size:11px;
+    text-align:justify;
+    color:{color:texts};
+    padding:0px;
+    margin:0px;
+}
+
+a {
+    color:{color:links};
+    text-decoration:none;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+a:hover {
+    color:{color:links hover};
+}
+
+blockquote, pre {
+    background:{color:blockquote};
+    color:{color:blockquote text};
+    padding:10px 20px 10px 50px;
+    margin-left:-25px;
+    width:95%;
+}
+
+blockquote:before {
+    content:"“";
+    position:absolute;
+    font-size:70px;
+    margin-left:-40px;
+    margin-top:-4px;
+    color:{color:blockquote border};
+}
+
+pre {
+    word-break:break-word;
+}
+
+img {
+    max-width:100%;
+}
+
+#sidebar1 {
+    width:115px;
+    height:100%;
+    top:0;
+    left:0;
+    background:{color:blog title background};
+    position:fixed;
+    border-left:10px solid {color:blog title border 1};
+    z-index:100;
+}
+
+
+#shadow {
+    background:{color:blog title border 2};
+    position:absolute;
+    width:15px;
+    height:100%;
+    left:0px;
+    top:0;
+    z-index:100;
+}
+
+#title {
+    color:{color:blog title border 1};
+    font-family: 'Playfair Display', serif;
+    font-weight:900;
+    display:block;
+    font-size:85px;
+    letter-spacing:-5px;
+    position:fixed;
+    left:-293px;
+    top:420px;
+    height:20px;
+    width:800px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+    z-index:200;
+    -webkit-text-stroke: 1px {color:blog title border 2};
+    text-shadow:
+       1px 1px 0 {color:blog title border 2},
+     -1px -1px 0 {color:blog title border 2},  
+      1px -1px 0 {color:blog title border 2},
+      -1px 1px 0 {color:blog title border 2},
+       1px 1px 0 {color:blog title border 2};
+
+}
+
+#sidebar {
+    position:fixed;
+    top:0;
+    left:125px;
+    width:250px;
+    height:100%;
+    background:url({image:sidebar});
+    z-index:100;
+}
+
+#mainlink {
+    background:{color:blog title border 2};
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    padding-top:30%;
+    -webkit-transition: all 0.8s ease-in-out;
+    -moz-transition: all 0.8s ease-in-out;
+    -o-transition: all 0.8s ease-in-out;
+    -ms-transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
+    height:10px;
+    
+}
+
+#mainlink a, #pagination a {
+    background:{color:blog title border 1};
+    padding:5.25px;
+    width:51px;
+    color:{color:blog title border 2};
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+#sidebar:hover #mainlink a, #sidebar:hover #pagination a {
+    background:{color:blog title border 2};
+    color:{color:blog title border 1};
+}
+
+#sidebar:hover #mainlink {
+    padding-top:50%;
+    background:rgba(255,255,255,.7);
+}
+
+#pagination {
+    position:absolute;
+    bottom:0;
+    left:0;
+    background:{color:blog title border 2};
+    display:block;
+    width:250px;
+    padding-bottom:30%;
+    -webkit-transition: all 0.8s ease-in-out;
+    -moz-transition: all 0.8s ease-in-out;
+    -o-transition: all 0.8s ease-in-out;
+    -ms-transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
+    height:5px;
+    text-align:right;
+}
+
+#pagination a {
+    text-transform:uppercase;
+    font-size:10px;
+}
+
+.paged {
+    display:block;
+    margin-top:-7px;
+}
+
+#sidebar:hover #pagination{
+    padding-bottom:50%;
+    background:rgba(255,255,255,.7);
+}
+
+#desc {
+    background:rgba(255,255,255,.7);
+    margin:62% 10px 10px 10px;
+    display:block;
+    padding:10px;
+    width:210px;
+    height:50%;
+    position:absolute;
+    opacity:.1;
+    overflow:auto;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+#sidebar:hover #desc {
+    opacity:1;
+}
+
+#content {
+    margin-left:375px;
+    padding:50px;
+    background:{color:posts container};
+    width:600px;
+    border-right:20px solid {color:posts container border};
+}
+
+.post {
+    width:500px;
+    padding:13px;
+    background:{color:posts};
+    outline:1px solid {color:posts border 2};
+    border:35px solid {color:posts border 1};
+    margin-bottom:50px;
+}
+
+{block:ifFadingImages}
+#content img, .html_photoset {
+    opacity:.7;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+}
+
+#content img:hover, .html_photoset:hover {
+    opacity:1;
+}
+{/block:ifFadingImages}
+
+h2 {
+    margin-top:0px;
+    color:{color:posts titles};
+    font-family: 'Playfair Display', serif;
+    font-size:20px;
+    text-transform:lowercase;
+    height:15px;
+    background:{color:posts};
+    border-bottom:1px solid {color:posts titles};
+}
+
+h2 a {
+    color:{color:posts titles};
+}
+
+h2 span {
+    background:{color:posts};
+    padding:10px 5px 5px 35px;
+}
+
+h2:before {
+    content:"";
+    width:10px;
+    height:10px;
+    border-radius:100%;
+    background:{color:posts titles};
+    position:absolute;
+    margin:12px 0px;
+    z-index:99;
+    opacity:.8;
+}
+
+h2 span:before {
+    content:"";
+    width:10px;
+    height:10px;
+    border-radius:100%;
+    background:{color:posts titles};
+    position:absolute;
+    margin:12px -20px;
+    z-index:50;
+}
+
+#pdate, #ptags {
+    position:absolute;
+    margin-top:-57px;
+}
+
+#ptags {
+    margin-top:40px;
+}
+
+#pdate a, #ptags a, .askerd {
+    border-radius:20px;
+    padding:2px 15px 2px 15px;
+    background:{color:posts};
+    border:1px solid {color:posts border 2};
+    display:inline;
+    margin-right:5px;
+    font-family: 'Playfair Display', serif;
+    font-size:11px;
+    color:{color:info};
+}
+
+#preblog {
+    position:absolute;
+    margin-left:-69px;
+    margin-top:-20px;
+}
+
+.reblog_button, .like_button iframe {
+    padding:10px;
+    background:{color:posts};
+    border:1px solid {color:posts border 2};
+    display:inline;
+    border-radius:100%;
+    margin-bottom:2px;
+}
+
+.chat li {
+    list-style:none;
+    background:{color:chats};
+    border-bottom:1px solid {color:chats border};
+    padding:5px;
+    margin-left:-40px;
+}
+
+.chat li b {
+    color:{color:chats border};
+}
+
+.quote {
+    font-family: 'Playfair Display', serif;
+    font-size:25px;
+}
+
+.ask, .musicinfo, .albumarts {
+        padding:20px;
+        background:{color:posts border 1};
+        border:1px solid {color:posts border 2};
+        color:{color:question musicinfo text};
+        margin-bottom:10px;
+}
+
+.askerd {
+    position:absolute;
+    width:200px;
+    margin-top:-20px;
+    margin-left:250px;
+    margin-bottom:10px;
+    text-align:center;
+}
+
+.askerd a {
+        color:{color:info};
+}
+
+
+.albumarts {
+    padding:10px;
+    width:200px;
+    height:200px;
+    float:left;
+}
+
+.audio {
+    position:Absolute;
+    margin-top:173px;
+    width:200px;
+    text-align:center;
+    overflow:hidden;
+    background:#ffffff;
+    opacity:.9;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size:20px;
+    font-weight:700;
+}
+
+.title:before {
+    content:"“";
+}
+
+.title:after {
+    content:"”";
+}
+
+.musicinfo {
+    padding:20px;
+    margin-left:230px;
+    height:200px;
+    padding:10px;
+    font-size:16px;
+    text-align:center;
+}
+
+#bubble-music {
+    position:fixed;
+    bottom:10px;
+    right:10px;
+    width:30px;
+    height:30px;
+    background-color:{color:posts};
+    border:1px solid {color:blog title background};
+    border-radius:100%;
+    -moz-border-radius:100%;
+    overflow:hidden;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out
+
+}
+
+#bubble-music:hover {
+    border-radius:9px;
+    -moz-border-radius:9px;
+    width:150px;
+    height:30px;
+}
+
+.music_embed {
+    margin:-23px 0 0 70px;
+    z-index:1;
+    font-family:consolas;
+    font-size:8px;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out
+}
+
+#bubble-music:hover .music_embed {
+    margin:-23px 0 0 34px;
+    opacity:1;
+}
+
+#scrollToTop:link,
+#scrollToTop:visited {
+    color: {color:fourth color};
+    background-color: transparent;
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    left: 50px;
+    z-index:999999;
+}
+
+</style>
+
+<body>
+
+<div class="topp">
+  <a href="javascript:;" id="scrollToTop">
+    <img src="http://i.imgur.com/DcOOACm.png">
+  </a>
+</div>
+
+{block:ifMusic}
+<div id="bubble-music">
+<img style="margin:7px;" src="http://media.tumblr.com/tumblr_m7vzw2cqLS1r6o8v2.gif">
+    <div class="music_embed">
+     {text:Music}
+    </div>
+</div>
+{/block:ifMusic}
+
+<div id="sidebar1">
+    <div id="shadow"></div>
+    <div id="title">{title}</div>
+    
+</div>
+<div id="sidebar">
+<div id="mainlink">
+    <a href="/" class="iconicfill-home" title="index"></a>
+    <a href="/ask" class="iconicfill-mail" title="send a message"></a>
+    <a href="/archive" class="iconicfill-calendar" href="/archive" title="blog's archive"></a>
+    <a href="http://hellolittlered.org" class="iconicfill-wrench" title="theme by hellolittlered"></a>
+    {block:ifLink1}<a class="iconicfill-pen" href="{text:Link1URL}" title="{text:Link1}"></a>{/block:ifLink1}
+    {block:ifLink2}<a class="iconicfill-pen" href="{text:Link2URL}" title="{text:Link2}"></a>{/block:ifLink2}
+    {block:ifLink3}<a class="iconicfill-pen" href="{text:Link3URL}" title="{text:Link3}"></a>{/block:ifLink3}
+    {block:ifLink4}<a class="iconicfill-pen" href="{text:Link4URL}" title="{text:Link4}"></a>{/block:ifLink4}
+    {block:ifLink5}<a class="iconicfill-pen" href="{text:Link5URL}" title="{text:Link5}"></a>{/block:ifLink5}
+    {block:ifLink6}<a class="iconicfill-pen" href="{text:Link6URL}" title="{text:Link6}"></a>{/block:ifLink6}
+    {block:ifLink7}<a class="iconicfill-pen" href="{text:Link7URL}" title="{text:Link7}"></a>{/block:ifLink7}
+</div>
+
+<div id="desc">
+    {description}
+    
+</div>
+<div id="pagination">
+    {block:ifNotInfiniteScroll}
+    <div class="paged">
+    {block:Pagination}
+        {block:PreviousPage}<a href="{PreviousPage}">« Prev</a>{/block:PreviousPage}
+        <a>{CurrentPage}/{TotalPages}</a>
+        {block:NextPage}<a href="{NextPage}">Next »</a>{/block:NextPage}
+    {/block:Pagination}
+    {block:ifNotInfiniteScroll}
+    </div>
+</div>
+</div>
+
+<div id="content">
+        <div class = "autopagerize_page_element" >
+        <!-- posts start -->
+        {block:posts}
+                        
+                        <div class="post">
+                        
+                        <div id="pdate">
+                        {block:Date}<a href="{permalink}">
+                                    {Month} {DayOfMonthWithZero}<sup>{DayOfMonthSuffix}</sup> {Year}
+                        </a>{/block:Date}
+                        {block:NoteCount}<a href="{PostNotesURL}">
+                            {NoteCountWithLabel}
+                        </a>{/block:NoteCount}
+                        </div>
+                        
+                        <div id="preblog">
+                            {ReblogButton color="grey"}
+                            {LikeButton color="grey"}
+                        </div>
+                        
+                        
+                        <!-- text post -->
+            {block:Text}
+                                {block:Title}
+                                        <a href="{Permalink}">
+                                          <h2>
+                                          <span>{Title}</span>
+                                         
+                                          </h2>
+                                        </a>
+                                {/block:Title}
+                                {Body}
+                        {/block:Text}
+                        
+                        <!-- quote post -->
+                        {block:Quote}
+                                <div class="quote">
+                                  “{Quote}”  — <b><i>{Source}</i></b>
+                                </div>
+                        {/block:Quote}
+    
+             <!-- link post -->
+                        {block:Link}
+                                <a href="{URL}">
+                                  <h2>{Name} »</h2>
+                                </a>
+                                {block:Description}{Description}{/block:Description}
+                        {/block:Link}
+                        
+                        <!-- photo post -->
+                        {block:Photo}
+                                <center>
+                                  <a href="{PhotoURL-HighRes}"><img src="{PhotoURL-500}"/></a>
+                                </center>
+                                {block:Caption}{Caption}{/block:Caption}
+                        {/block:Photo}
+    
+            <!-- photoset post -->
+                        {block:Photoset}
+                                <center>
+                                  {Photoset-500}
+                                </center>
+                                {block:Caption}{Caption}{/block:Caption}
+                        {/block:Photoset}
+                        
+                        <!-- chat post -->
+                        {block:Chat}
+                                <div class="chat">
+                                  <ul>
+                                        {block:Lines}
+                                        <li class="{Alt}">
+                                          {block:Label}<b>{Label}</b>{/block:Label}
+                                          {Line}
+                                        </li>
+                                        {/block:Lines}
+                                  </ul>
+                                </div>
+                        {/block:Chat}
+                        
+            <!-- video post -->
+                        {block:Video}
+                                {Video-500}
+                                {block:Caption}{Caption}{/block:Caption}
+                        {/block:Video}
+                        
+                        <!-- audio post -->
+                        {block:Audio}
+            
+                <div class="albumarts">
+                {block:AlbumArt}
+                <img src="{AlbumArtURL}" width="200px" height="200px" align="left">
+                {/block:AlbumArt}
+                <div class="audio">
+                {AudioPlayerWhite}
+                </div>
+                </div>
+            
+
+            <div class="musicinfo">
+            
+                <br/><br/><br/>
+                {block:TrackName}<div class="title">{TrackName}</div>{/block:TrackName}
+                {block:Artist}<b>{Artist}</b>{/block:Artist}
+                {block:Album}<br>{Album}{/block:Album}
+            </div>
+        {block:Caption}{Caption}{/block:Caption}
+    {/block:Audio} 
+                        
+                        <!-- ask post -->
+                        {block:Answer}
+                           <div class="ask">
+                                {Question}
+                        </div> 
+                    <div class="askerd">Asked by {Asker}</div><br>
+            {Answer}
+            {/block:Answer}
+                        
+                {block:HasTags}<div id="ptags">
+                        {block:Tags}<a href="{TagURL}">{Tag} </a>{/block:Tags}
+                        </div>
+                        {/block:HasTags}
+                        </div>
+
+
+{block:PostNotes}
+<div class="post">
+{PostNotes}
+</div>
+{/block:PostNotes}
+
+{/block:posts}
+</div>
+    
+</div>
+
+</body>
+</html>
