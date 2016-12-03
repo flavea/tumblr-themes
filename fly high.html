@@ -1,0 +1,767 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{title}</title>
+{block:IfInfiniteScroll}<script type="text/javascript" src="http://codysherman.com/tools/infinite-scrolling/code"></script> {/block:IfInfiniteScroll}
+<link rel="shortcut icon" href="{Favicon}">
+<script src="http://code.jquery.com/jquery-2.0.3.js"></script>
+<script src="http://static.tumblr.com/ikeq9mi/DfYl6o46t/scrolltotop.min.js"></script>
+</head>
+
+<meta name="color:background" content="#f8f8f8"/>
+<meta name="color:borders" content="#000000"/>
+<meta name="color:posts" content="#ffffff"/>
+<meta name="color:posts border" content="#eaeaea"/>
+<meta name="color:texts" content="#000000"/>
+<meta name="color:links" content="#7d7d7d"/>
+<meta name="color:description border" content="#000000"/>
+<meta name="color:description text" content="#ffffff"/>
+<meta name="color:music player" content="#000000"/>
+<meta name="color:sidebar 1st row links bg" content="#000000"/>
+<meta name="color:sidebar 1st row links text" content="#ffffff"/>
+<meta name="color:sidebar 2nd row links bg" content="#ffffff"/>
+<meta name="color:sidebar 2nd row links text" content="#000000"/>
+<meta name="color:blog title" content="#000000"/>
+<meta name="color:blog title shadow" content="#ffffff"/>
+<meta name="color:dates" content="#ffffff"/>
+<meta name="color:dates shadow" content="#cccccc"/>
+<meta name="color:pagination border" content="#eaeaea"/>
+<meta name="color:page numbers" content="#ffffff"/>
+<meta name="color:current page number" content="#cccccc"/>
+<meta name="color:note info bg" content="#000000"/>
+<meta name="color:note info" content="#ffffff"/>
+<meta name="color:post title" content="#333333"/>
+<meta name="color:post title shadow" content="#cccccc"/>
+<meta name="color:blockquote bg" content="#f8f8f8"/>
+<meta name="color:blockquote" content="#000000"/>
+<meta name="color:blockquote border" content="#7d7d7d"/>
+<meta name="color:ask bg" content="#f8f8f8"/>
+<meta name="color:ask" content="#000000"/>
+<meta name="color:ask and music border" content="#000000"/>
+<meta name="color:odd chat bg" content="#f8f8f8"/>
+<meta name="color:odd chat" content="#000000"/>
+<meta name="color:even chat bg" content="#000000"/>
+<meta name="color:even chat" content="#ffffff"/>
+<meta name="image:background" content=""/>
+<meta name="image:sidebar" content="http://i.imgur.com/WIxdDky.png"/>
+<meta name="image:icon" content="http://i.imgur.com/8KpY3LR.png"/>
+<meta name="text:Link1URL" content=""/>
+<meta name="text:Link2URL" content=""/>
+<meta name="text:Link3URL" content=""/>
+<meta name="text:Link4URL" content=""/>
+<meta name="text:Link5URL" content=""/>
+<meta name="text:Link6URL" content=""/>
+<meta name="text:Link7URL" content=""/>
+<meta name="text:Link8URL" content=""/>
+<meta name="text:Link9URL" content=""/>
+<meta name="text:Link1" content=""/>
+<meta name="text:Link2" content=""/>
+<meta name="text:Link3" content=""/>
+<meta name="text:Link4" content=""/>
+<meta name="text:Link5" content=""/>
+<meta name="text:Link6" content=""/>
+<meta name="text:Link7" content=""/>
+<meta name="text:Link8" content=""/>
+<meta name="text:Link9" content=""/>
+<meta name="text:Music" content="" />
+<meta name="text:Description BG" content="rgba(0,0,0,.7)" />
+<meta name="if:InfiniteScroll" content="0" />
+
+<style>
+
+    ::-moz-selection {
+        background-color:{color:borders};
+        color:{color:posts};
+    }
+    
+    ::selection {
+        background-color:{color:borders};
+        color:{color:posts};
+    }
+    
+    ::-webkit-scrollbar-thumb:vertical {
+        height:12px;
+        background-color:{color:background};
+        padding:3px;
+    }
+    
+    ::-webkit-scrollbar-thumb:horizontal {
+        background-color:{color:background};
+        padding:3px;
+    }
+    
+    ::-webkit-scrollbar {
+        width:10px;
+        height:7px;
+        border:4px solid {color:borders};
+        background-color:{color:background};
+        
+    }
+    
+    body {
+        background:url({image:background}) fixed no-repeat {color:background};
+        padding:0px;
+        margin:0px;
+        font-family:arial;
+        text-align:justify;
+        font-size:12px;
+        color:{color:text};
+    }
+    
+    a {
+        text-decoration:none;
+        color:{color:links};
+    }
+    
+    a:hover {
+        color:{color:posts};
+        background:{color:texts};
+    }
+    
+    #sidebar {
+        position:fixed;
+        left:0px;
+        top:0px;
+        width:350px;
+        height:100%;
+        background:url({image:sidebar});
+    }
+    
+    #shadow {
+        background:rgba(0,0,0,.3);
+        position:absolute;
+        top:0;
+        left:0;
+        height:100%;
+        z-index:-1;
+        width:350px;
+    }
+    
+    #posts {
+        margin-left:430px;
+        margin-top:50px;
+        margin-bottom:50px;
+        width:602px;
+    }
+    
+    .post {
+        padding:50px;
+        background:#fff;
+        width:500px;
+        border:1px solid {color:posts border};
+    }
+    
+    .bar {
+        height:10px;
+        position:fixed;
+        left:0;
+        background:{color:borders};
+        z-index:999;
+        width:100%;
+    }
+    
+    #mainmenu {
+        border-bottom:5px solid {color:description border};
+        font-family:cambria;
+        margin-left:10px;
+        margin-top:90%;
+        padding-left:10px;
+        margin-right:10px;
+        font-size:11px;
+        font-weight:700;
+    }
+    
+    #mainmenu2 {
+        margin:-45px 0px;
+        font-size:11px;
+        font-weight:700;
+        margin-bottom:15px;
+        position:absolute;
+    }
+    
+    #icon {
+        position:absolute;
+        border-radius:100%;
+        margin:-20px 100px;
+        border:5px solid {color:description border};
+        width:100px;
+    }
+    
+    #icon img, #iconed img {
+        border-radius:100%;
+        width:100px;
+    }
+    
+    #iconed {
+        margin:0px;
+        width:100px;
+        border-radius:100%;
+        float:left;
+    }
+    
+    
+    #mp {
+        position:absolute;
+        width:20px;
+        height:20px;
+        overflow:hidden;
+        padding:15px;
+        background:{color:music player};
+        opacity:.7;
+        border-radius:100%;
+        margin-top:-75px;
+        margin-left:25px;
+    }
+    
+    #mainmenu a, #mainmenu2 a {
+        margin-left:2px;
+        background:{color:sidebar 1st row links bg};
+        padding:8px;
+        height:13px;
+        width:13px;
+        color:{color:sidebar 1st row links text};
+        display:inline-block;
+        text-align:Center;
+        border-radius:100%;
+        margin-bottom:5px;
+        font-family:consolas;
+        -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+    }
+    
+    #mainmenu2 a {
+        background:{color:sidebar 2nd row links bg};
+        color:{color:sidebar 2nd row links text};
+        padding:7px;
+        margin-left:3px;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+    }
+    
+    #mainmenu a:hover, #mainmenu2 a:hover {
+        -ms-transform:rotate(-45deg);
+        -moz-transform:rotate(-45deg);
+        -o-transform:rotate(-45deg);
+        -webkit-transform:rotate(-45deg);
+        transform:rotate(-45deg);
+    }
+    
+    #desc {
+        margin:0px 10px;
+        background:{text:description bg};
+        padding:10px;
+        width:310px;
+        font-size:11px;
+        color:#fff;
+        padding-top:50px;
+        max-height:100px;
+        overflow:auto;
+    }
+    
+    #title {
+        color:{color:blog title};
+        text-shadow:2px 3px {color:blog title shadow};
+        text-align:center;
+        font-size:75px;
+        letter-spacing:-5px;
+        font-weight:700;
+        font-style:italic;
+        text-transform:lowercase;
+    }
+    
+    .date {
+        position:absolute;
+        margin-top:-50px;
+        margin-left:-100px;
+    }
+    
+    .date a {
+        color:{color:dates};
+        font-size:30px;
+        font-style:italic;
+        display:block;
+        font-weight:700;
+        text-shadow:
+       3px 3px 0 {color:dates shadow},
+        -1px -1px {color:dates shadow},
+         1px -1px 0 {color:dates shadow},
+      -1px 1px 0 {color:dates shadow},
+       1px 1px 0 {color:dates shadow}
+    }
+    
+    .date a:hover {
+        background:transparent;
+    }
+    
+    #pagination {
+        text-align:center;
+        position:fixed;
+        top:10%;
+        height:80%;
+        left:1100px;
+        padding-left:20px;
+        border-left:1px solid {color:pagination border};
+        font-size:60px;
+        font-style:italic;
+        font-weight:700;
+        text-shadow:
+        3px 3px 0 {color:pagination border},
+         -1px -1px 0 {color:pagination border},
+          1px -1px 0 {color:pagination border},
+          -1px 1px 0 {color:pagination border},
+           1px 1px 0 {color:pagination border}
+        
+    }
+    
+    #pagination a {
+        color:{color:page numbers};
+        display:block;
+    }
+    
+    #pagination span {
+        color:{color:current page number};
+        display:block;
+    }
+    
+    #pagination a:hover {
+        color:{color:current page number};
+        background:transparent;
+    }
+    .info {
+        margin-top:15px;
+        margin-bottom:30px;
+        font-size:10px;
+        color:{color:texts};
+        line-height:18px;
+    }
+    
+    .noted {
+        padding:5px 5px 5px 80px;
+        background:{color:note info bg};
+        color:{color:note info};
+        text-transform:uppercase;
+        font-weight:700;
+    }
+    
+    .note {
+        padding:5px;
+        margin:1px;
+        color:{color:note info};
+        background:{color:note info bg};
+    }
+    
+    .note a {
+        color:{color:note info};
+    }
+    
+    .note img {
+        border:3px solid {color:note info};
+        margin-right:4px;
+    }
+    
+    .notes ol, .note li, ol.notes {
+        list-style:none;
+        margin-left:-40px;
+    }
+    
+    .info a {
+        color:{color:texts};
+    }
+    
+    #credit {
+        position:fixed;
+        bottom:20px;
+        right:10px;
+        padding:5px;
+        background:{color:note info bg};
+        color:{color:note info};
+        font-weight:700;
+        text-align:center;
+        font-style:italic;
+    }
+    
+    h2 {
+        color:{color:post title};
+        text-shadow:2px 3px {color:post title shadow};
+        margin-top:0px;
+        font-size:25px;
+        font-style:italic;
+        border-left:100px solid {color:post title};
+        padding-left:5px;
+    }
+    
+    blockquote, pre {
+        background:{color:blockquote bg};
+        color:{color:blockquote};
+        padding:5px;
+        border-left:5px solid {color:blockquote border};
+    }
+    
+    pre {
+        font-family:consolas;
+        word-break:break-word;
+    }
+    
+    .quote {
+        font-family:cambria;
+        font-size:20px;
+    }
+    
+    .ask {
+        font-size:11px;
+        padding:5px;
+        background:{color:ask bg}; 
+        color:{color:ask}; 
+        min-height:35px;
+    }
+    
+    .username img {
+        margin:-20px 5px 5px -5px;
+        border:5px solid {color:ask and music border};
+        width:100px;
+        border-radius:100%;
+        float:left;
+    }
+    
+    .username, .minfo {
+        font-size:25px;
+        font-weight:700;
+        text-align:right;
+        padding:5px;
+        border-bottom:5px solid {color:ask border};
+        letter-spacing:-2px;
+        font-style:italic;
+        text-transform:lowercase;
+    }
+    
+    .minfo {
+        border-bottom:none;
+        margin-bottom:20px;
+    }
+    
+    .chat ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .chat li {
+        border-radius: 0.2em;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 1px 1px 1px rgb(255, 255, 255) inset;
+        margin-bottom: 2%;
+        padding: 2%;
+        width: 50%;
+    }
+    
+    .chat .odd {
+        background:{color:odd chat bg};
+        color:{color:odd chat};
+    }
+    
+    .chat .even {
+        margin-left:50%;
+        background: {color:even chat bg};
+        color:{color:even chat};
+    }
+    
+    #scrolltotop {
+        font-size: 20px;
+        position: fixed;
+        top: 20px;
+        right: 10px;
+    }
+     
+    #scrollToTop:link,
+        #scrollToTop:visited {
+            background:{color:note info bg};
+            color:{color:note info};
+            padding:5px;
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 10px;
+    }
+    
+    #dhtmltooltip{
+        position: absolute;
+        background:{color:note info bg};
+        color:{color:note info};
+        padding:4px;
+        font-size:11px;
+        visibility: hidden;
+        z-index: 100;
+        /*Remove below line to remove shadow. Below line should always appear last within this CSS*/
+        filter: progid:DXImageTransform.Microsoft.Shadow(color=gray,direction=135);
+        }
+
+</style>
+
+<div id="dhtmltooltip"></div>
+
+<script type="text/javascript">
+
+/***********************************************
+* Cool DHTML tooltip script- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+var offsetxpoint=-60 //Customize x offset of tooltip
+var offsetypoint=20 //Customize y offset of tooltip
+var ie=document.all
+var ns6=document.getElementById && !document.all
+var enabletip=false
+if (ie||ns6)
+var tipobj=document.all? document.all["dhtmltooltip"] : document.getElementById? document.getElementById("dhtmltooltip") : ""
+
+function ietruebody(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+}
+
+function ddrivetip(thetext, thecolor, thewidth){
+if (ns6||ie){
+if (typeof thewidth!="undefined") tipobj.style.width=thewidth+"px"
+if (typeof thecolor!="undefined" && thecolor!="") tipobj.style.backgroundColor=thecolor
+tipobj.innerHTML=thetext
+enabletip=true
+return false
+}
+}
+
+function positiontip(e){
+if (enabletip){
+var curX=(ns6)?e.pageX : event.clientX+ietruebody().scrollLeft;
+var curY=(ns6)?e.pageY : event.clientY+ietruebody().scrollTop;
+//Find out how close the mouse is to the corner of the window
+var rightedge=ie&&!window.opera? ietruebody().clientWidth-event.clientX-offsetxpoint : window.innerWidth-e.clientX-offsetxpoint-20
+var bottomedge=ie&&!window.opera? ietruebody().clientHeight-event.clientY-offsetypoint : window.innerHeight-e.clientY-offsetypoint-20
+
+var leftedge=(offsetxpoint<0)? offsetxpoint*(-1) : -1000
+
+//if the horizontal distance isn't enough to accomodate the width of the context menu
+if (rightedge<tipobj.offsetWidth)
+//move the horizontal position of the menu to the left by it's width
+tipobj.style.left=ie? ietruebody().scrollLeft+event.clientX-tipobj.offsetWidth+"px" : window.pageXOffset+e.clientX-tipobj.offsetWidth+"px"
+else if (curX<leftedge)
+tipobj.style.left="5px"
+else
+//position the horizontal position of the menu where the mouse is positioned
+tipobj.style.left=curX+offsetxpoint+"px"
+
+//same concept with the vertical position
+if (bottomedge<tipobj.offsetHeight)
+tipobj.style.top=ie? ietruebody().scrollTop+event.clientY-tipobj.offsetHeight-offsetypoint+"px" : window.pageYOffset+e.clientY-tipobj.offsetHeight-offsetypoint+"px"
+else
+tipobj.style.top=curY+offsetypoint+"px"
+tipobj.style.visibility="visible"
+}
+}
+
+function hideddrivetip(){
+if (ns6||ie){
+enabletip=false
+tipobj.style.visibility="hidden"
+tipobj.style.left="-1000px"
+tipobj.style.backgroundColor=''
+tipobj.style.width=''
+}
+}
+
+document.onmousemove=positiontip
+
+</script>
+
+<body>
+<div class="topp">
+  <a href="javascript:;" id="scrollToTop">back to top</a>
+</div>
+
+<a href="http://hellolittlered.org" onMouseover="ddrivetip('theme by hellolittlered')";
+ onMouseout="hideddrivetip()"><div id="credit">theme.</div></div></a>
+
+<div class="bar" style="top:0"></div>
+<div class="bar" style="bottom:0"></div>
+<div id="sidebar">
+    <div id="shadow"></div>
+    <div id="mainmenu">
+    <div id="icon">
+        <img src="{image:icon}">
+        {block:ifmusic}
+        <div id="mp">
+            {text:music}
+        </object>
+        </div>
+        {/block:ifmusic}
+    </div>
+    <a href="/" onMouseover="ddrivetip('refresh the page')";
+ onMouseout="hideddrivetip()">01.</a>
+    <a href="/ask" onMouseover="ddrivetip('send a message')";
+ onMouseout="hideddrivetip()">02.</a>
+    <a href="/archive" style="margin-right:115px" onMouseover="ddrivetip('blog's history)";
+ onMouseout="hideddrivetip()">03.</a>
+    {block:iflink1URL}<a href="{text:Link1URL}" onMouseover="ddrivetip('{text:Link1}')";
+ onMouseout="hideddrivetip()">04.</a>{/block:iflink1URL}
+    {block:iflink2URL}<a href="{text:Link2URL}" onMouseover="ddrivetip('{text:Link2}')";
+ onMouseout="hideddrivetip()">05.</a>{/block:iflink2URL}
+    {block:iflink3URL}<a href="{text:Link3URL}" onMouseover="ddrivetip('{text:Link3}')";
+ onMouseout="hideddrivetip()">06.</a>{/block:iflink3URL}
+    </div>
+    <div id="desc">
+    <div id="mainmenu2">
+    {block:iflink4URL}<a href="{text:Link4URL}" onMouseover="ddrivetip('{text:Link4}')";
+ onMouseout="hideddrivetip()">07.</a>{/block:iflink4URL}
+    {block:iflink5URL}<a href="{text:Link5URL}" onMouseover="ddrivetip('{text:Link5}')";
+ onMouseout="hideddrivetip()">08.</a>{/block:iflink5URL}
+    {block:iflink6URL}<a href="{text:Link6URL}" style="margin-right:115px" onMouseover="ddrivetip('{text:Link6}')";
+ onMouseout="hideddrivetip()">09.</a>{/block:iflink6URL}
+    {block:iflink7URL}<a href="{text:Link7URL}" onMouseover="ddrivetip('{text:Link7}')";
+ onMouseout="hideddrivetip()">10.</a>{/block:iflink7URL}
+    {block:iflink8URL}<a href="{text:Link8URL}" onMouseover="ddrivetip('{text:Link8}')";
+ onMouseout="hideddrivetip()">11.</a>{/block:iflink8URL}
+    {block:iflink9URL}<a href="{text:Link9URL}" onMouseover="ddrivetip('{text:Link9}')";
+ onMouseout="hideddrivetip()">12.</a>{/block:iflink9URL}
+     
+ </div>
+    {description}</div>
+    <div id="title">— {title}</div>
+</div>
+
+{block:IfNotInfiniteScroll}
+{block:Pagination}
+  <div id="pagination">
+    {block:PreviousPage}<a href="{PreviousPage}">«</a>{/block:PreviousPage} {block:JumpPagination length="6"} {block:CurrentPage}<span class="current_page">{PageNumber}.</span> {/block:CurrentPage} {block:JumpPage}<a href="{URL}">{PageNumber}.</a> {/block:JumpPage} {/block:JumpPagination} {block:NextPage}<a href="{NextPage}">»</a>{/block:NextPage}
+  </div>
+{/block:Pagination}
+{/block:IfNotInfiniteScroll}
+
+<div id="posts">
+<div class="autopagerize_page_element">
+{block:posts}
+    <div class="post">
+    
+    {block:Date}
+      <div class="date">
+        <a href="{permalink}" onMouseover="ddrivetip('this post was posted on {Month} {DayOfMonthWithZero}{DayOfMonthSuffix} {Year}')";
+ onMouseout="hideddrivetip()">
+          {MonthNumberWithZero}.<br> {DayOfMonthWithZero}.<br> {ShortYear}.<br>
+          <center style="opacity:.7;">
+            <div style="margin-top:10px;margin-bottom:10px">{ReblogButton size="30"}</div>
+            {LikeButton size="30"}
+          </center>
+        </a>
+      </div>
+      {/block:Date}
+    
+    {block:Text}{block:Title}
+    <a href="{Permalink}">
+      <h2>
+        {Title}
+      </h2>
+    </a>
+    {/block:Title}{Body}{/block:Text}
+    
+    {block:Quote}
+    <div class="quote">
+      “{Quote}”  — <b><i>{Source}</i></b>
+    </div>
+    {/block:Quote}
+    
+    {block:Link}
+    <a href="{URL}">
+      <h2>
+        {Name} »
+      </h2>
+    </a>
+    {block:Description}
+    <p>
+      {Description}
+    </p>
+    {/block:Description}{/block:Link}
+    
+    {block:Photo}
+    <center>
+      <a href="{PhotoURL-HighRes}"><img src="{PhotoURL-500}"/></a>
+    </center>
+    {block:Caption}{Caption}{/block:Caption}{/block:Photo}
+    
+    {block:Photoset}
+    <center>
+      {Photoset-500}
+    </center>
+    {block:Caption}{Caption}{/block:Caption}{/block:Photoset}
+    
+    {block:Chat}
+    <div class="chat">
+      <ul>
+        {block:Lines}
+        <li class="{Alt}">
+          {block:Label}
+          <b>
+            {Label}
+          </b>
+          {/block:Label}{Line}
+        </li>
+        {/block:Lines}
+      </ul>
+    </div>
+    {/block:Chat}
+    
+    {block:Video}{Video-500}{block:Caption}{Caption}{/block:Caption}{/block:Video}
+    
+    {block:Answer}
+    <div class="username">
+      <img src="{AskerPortraitURL-128}" width="100px" style="opacity:1;">
+        {Asker} Whispered:
+      </div>
+    <div class="ask">
+      {question}
+    </div>
+    
+    {Answer}
+    {/block:Answer}
+    
+    {block:Audio}
+    <div class="username">
+        <div id="iconed">
+            {block:AlbumArt}<img src="{AlbumArtURL}" width="100">{/block:AlbumArt}
+            <div id="mp" style="margin-top:10px">{AudioPlayerBlack}</div>
+        </div>
+            
+            {block:Artist}
+              {Artist}
+            {/block:Artist}
+            {block:TrackName}
+              - {TrackName}
+            {/block:TrackName}
+          
+        </div>
+        <div class="minfo">
+              {PlayCountWithLabel} 
+        </div>
+      {block:Caption}
+      <p>
+        {Caption}
+      </p>
+      {/block:Caption}
+    {/block:Audio}
+        
+        
+    </div>
+    <div class="info">
+    <a href="{permalink}#note" onMouseover="ddrivetip('this post has {NoteCountWithLabel}')";
+ onMouseout="hideddrivetip()"><span class="noted">{NoteCountWithLabel}</span></a>
+    {block:HasTags}{block:Tags}<a href="{TagURL}">#{Tag} </a>{/block:Tags}{/block:HasTags}
+    </div>
+    {block:PostNotes}{PostNotes}{/block:PostNotes}
+{/block:posts}
+</div>
+</div>
+</body>
+</html>
