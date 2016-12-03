@@ -1,0 +1,809 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{title}</title>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        <meta name="description" content="{MetaDescription}" />
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script src="http://static.tumblr.com/ikeq9mi/DfYl6o46t/scrolltotop.min.js"></script>
+        <script src="http://static.tumblr.com/iuw14ew/VSQma1786/jquery.style-my-tooltips.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+        <script>
+            (function($){
+            $(document).ready(function(){
+            $("a[title]").style_my_tooltips({
+            tip_follows_cursor:true,
+            tip_delay_time:0,
+            tip_fade_speed:0,
+            attribute:"title"
+            });
+            });
+            })(jQuery);
+        </script>
+        {block:IndexPage}
+        {block:ifthumbnails}
+        <script src="http://static.tumblr.com/twte3d7/H8Glm663z/masonry.js"></script>
+        <script type="text/javascript">
+            $(window).load(function () {
+            $('#posts').masonry({
+            itemSelector : ".post",
+            },
+            function() { $('#posts').masonry({ appendedContent: $(this) }); }
+            );
+            });
+        </script>
+        {/block:ifthumbnails}
+        {/block:IndexPage}
+    <meta name="image:background" content="http://i.imgur.com/o84fdC0.jpg" />
+    
+    <meta name="if:thumbnails" content="1" />
+    <meta name="if:show image bg" content="1" />
+    <meta name="if:rounded content box" content="1" />
+    <meta name="if:round icon" content="1" />
+    <meta name="color:background" content="#666666" />
+    <meta name="color:text" content="#ffffff" />
+    <meta name="color:links" content="#571017" />
+    <meta name="color:links background" content="#FFFF99" />
+    <meta name="color:text post bg" content="#ffffff" />
+    <meta name="color:text post text" content="#000000" />
+    <meta name="color:blockquote" content="#571017" />
+    <meta name="color:header text" content="#ffffff" />
+    <meta name="color:music" content="#ffffff" />
+    <meta name="text:icon border" content="rgba(0,0,0,.5)" />
+    <meta name="color:sidebar text" content="#ffffff" />
+    <meta name="text:content bg" content="rgba(0,0,0,.3)" />
+    <meta name="text:caption bg" content="rgba(0,0,0,.5)" />
+    <meta name="color:chat label" content="#571017" />
+    <meta name="color:post info bg" content="#000000" />
+    <meta name="color:post info links" content="#ffffff" />
+    <meta name="font:Font" content="Arial, sans-serif"/>
+    </head>
+    <style>
+    
+    html, body {
+        padding:0px;
+        margin:0px;
+    }
+    
+    body {
+        background:{block:ifshowimagebg}url({image:background}){/block:ifshowimagebg} fixed {color:background};
+        background-size:100% auto;
+        font-family:{font:Font};
+        font-size:12px;
+        color:{color:text};
+        text-align:justify;
+    }
+    
+    a {
+        color:{color:links};
+        text-decoration:none;
+    }
+    
+    .txtBox {
+        background:{color:text post bg};
+        color:{color:text post text};
+        padding:10px;
+    }
+    
+    .caption a, .txtBox a {
+        background:{color:links background};
+        padding:0px 3px;
+    }
+    
+    blockquote {
+        margin-left:20px;
+        border-left:1px solid {color:blockquote};
+        padding-left:10px;
+   
+    }
+    
+    #top {
+        margin:auto;
+        color:{color:header text};
+        letter-spacing:1px;
+        margin-bottom:25px;
+        font-size:11px;
+    }
+    
+    #top img {
+        width:100px;
+        {block:ifroundicon}
+        border-radius:100%;
+        {block:ifroundicon}
+        display:block;
+    }
+    
+    #top #icon {
+        float:left;
+        margin-right:10px;
+        border:10px solid {text:icon border};
+        {block:ifroundicon}
+        border-radius:100%;
+        {block:ifroundicon}
+    }
+    
+    #top #title {
+        font-size:80px;
+        font-weight:bold;
+        letter-spacing:-5px;
+    }
+    
+    #top #title:first-letter {
+        color:{color:links};
+    }
+    
+    #side {
+        width:100px;
+        margin-top:10px;
+        color:{color:sidebar text};
+        font-family:Times New Roman;
+        font-style:italic;
+        text-transform:lowercase;
+        letter-spacing:1px;
+        float:left;
+        margin-right:20px;
+        font-size:14px;
+        {block:ifnotthumbnails}
+        width:120px;
+        text-align:right;
+        {/block:ifnotthumbnails}
+    }
+
+    
+    .links a {
+        color:{color:sidebar text};
+        display:block;
+        font-size:12px;
+    }
+    
+    #side a:hover {
+        letter-spacing:2px;
+    }
+    
+    #scrollToTop {
+        display:none;
+        position:fixed;
+        bottom:10px;
+        right:10px;
+        background:rgba(0,0,0,.3);
+        color:#ffffff;
+        padding:10px;
+        
+    }
+    
+    img {
+        max-width:100%;
+        display:inline-block;
+    }
+    
+    #content {
+        {block:ifthumbnails}
+        {block:IndexPage}width:930px;{/block:IndexPage}
+        {block:PermalinkPage}width:680px;{/block:PermalinkPage}
+        padding:35px;
+        {/block:ifthumbnails}
+        {block:ifnotthumbnails}
+        width:645px;
+        padding: 50px;
+        margin:auto;
+        {block:ifnotthumbnails}
+        background:{text:content bg};
+        {block:ifroundedcontentbox}
+        margin:50px auto;
+        border-radius:30px;
+        {/block:ifroundedcontentbox}
+    }
+    
+    #posts {
+        {block:IndexPage}width:810px;{/block:IndexPage}
+        {block:PermalinkPage}width:560px;{/block:PermalinkPage}
+        {block:ifnotthumbnails}
+        width:500px;
+        {block:ifnotthumbnails}
+        float:right;
+    }
+    
+    #content:after, #posts:after, .post:after, .photoset-grid:after, .post-info:after, .caption:after {
+        clear:both;
+        display:table;
+        content:"";
+    }
+    
+    .post {
+        {block:ifthumbnails}
+        {block:IndexPage}width:250px;
+        float:left;
+        border-radius:10px;
+        background:{color:text post bg};{/block:IndexPage}
+        {block:PermalinkPage}width:540px;{/block:PermalinkPage}
+        {/block:ifthumbnails}
+        overflow:hidden;
+        margin:10px;
+        position:relative;
+        {block:ifnotthumbnails}
+        width:500px;
+        overflow:hidden;
+        margin:10px;
+        position:relative;
+        {/block:ifnotthumbnails}
+        
+    }
+    
+    .caption {
+        background:{text:caption bg};
+        padding:10px;
+    }
+    
+    .txtbox .caption {
+        background:transparent;
+    }
+    
+    
+    {block:ifthumbnails}
+    .photoset-grid img {
+        display:inline;
+    }
+    
+    .post:after {
+        clear:both;
+        display:table;
+        content:'';
+    }
+    
+    .info {
+        position:absolute;
+        height:100%;
+        width:230px;
+        padding:0px 10px;
+        background:{color:text post bg};
+        transition:.3s all linear;
+        opacity:0;
+        border-radius:10px;
+    }
+    
+    .post:hover .info {
+        opacity:1;
+    }
+    
+    
+    .date {
+        font-size:20px;
+        font-weight:bold;
+        letter-spacing:-2px;
+        padding-bottom:2px;
+        border-bottom:1px solid #666666;
+        margin-bottom:2px;
+        display:inline-block;
+        margin-top:-100px;
+        transition:.6s all linear;
+    }
+    
+    #{text
+        margin-top:100px;
+        transition:.6s all linear;
+        color:{color:links};
+    }
+    
+    .post:hover .date, .post:hover #{text
+        margin-top:0px;
+    }
+    
+    {block:ifthumbnails}
+    
+    {block:IndexPage}
+    .photoset-grid img, .photoset-grid a {
+        display:none;
+    }
+    
+    .photoset-grid img:first-child, .photoset-grid a:first-child {
+        display:block;
+    }
+    
+    .caption {
+        display:none;
+    }
+    {/block:IndexPage}
+    
+    
+    .tx {
+        text-align:center;
+        padding-top:100%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        -ms-filter: 'progid:DXImageTransform.Microsoft.Matrix(Dx=0,Dy=0)';
+        filter: progid:DXImageTransform.Microsoft.Matrix(Dx=0,Dy=0);
+        transform: translateY(-50%);  
+    }
+    
+    {/block:ifthumbnails}
+    
+    {block:PermalinkPage}
+    .caption {
+        display:block;
+        margin-top:10px;
+        padding:10px;
+        background:{text:caption bg};
+    }
+    {/block:PermalinkPage}
+    
+    #quote {
+        font-family:Georgia;
+        font-size:18px;
+        font-style:italic;
+    }
+    
+    h2 {
+        font-size:28px;
+        text-transform:lowercase;
+        letter-spacing:-2px;
+        margin:0px;
+    }
+    
+    .chat ul {
+        list-style:none;
+        padding:0px;
+        margin:0px;
+    }
+    
+    .chat {
+        line-height:24px;
+    }
+    
+    .chat b {
+        color:{color:chat label};
+        border-bottom:1px solid {color:chat label};
+        padding-bottom:3px;
+    }
+    
+    
+    
+    .picon {
+        font-size:20px;
+        background:{color:links};
+        padding:10px;
+        color:{color:text post bg};
+        width:20px;
+        height:20px;
+        border-radius:100%;
+        text-align:Center;
+        float:left;
+        
+    }
+    
+    .ask-box {
+        margin-left:50px;
+        {block:PermalinkPage}padding:20px;
+        border-bottom:1px dotted {color:links};{/block:PermalinkPage}
+    }
+    
+    .askerd {
+        font-size:16px;
+        font-weight:bold;
+    }
+    
+    .askerd span {
+        border-bottom:2px solid {color:links};
+        padding-bottom:3px;
+        margin-bottom:13px;
+    }
+    
+    #tplayer {
+        background:{color:music};
+        margin-top:-35px
+    }
+    
+    .pinfo {
+        background:{color:post info bg};
+        color:{color:links};
+        padding:20px;
+    }
+    
+    .last:after {
+        content:"";
+        border:none;
+    }
+    
+    ol.notes {
+        list-style:none;
+        padding:0px;
+        margin:0px;
+        color:#ffffff;
+    }
+    
+    ol.notes li {
+        padding:5px;
+        background:rgba(0,0,0,.5);
+        border-bottom:1px solid rgba(255,255,255,.5);
+    }
+    
+    .links b {
+        padding-bottom:3px;
+        border-bottom:1px solid {color:sidebar text};
+    }
+    
+    .links {
+        margin-bottom:20px;
+    }
+    
+    #pagination {
+        display:block;
+        text-align:center;
+        margin:50px 0px;
+    }
+    #pagination a {
+        font-size:20px;
+        text-transform:lowercase;
+    }
+    
+    .socmed {
+        text-align:center;
+    }
+    
+    .socmed a {
+        display:inline-block;
+        font-size:20px;
+        color:{color:sidebar text};
+    }
+    
+    #pinfo {
+        background:{color:post info bg};
+        padding:10px;
+        text-transform:uppercase;
+        font-size:11px;
+        width:480px;
+        margin:10px;
+        font-weight:700;
+    }
+    
+    #pinfo a, .tags a {
+        color:{color:post info links};
+    }
+    
+    .tags {
+        font-size:9px;
+    }
+    {block:ifthumbnails}
+    
+    {block:IndexPage}
+    .photoset-grid img, .photoset-grid a {
+        display:none;
+    }
+    
+    .photoset-grid img:first-child, .photoset-grid a:first-child {
+        display:block;
+    }
+    
+    .caption {
+        display:none;
+    }
+    {/block:IndexPage}
+    
+    
+    .tx {
+        text-align:center;
+        padding-top:100%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        -ms-filter: 'progid:DXImageTransform.Microsoft.Matrix(Dx=0,Dy=0)';
+        filter: progid:DXImageTransform.Microsoft.Matrix(Dx=0,Dy=0);
+        transform: translateY(-50%);  
+    }
+    
+    {/block:ifthumbnails}
+    
+    </style>
+    
+    <body>
+        
+        <div id="content" class="autopagerize_page_element">
+      
+      <div id="top">
+          <div id="icon"><img src="{PortraitURL-128}"></div>
+          <div id="title">{title}</div>
+          <div class"description">
+              {description}
+          </div>
+      </div>
+      
+      <div id="side">
+        <div class="links">
+          <b>Main Links</b>
+          <br>
+          <a href="/" style="margin-top:8px">home</a>
+          <a href="/ask">message</a>
+          <a href="/archive">archive</a>
+          <a href="/mobile">mobile</a>
+          </div>
+          
+          <div class="links">
+          {block:if1stGroupLinkTitle}<b>{text:1st Group Link Title}</b>{/block:if1stGroupLinkTitle}
+          
+            <meta name="text:1st Group Link Title" content=""/>
+          {block:if1stGroupLinkTitle}<br>{/block:if1stGroupLinkTitle}
+          {block:if1stGroupLink1Name}<a href="{text:1st Group Link 1}" {block:if1stGroupLinkTitle}style="margin-top:8px"{/block:if1stGroupLinkTitle}>{text:1st Group Link 1 Name}</a>{/block:if1stGroupLink1Name}
+            <meta name="text:1st Group Link 1" content=""/>
+            <meta name="text:1st Group Link 1 Name" content=""/>
+            {block:if1stGroupLink2Name}<a href="{text:1st Group Link 2}">{text:1st Group Link 2 Name}</a>{/block:if1stGroupLink2Name}
+            <meta name="text:1st Group Link 2" content=""/>
+            <meta name="text:1st Group Link 2 Name" content=""/>
+            {block:if1stGroupLink3Name}<a href="{text:1st Group Link 3}">{text:1st Group Link 3 Name}</a>{/block:if1stGroupLink3Name}
+            <meta name="text:1st Group Link 3" content=""/>
+            <meta name="text:1st Group Link 3 Name" content=""/>
+            {block:if1stGroupLink4Name}<a href="{text:1st Group Link 2}">{text:1st Group Link 4 Name}</a>{/block:if1stGroupLink4Name}
+            <meta name="text:1st Group Link 4" content=""/>
+            <meta name="text:1st Group Link 4 Name" content=""/>
+          </div>
+          
+        <div class="links">
+          {block:if2ndGroupLinkTitle}<b>{text:2nd Group Link Title}</b>{/block:if2ndGroupLinkTitle}
+          
+            <meta name="text:2nd Group Link Title" content=""/>
+          {block:if2ndGroupLinkTitle}<br>{/block:if2ndGroupLinkTitle}
+          {block:if2ndGroupLink1Name}<a href="{text:2nd Group Link 1}" {block:if2ndGroupLinkTitle}style="margin-top:8px"{/block:if2ndGroupLinkTitle}>{text:2nd Group Link 1 Name}</a>{/block:if2ndGroupLink1Name}
+            <meta name="text:2nd Group Link 1" content=""/>
+            <meta name="text:2nd Group Link 1 Name" content=""/>
+            {block:if2ndGroupLink2Name}<a href="{text:2nd Group Link 2}">{text:2nd Group Link 2 Name}</a>{/block:if2ndGroupLink2Name}
+            <meta name="text:2nd Group Link 2" content=""/>
+            <meta name="text:2nd Group Link 2 Name" content=""/>
+            {block:if2ndGroupLink3Name}<a href="{text:2nd Group Link 3}">{text:2nd Group Link 3 Name}</a>{/block:if2ndGroupLink3Name}
+            <meta name="text:2nd Group Link 3" content=""/>
+            <meta name="text:2nd Group Link 3 Name" content=""/>
+            {block:if2ndGroupLink4Name}<a href="{text:2nd Group Link 2}">{text:2nd Group Link 4 Name}</a>{/block:if2ndGroupLink4Name}
+            <meta name="text:2nd Group Link 4" content=""/>
+            <meta name="text:2nd Group Link 4 Name" content=""/>
+          </div>
+          
+        <div class="links">
+          {block:if3rdGroupLinkTitle}<b>{text:3rd Group Link Title}</b>{/block:if3rdGroupLinkTitle}
+          
+            <meta name="text:3rd Group Link Title" content=""/>
+          {block:if3rdGroupLinkTitle}<br>{/block:if3rdGroupLinkTitle}
+          {block:if3rdGroupLink1Name}<a href="{text:3rd Group Link 1}" {block:if3rdGroupLinkTitle}style="margin-top:8px"{/block:if3rdGroupLinkTitle}>{text:3rd Group Link 1 Name}</a>{/block:if3rdGroupLink1Name}
+            <meta name="text:3rd Group Link 1" content=""/>
+            <meta name="text:3rd Group Link 1 Name" content=""/>
+            {block:if3rdGroupLink2Name}<a href="{text:3rd Group Link 2}">{text:3rd Group Link 2 Name}</a>{/block:if3rdGroupLink2Name}
+            <meta name="text:3rd Group Link 2" content=""/>
+            <meta name="text:3rd Group Link 2 Name" content=""/>
+            {block:if3rdGroupLink3Name}<a href="{text:3rd Group Link 3}">{text:3rd Group Link 3 Name}</a>{/block:if3rdGroupLink3Name}
+            <meta name="text:3rd Group Link 3" content=""/>
+            <meta name="text:3rd Group Link 3 Name" content=""/>
+            {block:if3rdGroupLink4Name}<a href="{text:3rd Group Link 2}">{text:3rd Group Link 4 Name}</a>{/block:if3rdGroupLink4Name}
+            <meta name="text:3rd Group Link 4" content=""/>
+            <meta name="text:3rd Group Link 4 Name" content=""/>
+          </div>
+          
+
+        <!-- DO NOT REMOVE -->
+        <div class="links">
+          <b>Theme By</b>
+          <a href="http://hellolittlered.org" style="margin-top:8px">hellolittlered</a>
+          </div>
+          
+          <!-- Social Media -->
+          <div class="socmed" style="font-size:20px">
+                {block:ifInstagramUsername}<a href="http://instagram.com/{text:Instagram Username}" class="fa fa-instagram"></a> {/block:ifInstagramUsername}
+                {block:ifTwitterUsername}<a href="http://twitter.com/{text:Twitter Username}" class="fa fa-twitter"></a>{block:ifTwitterUsername} 
+                </div>
+      </div>
+            <meta name="text:Instagram Username" content=""/>
+            <meta name="text:Twitter Username" content=""/>
+      
+        <a href="javascript:;" id="scrollToTop">
+            back to top
+        </a>
+        
+        <div id="posts">
+            {block:posts}
+            <!-- {block:NoRebloggedFrom}
+{block:RebloggedFrom}{ReblogParentName}{/block:RebloggedFrom}
+{/block:NoRebloggedFrom} -->
+            {block:ContentSource}<!-- {SourceURL}
+{block:SourceLogo}<img src="{BlackLogoURL}"width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />{/block:SourceLogo}
+{block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+{/block:ContentSource}
+            <div class="post">
+            
+            {block:ifthumbnails}
+            {block:IndexPage}
+             <div class="info">
+                <div class="tx">
+                    {block:Date} <a class="date" href="{Permalink}">{MonthNumberWithZero}.{DayOfMonthWithZero}.{Year}</a><br>{/block:Date}
+                    <div id="oinfo" style="color:{color:links}">{block:NoteCount}{NoteCountWithLabel} ♢ {/block:NoteCount} <a href="{ReblogURL}">reblog</a>
+                </div></div>
+            </div>
+            {/block:IndexPage}
+            {/block:ifthumbnails}
+                
+			<!-- text post -->
+            {block:Text}
+            <div class="txtBox">
+				{block:Title}
+					<a href="{Permalink}">
+					  <h2>{Title}</h2>
+					</a>
+				{/block:Title}
+				{Body}
+			</div>
+			{/block:Text}
+			
+			<!-- quote post -->
+			{block:Quote}
+            <div class="txtBox">
+				<div id="quote">
+				  <span>{Quote}</span>
+				<small>— {Source}</small>
+				</div>
+			</div>
+			{/block:Quote}
+    
+             <!-- link post -->
+			{block:Link}
+            <div class="txtBox">
+				<a href="{URL}">
+				  <h2>{Name} »</h2>
+				</a>
+				{block:Description}{Description}{/block:Description}
+		    </div>
+			{/block:Link}
+			
+			<!-- photo post -->
+			{block:Photo}
+				<center>
+				<div class="photoset-grid">
+			{block:IndexPage}
+				    <a href="{PhotoURL-HighRes}"><img src="{PhotoURL-250}"style="display:block" /></a>
+			{/block:IndexPage}
+			{block:PermalinkPage}
+				    <a href="{PhotoURL-HighRes}"><img src="{PhotoURL-HighRes}"style="display:block" /></a>
+			{/block:PermalinkPage}
+			</div>
+				</center>
+				
+				{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+			{/block:Photo}
+    
+            <!-- photoset post -->
+			{block:Photoset}
+             {block:ifthumbnails}
+             <div class="photoset-grid" data-layout="{PhotosetLayout}" data-id="photoset{PostID}">
+                {block:PermalinkPage}
+                  {block:Photos}
+                        {block:HighRes}<a href="{PhotoURL-HighRes}">{/block:HighRes}<img src="{PhotoURL-HighRes}" {block:HighRes}data-highres="{PhotoURL-HighRes}"{/block:HighRes} {block:Caption}alt="{Caption}"{/block:Caption} /></a>
+                   {/block:Photos}
+                {/block:PermalinkPage}
+                {block:IndexPage}
+                  {block:Photos}
+                        {block:HighRes}<a href="{PhotoURL-HighRes}">{/block:HighRes}<img src="{PhotoURL-250}" {block:HighRes}data-highres="{PhotoURL-HighRes}"{/block:HighRes} {block:Caption}alt="{Caption}"{/block:Caption} /></a>
+                   {/block:Photos}
+                {/block:IndexPage}
+              </div>
+                {/block:ifthumbnails}
+                {block:ifnotthumbnails}{Photoset-500}{/block:ifnotthumbnails}
+              
+				{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+         {/block:Photoset}
+			
+			<!-- chat post -->
+			{block:Chat}
+				<div class="txtBox chat">
+				  <ul>
+					{block:Lines}
+					<li>
+					   {block:Label}<b>{Label}</b>{/block:Label}
+					  {Line}
+					</li>
+					{/block:Lines}
+				  </ul>
+				</div>
+			{/block:Chat}
+			
+            <!-- video post -->
+			{block:Video}
+				 {block:IndexPage}
+				 {block:ifthumbnails}
+				 {Video-250}
+				 {block:ifthumbnails}
+				 {block:ifnotthumbnails}
+				 {Video-500}
+				 {block:ifnotthumbnails}
+				 {/block:IndexPage}
+				 {block:PermalinkPage}{Video-500}{/block:PermalinkPage}
+				{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+			{/block:Video}
+			    
+			<!-- audio post -->
+			{block:Audio}
+			    {block:ifthumbnails}
+			    {block:AlbumArt}
+		    	<img src="{AlbumArtURL}">{/block:AlbumArt}
+    			{block:AudioPlayer}
+    				<div id="tplayer"><center>{AudioPlayer}</center></div>
+    			{/block:AudioPlayer}
+    			<div class="txtBox" style="background:#f2f2f2;text-align:center;">
+                {block:Artist}<b>{Artist} - </b>{/block:Artist}
+    		
+				{block:TrackName}{TrackName}{/block:TrackName}	
+				</div>		
+				{/block:ifthumbnails}
+				{block:ifnotthumbnails}
+				{AudioEmbed-500}
+				{/block:ifnotthumbnails}
+				{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+			{/block:Audio}
+			
+			<!-- ask post -->
+			{block:Answer}
+            <div class="txtBox">
+               <div class="picon">
+                    {block:IndexPage}Q{block:IndexPage}
+                    {block:PermalinkPage}<img src="{AskerPortraitURL-64">{/block:PermalinkPage}
+                    </div>
+			   <div class="ask-box">
+			        <div class="askerd"><span>{Asker}</span></div>
+			        <p>{Question}</p>
+                </div> 
+                <div class="caption">{Answer}</div>
+            </div>
+			{/block:Answer}
+			
+			</div>
+			
+			{block:ifnotthumbnails}
+			{block:IndexPage}
+			<div id="pinfo">
+			    <div style="float:left;margin-right:10px">
+			        <div style="display:inline-block;">{ReblogButton size="15"}</div>
+			        <div style="display:inline-block;">{LikeButton size="15"} </div>
+			    </div>
+			    <a href="{Permalink}">{block:Date}{ShortMonth} {DayOfMonthWithZero}{DayOfMonthSuffix} {year}{/block:Date} {block:NoteCount}+{NoteCount}{/block:NoteCount}</a>{block:RebloggedFrom} <a href="{ReblogParentURL}" title="{ReblogParentName}">Via</a>/<a href="{ReblogRootURL}" title="{ReblogRootName}">Source</a>{/block:RebloggedFrom}
+			    {block:HasTags}<div class="tags">{block:Tags}<a href="{TagURL}">#{tag}</a>{/block:Tags}</div>{/block:HasTags}
+			</div>
+			{/block:IndexPage}
+			{/block:ifnotthumbnails}
+			
+			{block:PermalinkPage}<div class="chat pinfo">
+            {block:Date}<div class="pinfos"><b>Posted On:</b> {DayOfWeek}, {Month} {DayOfMonthWithZero}{DayOfMonthSuffix} {Year}</div>{/block:Date}
+            {block:NoteCount}
+                <div class="pinfos"><b>Note Count:</b> {NoteCountWithLabel}</div>
+                {/block:NoteCount}
+                {block:RebloggedFrom}
+                    <div class="pinfos"><b>Source:</b> <a href="{ReblogRootURL}">{ReblogRootName}</a></div>
+                    <div class="pinfos"><b>Via:</b> <a href="{ReblogParentURL}">{ReblogParentName}</a></div>
+                {/block:RebloggedFrom}
+            {block:HasTags}<div class="pinfos"><b>Label:</b> {block:Tags}<a href="{TagURL}" class="fa fa-tag"> <span>{Tag}</span></a> {/block:Tags}</div>{/block:HasTags}
+        </div>
+        {block:PermalinkPage}
+        
+        {block:PostNotes}<div class="chat noted">{PostNotes}</div>{/block:PostNotes}
+        {/block:posts}
+            
+        </div>
+        </div>
+        
+        {block:pagination}
+        <div id="pagination">
+        {block:PreviousPage}
+        <a href="{PreviousPage}" class="point">
+          <span>Prev</span>
+        </a>
+        {/block:PreviousPage}
+        {block:NextPage}
+        <a href="{NextPage}">
+         <span>Next</span>
+        </a>
+        {/block:NextPage}
+        </div>
+    {/block:pagination}
+        </div>
+    </body>
+</html>
