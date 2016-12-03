@@ -1,0 +1,770 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{title}</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script src="http://static.tumblr.com/twte3d7/H8Glm663z/masonry.js"></script>
+    <script type="text/javascript">
+    $(window).load(function () {
+    $('#content').masonry({
+    itemSelector : ".post",
+    },
+    function() { $('#content').masonry({ appendedContent: $(this) }); }
+    );
+    });
+    </script>
+<script src="http://static.tumblr.com/ikeq9mi/DfYl6o46t/scrolltotop.min.js"></script>
+<script src="http://static.tumblr.com/iuw14ew/VSQma1786/jquery.style-my-tooltips.js"></script>
+<script>
+(function($){
+$(document).ready(function(){
+$("a[title]").style_my_tooltips({
+tip_follows_cursor:true,
+tip_delay_time:0,
+tip_fade_speed:0,
+attribute:"title"
+});
+});
+})(jQuery);
+</script>
+<link href='http://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<meta name="color:Background" content="#ffffff"/>
+<meta name="color:post texts" content="#000000"/>
+<meta name="color:post links" content="#7d7d7d"/>
+<meta name="color:header border" content="#cccccc"/>
+<meta name="color:menu background" content="#000000"/>
+<meta name="color:menu links" content="#ffffff"/>
+<meta name="color:control links" content="#7d7d7d"/>
+<meta name="color:caption background" content="#f9f9f9"/>
+<meta name="color:caption border" content="#f2f2f2"/>
+<meta name="color:description" content="#999999"/>
+<meta name="color:post titles" content="#000000"/>
+<meta name="color:post buttons background" content="#000000"/>
+<meta name="color:post buttons text" content="#ffffff"/>
+<meta name="color:menu links border" content="#f2f2f2"/>
+<meta name="color:chat background" content="#ffffff"/>
+<meta name="color:chat text" content="#000000"/>
+<meta name="color:blockquote" content="#666666"/>
+<meta name="color:question box" content="#000000"/>
+<meta name="color:question" content="#ffffff"/>
+<meta name="color:music" content="#000000"/>
+<meta name="if:Show Captions" content="0"/>
+<meta name="if:One Column" content="0"/>
+<meta name="text:MP3Link" content="0"/>
+</head>
+        
+<style>
+    body,html {
+        font-family: 'PT Mono', monospace;
+        font-size:12px;
+        background:{color:Background};
+        color:{color:post texts};
+        padding:0px;
+        margin:0px;
+    }
+    
+    a {
+        text-decoration:none;
+        color:{color:post links};
+    }
+    
+    a:hover {
+        text-decoration:line-through;
+    }
+    
+    #header {
+        margin:auto;
+        border-bottom:1px solid {color:header border};
+    }
+    
+    #one {
+        width:80%;
+        margin:auto;
+    }
+    
+    .menu-trigger {
+        background:{color:menu background};
+        padding:10px 10px 5px 10px;
+        width:25px;
+        cursor:pointer;
+    }
+    
+    .line {
+        height:5px;
+        margin-bottom:5px;
+        background:{color:menu links};
+    }
+    
+    #control {
+        float:right;
+        font-size:16px;
+        font-family: 'PT Mono', monospace;
+        margin-top:10px;
+        margin-bottom:70px;
+        margin-top:60px;
+    }
+    
+    #control a {
+        color:{color:control links};
+        display:inline-block;
+        margin-right:10px;
+    }
+    
+    #control:after {
+        content:"";
+        clear:both;
+    }
+    
+    #title {
+        font-size:55px;
+        font-weight:700;
+        height:260px;
+        width:60%;
+        padding-top:160px;
+        text-transform:uppercase;
+        border-right:1px solid {color:header border};
+    }
+    
+    #desc {
+        width:40%;
+        float:right;
+        height:200px;
+        margin-top:-260px;
+        position:relative;
+        color:{color:description};
+    }
+    
+    #desc a {
+        text-decoration:underline;
+    }
+    
+    #content {
+        {block:indexpage}width:80%;{/block:indexpage}
+        {block:PermalinkPage}
+        width:500px;
+        {/block:permalinkpage}
+        {block:ifOneColumn}
+        width:500px;
+        {block:ifOneColumn}
+        margin:30px auto;
+    }
+    
+    #content:after {
+        content:"";
+        clear:both;
+        display:table;
+    }
+    .post {
+        {block:indexpage}float:left;
+        width:46%;
+        margin:1%;{/block:indexpage}
+        {block:PermalinkPage}
+        width:500px;
+        {/block:permalinkpage}
+        overflow:hidden;
+        position:relative;
+        {block:ifOneColumn}
+        width:500px;
+        margin:20px auto;
+        {block:ifOneColumn}
+        
+    }
+    
+    img {
+        max-width:100%;
+    }
+    
+    .caption {
+        padding:15px;
+        background:{color:caption background};
+        border:1px solid {color:caption border};
+    }
+    
+    h2 a, a h2, h2 {
+        text-transform:uppercase;
+        color:{color:post titles};
+        margin-top:0px;
+    }
+    
+    .pinfo {
+        background:rgba(255,255,255,.7);
+        position:absolute;
+        top:0;
+        left:0;
+        height:70%;
+        padding-top:30%;
+        z-index:1;
+        width:100%;
+        opacity:0;
+        -webkit-transition: all 0.6s ease-in-out;
+        -moz-transition: all 0.6s ease-in-out;
+        -o-transition: all 0.6s ease-in-out;
+        transition: all 0.6s ease-in-out;
+    }
+    
+    .post:hover .pinfo, .pinfo:hover .frt, .pinfo:hover .scd, .pinfo:hover .thd {
+        opacity:1;
+        margin-top:0;
+    }
+    
+    .button {
+        padding:10px;
+        width:10px;
+        height:10px;
+        border-radius:100%;
+        background:{color:post buttons background};
+        color:{color:post buttons text};
+        font-size:10px;
+        vertical-align:top;
+    }
+    
+    .button:nth-child(2) {
+        padding:10px;
+        width:18px;
+        height:18px;
+        font-size:18px;
+        margin-top:-4px;
+    }
+    
+    .pinfo .button {
+        width:20px;
+        height:20px;
+        font-size:20px;
+    }
+    
+    .pinfo .button:nth-child(2) {
+        font-size:28px;
+        width:28px;
+        height:28px;
+        margin-top:-6px;
+    }
+    
+    .frt, .scd, .thd {
+        opacity:0;
+        -webkit-transition: all 0.6s ease-in-out;
+        -moz-transition: all 0.6s ease-in-out;
+        -o-transition: all 0.6s ease-in-out;
+        transition: all 0.6s ease-in-out;
+        margin-top:-20px;
+    }
+    
+    .frt {
+        -webkit-transition-delay: 0.6s;
+        transition-delay: 0.6s;
+    }
+    
+    .scd {
+        -webkit-transition-delay: 1.2s;
+        transition-delay: 1.2s;
+    }
+    
+    .thd {
+        -webkit-transition-delay: 1.8s;
+        transition-delay: 1.8s;
+    }
+    
+    .menuall {
+        position:fixed;
+        top:60px;
+        left:10%;
+        z-index:10;
+    }
+    
+    .my-like {
+        cursor:pointer;
+        display:inline-block;
+        vertical-align:top;
+    }
+    
+    .my-liked, .my-like:hover {
+        color: red;
+        cursor:pointer;
+        display:inline-block;
+        vertical-align:top;
+    }
+
+    .menu {
+        padding:10px;
+        background:{color:menu background};
+        margin-top:10px;
+    }
+
+    .menu a {
+        color:{color:menu links};
+        text-transform:uppercase;
+        font-size:10px;
+        display:inline-block;
+        padding:0px 10px 0px 5px;
+        border-right:1px solid {color:menu links border};
+    }
+
+    .menu a:last-child {
+        border:none;
+    }
+
+    {block:IndexPage}
+    #tumblr_controls {
+        display:none!important;
+    }
+    {/block:IndexPage}
+    
+    .chat ul {
+        margin-left:0px;
+        padding-left:0px;
+        list-style:none;
+    }
+    
+    .chat ul li {
+        padding:10px 5px;
+        background:{color:chat background};
+        color:{color:chat text};
+        margin-bottom:2px;
+    }
+    
+    .quote {
+        font-family:georgia;
+        font-style:italic;
+        font-size:18px;
+    }
+    
+    .qsource {
+        text-align:center;
+    }
+    
+    blockquote {
+        padding:5px 10px;
+        margin-left:10px;
+        border-left:1px solid {color:blockquote};
+    }
+    
+    #abox {
+        position:absolute;
+        width:80%;
+        margin:30px auto;
+        height:100px;
+        overflow:hidden;
+    }
+    
+    .mplayer {
+        width:20px;
+        height:20px;
+        border-top:25px solid #ffffff;
+        border-bottom:25px solid #ffffff;
+        border-left:40px solid #ffffff;
+        border-right:40px solid #ffffff;
+        background:#ffffff;
+        float:left;
+        overflow:hidden;
+        margin-right:10px;
+    }
+    
+    .minfo {
+        padding:15px;
+        background:#ffffff;
+        margin-left:10px;
+        height:40px;
+        width:400px;
+    }
+    
+    .ainfo {
+        position:absolute;
+        bottom:100px;
+        width:100%;
+    }
+    
+    .ask-box {
+        background:{color:question box};
+        padding:10px;
+        color:{color:question};
+    }
+    
+    .ask-box a {
+        color:{color:question};
+    }
+    
+    #pagination {
+        display:block;
+        margin:50px auto;
+        width:80%;
+        color:{color:post links};
+    }
+    
+    #pagination h2 {
+        font-size:30px;
+        color:{color:post links};
+    }
+    
+    #pagination a {
+        width:80px;
+        height:20px;
+        color:{color:post links};
+        padding:40px 10px;
+        font-size:20px;
+        border-radius:100%;
+        display:inline-block;
+        border:3px solid #7d7d7d;
+        margin-right:10px;
+        text-transform:uppercase;
+        font-weight:700;
+    }
+
+    #s-m-t-tooltip {
+        padding:5px;
+        background:{color:menu background};
+        color:{color:menu links};
+        font:10px;
+        text-transform:uppercase;
+        text-align:center;
+        z-index:1000;
+        margin:15px;
+        border-radius:3px;
+    }
+    
+    #music {
+        width:25px;
+        height:20px;
+        padding:2.5px 0px;
+        overflow:hidden;
+        z-index:10;
+        right:10px;
+        bottom:10px;
+        position:fixed;
+        background:{color:music};
+    }
+</style>
+<script>
+window.onload = function () {
+document.body.insertAdjacentHTML( 'beforeEnd', '<iframe id="my-like-frame" style="display:none;"></iframe>' );
+document.addEventListener( 'click', function ( event ) {
+    var myLike = event.target;
+    if( myLike.className.indexOf( 'my-like' ) > -1 ) {
+        var frame = document.getElementById( 'my-like-frame' ),
+            liked = ( myLike.className == 'my-liked' ),
+            command = liked ? 'unlike' : 'like',
+            reblog = myLike.getAttribute( 'data-reblog' ),
+            id = myLike.getAttribute( 'data-id' ),
+            oauth = reblog.slice( -8 );
+        frame.src = 'http://www.tumblr.com/' + command + '/' + oauth + '?id=' + id;
+        liked ? myLike.className = 'my-like' : myLike.className = 'my-liked';
+    };
+}, false );
+};
+</script>
+<script>
+    jQuery(document).ready(function() {
+    jQuery(".menu").hide();
+    jQuery(".menu-trigger").click(function()
+    {
+    jQuery(this).next(".menu").slideToggle(0);
+    });
+    });
+</script>
+    <body>
+    
+    {block:ifMP3Link}
+    <div id="music">
+        <object type="application/x-shockwave-flash" data="http://flash-mp3-player.net/medias/player_mp3_mini.swf" width="200" height="20">
+    <param name="movie" value="http://flash-mp3-player.net/medias/player_mp3_mini.swf" />
+    <param name="bgcolor" value="{color:music}" />
+    <param name="FlashVars" value="mp3={text:MP3Link}" />
+</object>
+    </div>
+    {/block:ifMP3Link}
+    <div id="header">
+        <div id="one">
+        
+        <div id="control">
+            <a href="http://tumblr.com/follow/{name}">follow {name}</a>
+            <a href="http://www.tumblr.com/send/{name}?redirect_to=http%3A%2F%2F{name}.tumblr.com%2F">send a fanmail</a>
+            <a href="http://tumblr.com/">dashboard</a>
+        </div>
+        <div class="menuall">
+        <div class="menu-trigger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div class="menu">
+            <a href="/">index</a>
+            <a href="/ask">message</a>
+            <a href="/archive">archive</a>
+            {block:ifLink1}<a href="{text:Link1URL}">{text:Link1}</a>{block:ifLink1}
+            <meta name="text:Link1URL" content=""/>
+            <meta name="text:Link1" content=""/>
+            {block:ifLink2}<a href="{text:Link2URL}">{text:Link2}</a>{block:ifLink2}
+            <meta name="text:Link2URL" content=""/>
+            <meta name="text:Link2" content=""/>
+            {block:ifLink3}<a href="{text:Link3URL}">{text:Link3}</a>{block:ifLink3}
+            <meta name="text:Link3URL" content=""/>
+            <meta name="text:Link3" content=""/>
+            {block:ifLink4}<a href="{text:Link4URL}">{text:Link4}</a>{block:ifLink4}
+            <meta name="text:Link4URL" content=""/>
+            <meta name="text:Link4" content=""/>
+            <a href="http://41days.org">theme</a>
+        </div>
+        </div>
+        
+        
+        <div id="title">
+            <div style="width:150%">{title}</div>
+        </div>
+        
+        
+        <div id="desc">
+            <div style="width:120%;position:absolute;bottom:0;left:-20%">{Description}</div>
+        </div>
+        </div>
+        
+    </div>
+    <div id="content">
+    {block:posts}
+            <!-- {block:NoRebloggedFrom}
+{block:RebloggedFrom}{ReblogParentName}{/block:RebloggedFrom}
+{/block:NoRebloggedFrom} -->
+
+{block:ContentSource}<!-- {SourceURL}
+{block:SourceLogo}<img src="{BlackLogoURL}"width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />{/block:SourceLogo}
+{block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+{/block:ContentSource}
+            <div class="post">
+			<!-- text post -->
+            {block:Text}
+			<div class="caption">
+				{block:Title}
+					<a href="{Permalink}">
+					  <h2>{Title}</h2>
+					</a>
+					<div class="bar"></div>
+				{/block:Title}
+				{Body}
+				{block:IndexPage}
+				<br><br>
+    			<center>
+    			    <a class="button fa fa-heart my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like"></a>
+    			    <a class="button fa fa-file-text" href="{Permalink}" title="Permalink"></a>
+    			    <a class="button fa fa-retweet" href="{ReblogURL}" title="Reblog"></a>
+    			</center>
+    			
+				{/block:IndexPage}
+			</div>
+			{/block:Text}
+			
+			<!-- quote post -->
+			{block:Quote}
+			<div class="caption">
+				<div class="quote">
+				  {Quote}
+				</div>
+				<div class="qsource">— {Source}</div>
+				{block:IndexPage}
+				<br><br>
+    			<center>
+    			    <a class="button fa fa-heart my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like"></a>
+    			    <a class="button fa fa-quote-right" href="{Permalink}" title="Permalink"></a>
+    			    <a class="button fa fa-retweet" href="{ReblogURL}" title="Reblog"></a>
+    			</center>
+    			
+				{/block:IndexPage}
+			</div>
+			{/block:Quote}
+    
+             <!-- link post -->
+			{block:Link}
+			<div class="caption">
+				<a href="{URL}">
+				  <h2>{Name} »</h2>
+				</a>
+					<div class="bar"></div>
+				{block:Description}{Description}{/block:Description}
+				{block:IndexPage}
+				<br><br>
+    			<center>
+    			    <a class="button fa fa-heart my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like"></a>
+    			    <a class="button fa fa-link" href="{Permalink}" title="Permalink"></a>
+    			    <a class="button fa fa-retweet" href="{ReblogURL}" title="Reblog"></a>
+    			</center>
+    			
+				{/block:IndexPage}
+			</div>
+			{/block:Link}
+			
+			<!-- photo post -->
+			{block:Photo}
+			{block:IndexPage}
+			<div class="pinfo">
+    			<center>
+    			    <a class="button fa fa-heart frt my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like"></a>
+    			    <a class="button fa fa-camera-retro scd" href="{Permalink}" title="Permalink"></a>
+    			    <a class="button fa fa-retweet thd" href="{ReblogURL}" title="Reblog"></a>
+    			</center>
+			</div>
+			{/block:IndexPage}
+				<center>
+				  <img src="{PhotoURL-HighRes}"/>
+				</center>
+				{block:permalinkpage}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:permalinkpage}
+				{block:IndexPage}{block:ifShowCaptions}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:ifShowCaptions}
+				{/block:IndexPage}
+			{/block:Photo}
+    
+            <!-- photoset post -->
+			{block:Photoset}
+			{block:IndexPage}
+			<div class="pinfo">
+    			<center>
+    			    <a class="button fa fa-heart frt my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like"></a>
+    			    <a class="button fa fa-camera-retro scd" href="{Permalink}" title="Permalink"></a>
+    			    <a class="button fa fa-retweet thd" href="{ReblogURL}" title="Reblog"></a>
+    			</center>
+			</div>
+			{/block:IndexPage}
+				<center>
+				  {Photoset}
+				</center>
+				{block:permalinkpage}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:permalinkpage}
+				{block:IndexPage}{block:ifShowCaptions}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:ifShowCaptions}
+				{/block:IndexPage}
+			{/block:Photoset}
+			
+			<!-- chat post -->
+			{block:Chat}
+				<div class="chat caption">
+				  <ul>
+					{block:Lines}
+					<li>
+					   {block:Label}<b>{Label}</b>{/block:Label}
+					  {Line}
+					</li>
+					{/block:Lines}
+				  </ul>
+				{block:IndexPage}
+				<br><br>
+    			<center>
+    			    <a class="button fa fa-heart my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like"></a>
+    			    <a class="button fa fa-weixin" href="{Permalink}" title="Permalink"></a>
+    			    <a class="button fa fa-retweet" href="{ReblogURL}" title="Reblog"></a>
+    			</center>
+    			
+				{/block:IndexPage}
+				</div>
+			{/block:Chat}
+			
+            <!-- video post -->
+			{block:Video}
+				{block:permalinkpage}{Video-500}
+				{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:permalinkpage}
+				{block:IndexPage}
+				<div class="caption">
+    			<center>
+    			    <a class="button fa fa-heart my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like"></a>
+    			    <a class="button fa fa-video-camera" href="{Permalink}" title="Permalink"></a>
+    			    <a class="button fa fa-retweet" href="{ReblogURL}" title="Reblog"></a>
+    			</div>
+    			</center>
+    			
+				{/block:IndexPage}
+			{/block:Video}
+			
+			<!-- audio post -->
+			{block:Audio}
+			    <div id="abox">
+			        {block:AudioPlayer}
+			            <div class="mplayer">{AudioPlayer}</div>
+			        {/block:AudioPlayer}
+			        <div class="minfo">
+			            {block:TrackName}
+                            <b>{TrackName}</b><br>
+                        {/block:TrackName}
+                        {block:Artist}
+                        {Artist}<br>
+                        {/block:Artist}{block:Album}
+                        <i>{Album}</i>
+                        {/block:Album}
+			        </div>
+			    </div>
+				{block:AlbumArt}
+                    <center><img src="{AlbumArtURL}"></center>
+                {/block:AlbumArt}
+				{block:permalinkpage}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:permalinkpage}
+				{block:IndexPage}
+				<br><br>
+    			<div class="ainfo">
+    			<center>
+    			    <a class="button fa fa-heart my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like"></a>
+    			    <a class="button fa fa-music" href="{Permalink}" title="Permalink"></a>
+    			    <a class="button fa fa-retweet" href="{ReblogURL}" title="Reblog"></a>
+    			</center>
+    			</div>
+				{/block:IndexPage}
+			{/block:Audio}
+			
+			<!-- ask post -->
+			{block:Answer}
+			   <div class="ask-box">
+			     <b style="text-transform:uppercase;font-size:18px">{Asker} asked:</b>
+                	{Question}
+                </div> 
+                
+			<div class="caption">{Answer}</div>
+				{block:IndexPage}
+				<br><br>
+    			<center>
+    			    <a class="button fa fa-heart my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like"></a>
+    			    <a class="button fa fa-question" href="{Permalink}" title="Permalink"></a>
+    			    <a class="button fa fa-retweet" href="{ReblogURL}" title="Reblog"></a>
+    			</center>
+    			
+				{/block:IndexPage}
+            {/block:Answer}
+            
+            {block:PermalinkPage}
+            <br><br>
+            <div class="caption">
+                {block:Date}<div class="pinfos"><b>Posted On:</b> {DayOfWeek}, {Month} {DayOfMonthWithZero}{DayOfMonthSuffix} {Year}</div>{/block:Date}
+            {block:NoteCount}
+                <div class="pinfos"><b>Note Count:</b> {NoteCountWithLabel}</div>
+                {/block:NoteCount}
+                {block:RebloggedFrom}
+                    <div class="pinfos"><b>Source:</b> <a href="{ReblogRootURL}">{ReblogRootName}</a></div>
+                    <div class="pinfos"><b>Via:</b> <a href="{ReblogParentURL}">{ReblogParentName}</a></div>
+                {/block:RebloggedFrom}
+            {block:HasTags}<div class="pinfos"><b>Label:</b> {block:Tags}<a href="{TagURL}" class="fa fa-tag"> <span>{Tag}</span></a> {/block:Tags}</div>{/block:HasTags}
+            </div>
+            {/block:PermalinkPage}
+            {block:PostNotes}
+        <div id="notes">
+            {PostNotes}
+        </div>
+    {/block:PostNotes}
+        </div>
+    {/block:posts}
+    
+    </div>
+    <div id="pagination">
+    <center><h2>
+    <meta name="text:quote" content="Our small memories inside the raindrops that hit the window;<br>They overlap and overlap and become a stream of tears from my eyes"/>
+    {text:quote}
+</h2>
+    {block:pagination}
+        {block:PreviousPage}
+        <a href="{PreviousPage}">
+          <span>Prev</span>
+        </a>
+        {/block:PreviousPage}
+        {block:NextPage}
+        <a href="{NextPage}">
+         <span>Next</span>
+        </a>
+        {/block:NextPage}
+    {/block:pagination}
+    </div>
+</center>
+    </div>
+    
+    <center><a href="#">back to top?</a></center>
+    <br><br><br><br>
+    </body>
+</html>
