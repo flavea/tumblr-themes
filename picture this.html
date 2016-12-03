@@ -1,0 +1,632 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title>{Title}{block:PostTitle} - {PostTitle}{/block:PostTitle}</title>
+  <link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'> 
+  <link rel="shortcut icon" href="{Favicon}">
+    <meta name="color:Background" content="#f4f4f4" />
+        <meta name="color:Text" content="#333333" />
+        <meta name="color:Blockquote" content="#333333" />
+        <meta name="color:Links" content="#ff007d" />
+        <meta name="color:Links Hover" content="#ffffff" />
+        <meta name="color:Blog Info" content="#ff007d" />
+        <meta name="color:Icon Border" content="#ffffff" />
+        <meta name="color:Description BG" content="#ff5bab" />
+        <meta name="color:Posts" content="#f4f4f4" />
+        <meta name="color:Blog Title" content="#ff5bab" />
+        <meta name="color:Menu Icons" content="#ffffff" />
+        <meta name="color:Post Title" content="#ffffff" />
+        <meta name="color:Description" content="#ffffff" />
+        <meta name="color:Post Info" content="#ffffff" />
+        <meta name="color:Menu Icons Border" content="#ff007d" />
+        <meta name="color:Post Title BG" content="#ffa8d3" />
+        <meta name="color:Post Info BG" content="#ffa8d3" />
+        <meta name="color:Quote BG" content="#ffffff" />
+        <meta name="color:Quote" content="#333333" />
+        <meta name="color:Quote Source" content="#ffffff" />
+        <meta name="color:Quote Source BG" content="#ffa8d3" />
+        <meta name="color:Quote Source Border" content="#ffa8d3" />
+        <meta name="color:Blockquote Border" content="#ffa8d3" />
+        <meta name="color:Chat 1 BG" content="#ffa8d3" />
+        <meta name="color:Blockquote BG" content="#ffffff" />
+        <meta name="color:Chat 1" content="#ffffff" />
+        <meta name="color:Chat 2 BG" content="#ffffff" />
+        <meta name="color:Chat 2" content="#333333" />
+        <meta name="color:Audio BG" content="#ffa8d3" />
+        <meta name="color:Audio Text" content="#ffa8d3" />
+        <meta name="color:Scrollbar" content="#ff007d" />
+
+        <meta name="image:Background" content="http://25.media.tumblr.com/tumblr_lzju29VxIR1r9g6hvo2_100.png" />
+        <meta name="image:Content" content="http://i.imgur.com/QNEv9q3.png" />
+        <meta name="image:Home" content="http://i.imgur.com/Cx47og2.png" />
+        <meta name="image:Ask" content="http://i.imgur.com/KFXNBYu.png" />
+        <meta name="image:Archive" content="http://i.imgur.com/dVOHLuf.png" />
+        <meta name="image:Music" content="http://i.imgur.com/SwZnw7E.png" />
+        <meta name="image:Additional Links" content="http://i.imgur.com/R1znZCx.png" />
+
+        <meta name="if:Fading Images" content="1" />
+        <meta name="if:Music Player" content="1" />
+        <meta name="if:Show Caption" content="1" />
+
+        <meta name="text:Link1" content="" />
+        <meta name="text:Link1URL" content=""/>
+        <meta name="text:Link2" content="" />
+        <meta name="text:Link2URL" content=""/>
+        <meta name="text:Link3" content="" />
+        <meta name="text:Link3URL" content=""/>
+        <meta name="text:Link4" content="" />
+        <meta name="text:Link4URL" content="" />
+        <meta name="text:Link5" content="" />
+        <meta name="text:Link5URL" content="" />
+        <meta name="text:Music" content="" />
+ </head>
+ <style>
+body {
+background:url({image:background}) #f4f4f4 fixed;
+color:#333;
+font-family:calibri;
+font-size:13px;
+}
+
+a {
+color:{color:links};
+text-decoration:none;
+-webkit-transition:all 1s ease-in-out;
+-moz-transition:all 1s ease-in-out;
+-o-transition:all 1s ease-in-out;
+-ms-transition:all 1s ease-in-out;
+transition:all 1s ease-in-out;
+}
+
+a:hover {
+color:{color:links hover};
+text-decoration:underline;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+        background-color: {color:scrollbar};
+        width: auto;
+        height: 5px;
+}
+ 
+::-webkit-scrollbar-thumb:vertical {
+        background-color: {color:scrollbar};
+        height: auto;
+        width: 5px;
+        margin-left: 10px;
+}
+ 
+::-webkit-scrollbar {
+        height: 5px;
+        width: 5px;
+        background-color: {color:background};
+}
+
+#content {
+top:125px;
+right:150px;
+text-align:justify;
+width:915px;
+height:468px;
+display:block;
+background:url({image:content});
+margin-left:100px;
+padding:20px 30px 20px 20px;
+}
+
+#post {
+width:715px;
+height:455px;
+display:block;
+overflow:auto;
+float:right;
+padding:5px 15px 5px 5px;
+}
+
+#description {
+float:left;
+width:150px;
+height:455px;
+color:#fff;
+display:block;
+margin-left:10px;
+overflow:auto;
+background:{color:blog info};
+}
+
+#iconed {
+margin-top:50%;
+text-align:center;
+margin-bottom:10px;
+}
+
+#iconed img {
+border:10px solid {color:icon border};
+width:100px;
+}
+
+.desc {
+background:{color:description bg};
+color:{color:description};
+border-radius:10px;
+max-height:150px;
+font-size:10px;
+overflow:auto;
+padding:10px;
+}
+
+.post {
+{block:IndexPage}width:310px;{/block:IndexPage} 
+{block:PermalinkPage}width:560px;{/block:PermalinkPage} 
+float:left;
+margin-left:30px;
+margin-bottom:15px;
+border-radius:10px;
+word-break:break-word;
+}
+
+{block:IfFadingImages}.post .photo {
+opacity:.7;
+-webkit-transition:all 1s ease-in-out;
+-moz-transition:all 1s ease-in-out;
+-o-transition:all 1s ease-in-out;
+-ms-transition:all 1s ease-in-out;
+transition:all 1s ease-in-out;
+}
+
+.post .photo:hover {
+opacity:1;
+}{/block:IfFadingImages}
+
+.posted {
+background:{color:posts};
+padding:30px;
+}
+
+#title {
+font-family:'Gloria Hallelujah', cursive;
+font-size:50px;
+width:950px;
+text-align:center;
+color:{color:blog title};
+height:100px;
+display:block;
+margin-left:100px;
+}
+
+#link {
+position:fixed;
+left:25px;
+top:170px;
+}
+
+.link {
+display:block;
+width:35px;
+margin-bottom:10px;
+background:{color:Menu Icons};
+border:5px solid {color:Menu Icons Border};
+border-radius:50%;
+padding:10px;
+}
+
+#dua a {
+width:100px;
+display:block;
+background:{color:Menu Icons};
+color:{color:Menu Icons Border};
+text-align:center;
+padding:5px;
+}
+
+#pagination {
+text-align:center;
+color:{color:description};
+font-family:'Gloria Hallelujah', cursive;
+}
+
+#pagination a {
+color:{color:description};
+font-family:'Gloria Hallelujah', cursive;
+font-size:20px;
+text-decoration:none;
+}
+
+.title {
+text-align:center;
+font-family:'Gloria Hallelujah', cursive;
+font-size:25px;
+background:{color:Post Title BG};
+line-height:18px;
+{block:IndexPage}width:290px;{/block:IndexPage} 
+{block:PermalinkPage}width:540px;{/block:PermalinkPage} 
+color:{color:Post Title};
+border-radius:10px 10px 0 0;
+padding:10px;
+}
+
+.info {
+background:{color:Post Info BG};
+line-height:18px;
+{block:IndexPage}width:300px;{/block:IndexPage} 
+{block:PermalinkPage}width:550px;{/block:PermalinkPage} 
+color:{color:Post Info};
+text-transform:uppercase;
+font-weight:700;
+text-align:center;
+border-radius:0 0 10px 10px;
+padding:5px;
+}
+
+.info a:hover {
+text-decoration:none;
+}
+
+h4,.ask {
+font-size:20px;
+text-align:center;
+background:{color:Quote BG};
+text-transform:uppercase;
+font-style:italic;
+color:{color:Quote};
+margin-top:-5px;
+padding:10px;
+}
+
+h4:first-letter {
+font-size:30px;
+color:{color:Blockquote Border};
+margin-right:-10px;
+}
+
+.ask {
+font-size:12px;
+text-transform:none;
+}
+
+.name {
+background:{color:Quote Source BG};
+color:{color:Quote Source};
+text-transform:uppercase;
+{block:IndexPage}width:240px;{/block:IndexPage} 
+{block:PermalinkPage}width:490px;{/block:PermalinkPage} 
+padding:5px;
+}
+
+blockquote,pre {
+background:{color:Blockquote BG};
+border-left:5px solid {color:Blockquote Border};
+border-top:1px dashed {color:Blockquote Border};
+border-right:1px dashed {color:Blockquote Border};
+border-bottom:1px dashed {color:Blockquote Border};
+color:{color:Blockquote}
+padding:5px;
+}
+
+pre {
+word-break:break-word;
+width:96%;
+}
+
+blockquote:first-letter {
+color:{color:Blockquote Border};
+font-size:30px;
+margin-right:2px;
+font-style:italic;
+}
+
+blockquote img {
+max-width:95%;
+}
+
+.chat ul {
+list-style:none;
+margin:0;
+padding:0;
+}
+
+.chat .odd {
+background:{color:chat 1 BG};
+color:{color:chat 1};
+padding:5px;
+}
+
+.chat .even {
+background:{color:chat 2 BG};
+color:{color:chat 2};
+padding:5px;
+}
+
+.audio {
+color:{color:Audio Text};
+text-align:center;
+text-transform:uppercase;
+padding:5px;
+}
+
+.audio h2 {
+font-size:20px;
+}
+
+.post td {
+background:{color:Audio BG};
+}
+
+#albumart {
+width:100px;
+background:{color:Audio BG};
+padding:5px;
+}
+
+#audioplayer {
+{block:IndexPage}width:150px;{/block:IndexPage} 
+{block:PermalinkPage}width:400px;{/block:PermalinkPage} 
+display:block;
+width:25px;
+height:25px;
+overflow:hidden;
+position:absolute;
+background:#fff;
+margin-top:5px;
+margin-left:5px;
+opacity:0;
+-webkit-transition:all 1s ease-in-out;
+-moz-transition:all 1s ease-in-out;
+-o-transition:all 1s ease-in-out;
+-ms-transition:all 1s ease-in-out;
+transition:all 1s ease-in-out;
+padding:37.5px 65px 37.5px 10px;
+}
+
+.post:hover #audioplayer {
+opacity:.7;
+}
+
+#credit {
+position:fixed;
+right:60px;
+bottom:20px;
+width:10px;
+height:20px;
+display:block;
+color:{color:Links};
+font-size:20px;
+font-family:'Gloria Hallelujah', cursive;
+}
+
+.hidden {
+display:none;
+}
+
+.info a {
+color:{color:Post Info};
+}
+
+.desc a {
+color:{color:Description};
+}
+
+.name a {
+color:{color:Quote Source};
+}
+
+#satu,#dua {
+background:{color:Menu Icons Border};
+text-transform:uppercase;
+border-radius:20px;
+padding:15px;
+}
+
+#albumart img,.unhidden {
+display:block;
+}
+
+#music {
+background:#fff;
+}
+
+</style>
+<script type="text/javascript" src="http://static.tumblr.com/d0qlne1/DiAl6ekb7/jquery-1.4.2.min.js"></script>
+<script src="http://static.tumblr.com/twte3d7/H8Glm663z/masonry.js"></script>
+<script type="text/javascript">
+$(window).load(function () {
+$('#post').masonry({
+itemSelector : ".post",
+},
+function() { $('#content').masonry({ appendedContent: $(this) }); }
+);
+});
+</script>
+<script type="text/javascript">
+ function unhide(divID) {
+ var item = document.getElementById(divID);
+ if (item) {
+ item.className=(item.className=='hidden')?'unhidden':'hidden';
+ }
+ }
+</script>
+
+ <body>
+
+<a href="http://hellolittlered.org"><div id="credit">theme</div></a>
+
+<div id="link">
+  <a href="/"><div class="link"><img src="{image:home}"></div></a>
+  <a href="/ask"> <div class="link"><img src="{image:ask}"></div></a>
+  <a href="/archive"><div class="link"><img src="{image:archive}"></div></a>
+  {block:ifMusicPlayer}<table>
+    <tr>
+      <td><a href="javascript:unhide('satu');">
+          <div class="link"><img src="{image:Music}"></div>
+        </a>
+      </td>
+      <td>
+        <div id="satu" class="hidden">
+          <div id="music">{text:Music}</div>
+        </div>
+      </td>
+    </tr>
+  </table>{/block:ifMusicPlayer}
+  <table>
+    <tr>
+      <td valign="top">
+        <a href="javascript:unhide('dua');">
+          <div class="link"><img src="{image:Additional Links}"></div>
+        </a>
+      </td>
+      <td>
+        <div id="dua" class="hidden">
+                        {block:iflink1}<a href="{text:Link1URL}">{text:Link1}</a>{/block:iflink1}
+                        {block:iflink2}<a href="{text:Link2URL}">{text:Link2}</a>{/block:iflink2}
+                        {block:iflink3}<a href="{text:Link3URL}">{text:Link3}</a>{/block:iflink3}
+                        {block:iflink4}<a href="{text:Link4URL}">{text:Link4}</a>{/block:iflink4}
+                        {block:iflink4}<a href="{text:Link5URL}">{text:Link5}</a>{/block:iflink4}
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div id="title">{title} ♥</div>
+
+<div id="content">
+  <div id="description">
+    <div id="iconed">
+      <img src="{PortraitURL-128}" width="100px">
+    </div>
+    {block:description}<div class="desc">{description}
+    </div>{/block:description}
+    {block:Pagination}
+    <div id="pagination">
+      {block:PreviousPage}<a href="{PreviousPage}"><<</a>{/block:PreviousPage} 
+          {CurrentPage}/{TotalPages} 
+          {block:NextPage}<a href="{NextPage}">>></a>{/block:NextPage} 
+    </div>
+    {/block:Pagination}
+      </div>
+      
+      <div id="post">
+        {block:posts}
+        <div class="post">
+          
+          <!-- Text -->
+          {block:Text}
+          {block:Title}<div class="title">{Title}</div>{/block:Title}
+          <div class="posted">{Body}</div>
+          {/block:Text}
+          
+          <!-- Photo -->
+          {block:Photo}
+          {LinkOpenTag}
+          <div class="posted">
+            <div class="photo">
+              {block:IndexPage}<img src="{PhotoURL-250}" alt="{PhotoAlt}">{/block:IndexPage}
+              {block:PermalinkPage}<img src="{PhotoURL-500}" alt="{PhotoAlt}">{/block:PermalinkPage}
+            </div>
+            {LinkCloseTag}
+            {block:IndexPage}{block:ifShowCaption}{block:Caption}{Caption}{/block:Caption}{/block:ifShowCaption}{/block:IndexPage}
+                        {block:PermalinkPage}{block:Caption}{Caption}{/block:Caption}{/block:PermalinkPage}
+          </div>
+          {/block:Photo}
+          
+          <!-- Photoset -->
+          {block:Photoset}
+          <div class="posted">
+            <div class="photo">
+              {block:IndexPage}{Photoset-250}{/block:IndexPage}
+                          {block:PermalinkPage}{Photoset-500}{/block:PermalinkPage}
+            </div>
+            {block:IndexPage}{block:ifShowCaption}{block:Caption}{Caption}{/block:Caption}{/block:ifShowCaption}{/block:IndexPage}
+                        {block:PermalinkPage}{block:Caption}{Caption}{/block:Caption}{/block:PermalinkPage}
+          </div>
+          {/block:Photoset}
+          
+          <!-- Quote -->
+          {block:Quote}
+          <div class="posted">
+            <h4>❝{Quote}</h4>
+            <center>{block:Source}<div class="name" style="margin-top:-30px">{Source}</div>{/block:Source}</center>
+          </div>
+          {/block:Quote}
+          
+          <!-- Link -->
+          {block:Link}
+          <a href="{URL}" target="_blank"><div class="title">{Name} →</div> </a>
+          <div class="posted">
+            {block:Description}{Description}{/block:Description}
+          </div>
+          {/block:Link}
+          
+          <!-- Chat -->
+          {block:Chat}
+          {block:Title}<div class="title">{Title}</div>{/block:Title}
+          <div class="posted">
+            <div class="chat">
+              <ul>
+                {block:Lines}
+                <li class="{Alt}">
+                  {block:Label}<b>{Label}</b> {/block:Label}{Line}
+                </li>
+                {/block:Lines}
+              </ul>
+            </div>
+          </div>
+          {/block:Chat}
+          
+          <!-- Audio -->
+          {block:Audio}
+          <div class="posted">
+            <table>
+              <tr>
+                <td>
+                  <div id="audioplayer">{AudioPlayerWhite}</div>
+                  <div id="albumart">{block:AlbumArt}<img src="{AlbumArtURL}" width="100">{/block:AlbumArt}</div>
+                </td>
+                <td>
+                  <div class="audio">
+                    <h2>{block:TrackName}{TrackName}{/block:TrackName}</h2>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            {block:IndexPage}{block:ifShowCaption}{block:Caption}{Caption}{/block:Caption}{/block:ifShowCaption}{/block:IndexPage}
+                        {block:PermalinkPage}{block:Caption}{Caption}{/block:Caption}{/block:PermalinkPage}
+          </div>
+          {/block:Audio}
+          
+          <!-- Video -->
+          {block:Video}
+          <div class="posted">
+            <div class="photo">
+              {block:IndexPage}{Video-250}{/block:IndexPage}
+                          {block:PermalinkPage}{Video-500}{/block:PermalinkPage}
+            </div>
+            {block:IndexPage}{block:ifShowCaption}{block:Caption}{Caption}{/block:Caption}{/block:ifShowCaption}{/block:IndexPage}
+                        {block:PermalinkPage}{block:Caption}{Caption}{/block:Caption}{/block:PermalinkPage}
+          </div>
+          {/block:Video}
+          
+          <!-- Message -->
+          {block:Answer}
+          <div class="posted">
+            <div class="ask">{Question}</div>
+            <div class="name">asked {Asker}</div>
+            {Answer}
+          </div>
+          {/block:Answer}
+          
+          <div class="info">
+            <a href="{Permalink}">
+              {block:Date}posted on {Month} {DayOfMonthWithZero}{DayOfMonthSuffix}{/block:Date} {block:NoteCount}with {NoteCountWithLabel}{/block:NoteCount}</a>
+                          {block:PermalinkPage}{block:HasTags}<br>{block:Tags}<a href="{TagURL}">{Tag}</a>{/block:Tags}{/block:HasTags}{/block:permalinkpage}
+          </div>
+                  {block:PostNotes}{PostNotes}{/block:PostNotes}
+        </div>
+        
+        {/block:posts}
+        
+      </div>
+    </div>
+ </body>
+</html>
