@@ -1,0 +1,663 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{title}</title>
+        <link rel="shortcut icon" href="{Favicon}" TYPE="IMAGE/GIF"/>
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script src="http://static.tumblr.com/ikeq9mi/DfYl6o46t/scrolltotop.min.js"></script>
+<script src="http://static.tumblr.com/iuw14ew/VSQma1786/jquery.style-my-tooltips.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<script>
+(function($){
+$(document).ready(function(){
+$("a[title]").style_my_tooltips({
+tip_follows_cursor:true,
+tip_delay_time:0,
+tip_fade_speed:0,
+attribute:"title"
+});
+});
+})(jQuery);
+</script>
+<script type="text/javascript"
+src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+<meta name="image:Top Background" content="http://37.media.tumblr.com/df649b19489b2954788d8856188cdd18/tumblr_movcawwYsM1ru3nbdo1_250.png"/>
+<meta name="color:Top Background" content="#ffffff"/>
+<meta name="image:Bottom Background" content="http://41.media.tumblr.com/50d5e044b6df104c58b014a281f2092f/tumblr_noxf4sgyN21ru3nbdo3_r1_250.png"/>
+<meta name="color:Bottom Background" content="#ffffff"/>
+<meta name="color:Container" content="#ffffff"/>
+<meta name="color:Scroller" content="#b5e1f7"/>
+<meta name="color:Text" content="#333333"/>
+<meta name="color:Links" content="#b1e0f7"/>
+<meta name="color:Container Border" content="#e0f2fc"/>
+<meta name="image:Sidebar" content="http://i.imgur.com/19xFnSp.png"/>
+<meta name="color:Sidebar" content="#e0f2fc"/>
+<meta name="color:Top Background" content="#e0f2fc"/>
+<meta name="color:Menu Background" content="#ffffff"/>
+<meta name="color:Menu Links" content="#b1e0f7"/>
+<meta name="color:Menu Links Hover" content="#ecf7fd"/>
+<meta name="color:Bottom Background Border" content="#e0f2fc"/>
+<meta name="color:Posts Border" content="#e0f2fc"/>
+<meta name="color:Posts Background" content="#ffffff"/>
+<meta name="color:Date and Reblog Background" content="#b5e1f7"/>
+<meta name="color:Date and Reblog" content="#ffffff"/>
+<meta name="color:Notes" content="#ffffff"/>
+<meta name="color:Notes Background" content="#e0f2fc"/>
+<meta name="color:Posts Titles" content="#b5e1f7"/>
+<meta name="color:Blockquote" content="#b5e1f7"/>
+<meta name="color:Pagination" content="#ffffff"/>
+<meta name="color:Blog Description" content="#666666"/>
+<meta name="color:Custom Tumblr Control Background" content="#ffffff"/>
+<meta name="color:Custom Tumblr Control" content="#b5e1f7"/>
+<meta name="if:CustomTumblrControl" content="1"/>
+
+    </head>
+    <style>
+    ::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track-piece { background-color: {color:Container}; }
+::-webkit-scrollbar-thumb:vertical {
+    width: 2px;
+    background-color: {color:Scroller};
+}
+
+
+    body {
+	background:url({image:Top Background}) {color:Top Background};
+	color:{color:Text};
+	font-family:Inconsolata;
+	font-size:12px;
+}
+
+a {
+	text-decoration:none;
+	color:{color:Links};
+	transition: all 0.5s ease;
+}
+
+a:hover {
+    color:{color:Text};
+}
+
+#container {
+	position:fixed;
+	top:4%;
+	left:50%;
+	margin-left:-450px;
+	width:900px;
+	height:90%;
+	border-top:3px solid {color:Container Border};
+	border-bottom:3px solid {color:Container Border};
+	border-left:1px solid {color:Container Border};
+	border-right:1px solid {color:Container Border};
+	background:{color:Container};
+	overflow:hidden;
+	z-index:10;
+}
+
+#sidebar {
+	float:right;
+	width:300px;
+	height:100%;
+	display:block;
+	background:url({image:Sidebar}) center no-repeat {color:Sidebar};
+}
+
+#menu {
+	position:absolute;
+	top:0;
+	left:0;
+	width:50px;
+	height:100%;
+	border-right:1px solid {color:Container Border};
+	font-size:12px;
+	text-transform:uppercase;
+	text-align:center;
+	z-index:50;
+	background:{color:Menu Background};
+	transition: all 0.5s ease;
+}
+
+#menu a {
+	display:block;
+	text-align:center;
+	word-break:break-all;
+	padding:5px 0px;
+	color:{color:Menu Links};
+	border-bottom:1px solid {color:Container Border};
+	transition: all 0.5s ease;
+}
+
+#menu a:hover {
+    background:{color:Menu Links Hover};
+}
+#menu a span {
+    display:none;
+}
+
+#menu:hover a span {
+    display:inline;
+}
+
+#bottom {
+	background:url({image:Bottom Background}) {color:Bottom Background};
+	width:100%;
+	height:50%;
+	position:fixed;
+	z-index:0;
+	left:0;
+	border-top:10px solid {color:Bottom Background Border};
+	bottom:0;
+}
+
+.icon {
+	width:30px;
+	border-radius:5px;
+	margin:20px auto 10px auto;
+}
+
+#menu:hover {
+	width:200px;
+}
+
+#posts {
+    position:absolute;
+    left:50px;
+    height:100%;
+    overflow-y:scroll;
+    padding:49px 49px 100px 49px;
+    width:452px;
+    z-index:1;
+}
+.post {
+	width:450px;
+	float:left;
+	border:1px solid {color:Posts Border};
+	margin-bottom:40px;
+	display:inline-block;
+	vertical-align:top;
+	font-family:Inconsolata;
+	background:{color:Posts Background};
+}
+
+.pnav {
+	border-bottom:1px solid {color:Posts Border};
+	background:{color:Date and Reblog Background};
+	font-family: 'Hammersmith One', sans-serif;
+	text-transform:uppercase;
+}
+
+.pnav a span, #menu a span {
+    font-family:Inconsolata;
+}
+
+.pnav a {
+	display:inline-block;
+	padding:5px;
+	width:130px;
+	margin-left:0px;
+	background:{color:Date and Reblog Background};
+	color:{color:Date and Reblog};
+}
+
+.pnav span {
+    font-family: 'Hammersmith One', sans-serif;
+}
+
+
+.pnav a:last-child {
+	border:none;
+}
+
+.pnav a:nth-child(even) {
+	color:{color:Notes};
+	background:{color:Notes Background};
+}
+
+.ptags {
+	padding:5px;
+	border-top:1px solid {color:Posts Border};
+	margin-top:20px;
+}
+
+.ptags b {
+	background:{color:Date and Reblog Background};
+	color:{color:Date and Reblog};
+	padding:3px 5px; 
+}
+
+.ptags span, .askerd span {
+    font-family: 'Source Code Pro', monospace;
+}
+
+h2 {
+	color:{color:Posts Titles};
+	border:1px solid {color:Posts Titles};
+	border-left:50px solid {color:Posts Titles};
+	padding:10px;
+	font-family: 'Hammersmith One', sans-serif;text-transform:uppercase;
+	font-size:26px;
+	margin-top:0;
+}
+
+blockquote {
+	border-left:1px solid {color:Blockquote};
+	padding-left:10px;
+	margin-right:0px;
+	margin-left:10px;
+}
+
+.quote {
+	font-family:"Times New Roman", Times, serif;
+	font-size:20px;
+	font-style:italic;
+	color:#7d7d7d;
+	padding:30px;
+	text-align:center;
+	width:70%;
+	margin:auto;
+}
+.musicplayer {
+	margin-top:20px;
+	width:410px;
+	border-bottom:1px solid {color:Posts Border};
+	padding:20px;
+	clear:both;
+	display:table;
+}
+
+.player {
+	width:20px;
+	height:20px;
+	overflow:hidden;
+	padding:40px;
+	border-right:1px solid {color:Posts Border};
+	float:left;
+}
+
+.musicplayer ul {
+	list-style:none;
+	margin-left:80px;
+	margin-top:0px;
+}
+
+.musicplayer ul li {
+	padding:5px;
+	border-bottom:1px solid {color:Posts Border};
+}
+
+.musicplayer ul li:last-child {
+	border:none;
+}
+.source {
+    font-size:10px;
+    text-align:center;
+    text-transform:uppercase;
+}
+
+.source:before {
+    content:"- ";
+}
+
+#notes {
+    width:450px;
+    margin-top:30px;
+    display:block;
+}
+
+#notes img {
+    width:15px;
+    height:15px;
+    border-radius:100%;
+    margin-right:10px;
+}
+
+.chat ul, #notes ul, #notes ol {
+    margin-left:0px;
+    list-style:none;
+    padding-left:0px
+}
+
+.chat b, .chat strong {
+    font-size:10px;
+    text-transform:uppercase;
+}
+
+.chat li, #notes li {
+    padding:15px;
+    border-bottom:1px solid {color:Posts Border};
+    margin-left:0px;
+}
+
+.chat li:last-child {
+    border:none;
+}
+
+.askerd {
+    padding:10px;
+    border-top:1px solid {color:Posts Border};
+    border-bottom:1px solid {color:Posts Border};
+    text-align:center;
+    text-transform:uppercase;
+    display:block;
+    width:430px;
+}
+
+{block:ifCustomTumblrControl}
+#tumblr_controls, .tumblr_controls {
+    {block:IndexPage}display:none!important;
+    opacity:0!important;{/block:IndexPage}
+    margin-top:110px!important;
+    margin-right:70px!important;
+    position:fixed!important;
+}
+{/block:ifCustomTumblrControl}
+
+.pinfo {
+    padding:10px;
+    background:{color:Date and Reblog Background};
+	color:{color:Date and Reblog};
+    font-size:11px;
+    margin-top:20px;
+}
+
+.pinfo a {
+    color:{color:Date and Reblog};
+}
+
+.pinfo b {
+    background:{color:Date and Reblog Background};
+	color:{color:Date and Reblog};
+    padding:3px 5px;
+    text-transform:uppercase;
+    font-size:10px;
+}
+
+.pinfos {
+    margin-bottom:5px;
+}
+
+#s-m-t-tooltip {
+        padding:5px;
+        background:{color:Date and Reblog Background};
+	    color:{color:Date and Reblog};
+        font:10px;
+        text-transform:uppercase;
+        text-align:center;
+        z-index:1000;
+        margin:15px;
+        border-radius:3px;
+    }
+
+#mplayer {
+    position:fixed;
+    top:110px;
+    left:70px;
+    width:40px;
+    height:40px;
+    border-radius:100%;
+    overflow:hidden;
+}
+
+#mplayer iframe {
+    margin-top:-13px;
+    margin-left:-8px;
+}
+
+.p {
+	padding:25px;
+	font-family:inconsolata;
+}
+
+#pagination {
+    position:absolute;
+    text-align:center;
+    font-size:50px;
+    width:300px;
+    bottom:30px;
+}
+
+#pagination a {
+    color:{color:Pagination};
+}
+
+.desc {
+    opacity:0;
+    height:0px;
+    color:{color:Blog Description};
+    font-size:10px;
+    margin-bottom:0px;
+}
+
+#menu:hover .desc {
+    opacity:1;
+    height:auto;
+    margin-bottom:10px;
+    padding:0px 5px;
+}
+
+#control {
+    position:absolute;
+    width:100px;
+    top:30px;
+    right:0px;
+}
+
+#control a {
+    display:block;
+    text-transform:uppercase;
+    margin-bottom:5px;
+    padding:5px 10px;
+    background:{color:Custom Tumblr Control Background};
+    -moz-box-shadow:    inset 5px 0 0px {color:Custom Tumblr Control};
+   -webkit-box-shadow: inset 5px 0 0px {color:Custom Tumblr Control};
+   box-shadow:         inset 5px 0 0px {color:Custom Tumblr Control};
+color:{color:Custom Tumblr Control};;
+   transition: all 0.5s ease;
+}
+
+#control a:hover {
+    color:color:Custom Tumblr Control Background
+    -moz-box-shadow:    inset 100px 0 0px {color:Custom Tumblr Control};
+   -webkit-box-shadow: inset 100px 0 0px {color:Custom Tumblr Control};
+   box-shadow:         inset 100px 0 0px {color:Custom Tumblr Control};
+}
+   </style>
+    
+<link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <body>
+    <div id="bottom"></div>
+<div id="container">
+	<div id="menu">
+    <img src="{PortraitURL-64}" class="icon"/>
+    <div class="desc">{Description}</div>
+    <a href="/" class="fa fa-home" style="border-top:1px solid #e0f2fc;"> <span>home</span></a>
+    <a href="/ask" class="fa fa-envelope"> <span>mail</span></a>
+    <a href="/archive" class="fa fa-calendar"> <span>archive</span></a>
+    {block:ifLink1}<a href="{text:Link1URL}" class="fa fa-link"> <span>{text:Link1}</span></a>{/block:ifLink1}
+    <meta name="text:Link1URL" content=""/>
+    <meta name="text:Link1" content=""/>
+    {block:ifLink2}<a href="{text:Link2URL}" class="fa fa-plane"> <span>{text:Link2}</span></a>{/block:ifLink2}
+    <meta name="text:Link2URL" content=""/>
+    <meta name="text:Link2" content=""/>
+    {block:ifLink3}<a href="{text:Link3URL}" class="fa fa-cog"> <span>{text:Link3}e</span></a>{/block:ifLink3}
+    <meta name="text:Link3URL" content=""/>
+    <meta name="text:Link3" content=""/>
+    {block:ifLink4}<a href="{text:Link4URL}" class="fa fa-bell-o"> <span>{text:Link4}</span></a>{/block:ifLink4}
+    <meta name="text:Link4URL" content=""/>
+    <meta name="text:Link4" content=""/>
+    {block:ifLink5}<a href="{text:Link5URL}" class="fa fa-align-center"> <span>{text:Link5}</span></a>{/block:ifLink5}
+    <meta name="text:Link5URL" content=""/>
+    <meta name="text:Link5" content=""/>
+    <a href="http://41days.org">theme</a>
+    </div>
+	<div id="sidebar">
+	{block:ifCustomTumblrControl}
+	    {block:IndexPage}
+	    <div id="control">
+	        <a href="http://tumblr.com/follow/{name}">follow</a>
+	        <a href="http://tumblr.com/">dashboard</a>
+	        <a href="http://www.tumblr.com/send/{name}?redirect_to=http%3A%2F%2F{name}.tumblr.com%2F">fanmail</a>
+	    </div>
+	    {/block:IndexPage}
+	 {/block:ifCustomTumblrControl}
+	 {block:Pagination}
+      <div id="pagination">
+	 {block:PreviousPage}
+        <a href="{PreviousPage}" class="fa fa-chevron-circle-left">
+        </a>
+	 {/block:PreviousPage}
+	 {block:NextPage}
+        <a href="{NextPage}"  class="fa fa-chevron-circle-right">
+        </a>
+        {/block:NextPage}
+      </div>
+      {/block:Pagination}
+    </div>
+    
+    <div id="posts">
+        {block:Posts}
+    
+    <div class="post">
+    	{block:IndexPage}<div class="pnav"><center>
+        	<a href="{Permalink}" class="fa fa-calendar"> <span>{Year}{MonthNumberWithZero}{DayOfMonthWithZero}</span></a>
+            <a href="{Permalink}" class="fa fa-bookmark"> <span>{NoteCount}</span></a>
+            <a href="{reblog}" class="fa fa-retweet"> <span>reblog</span></a></center>
+        </div>{/block:IndexPage}
+        
+        {block:Text}
+    	<div class="p">
+        {block:Title}<h2>{Title}</h2>{/block:Title}
+        {Body}
+            
+        </div>
+        {/block:Text}
+        
+        {block:Quote}
+        <div class="p">
+            <div class="quote">{Quote}</div>
+            {block:Source} <div class="source">{Source}</div>{/block:Source}
+        </div>
+        {/block:Quote}
+        
+        {block:Link}
+    	<div class="p">
+        {block:Title}<a href="{URL}"><h2>{Title}</h2></a>{/block:Title}
+        {block:Description}<div class="description">{Description}</div>{/block:Description}
+        </div>
+        {/block:Link}
+        
+        {block:Video}
+        <div class="p">
+            {Video-400}
+            {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+        </div>
+        {/block:Video}
+        
+        {block:Photo}
+        <div class="p photo">
+        <center><img src="{PhotoURL-400}" alt="{PhotoAlt}"/>
+        </center>
+            {block:Caption}
+                <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </div>
+        {/block:Photo}
+                
+        {block:Panorama}
+        <div class="p panorama">
+            {LinkOpenTag}
+                <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+            {LinkCloseTag}
+            {block:Caption}
+                <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </div>
+        {/block:Panorama}
+        
+        {block:Photoset}
+        <div class="p photoset">
+        {Photoset-400}
+            {block:Caption}
+                <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </div>
+        {/block:Photoset}
+        
+        
+        {block:Audio}
+    	<div class="musicplayer">
+        	{block:AudioPlayer}
+    				<div class="player">{AudioPlayer}</div>
+    		{/block:AudioPlayer}
+            <div class="info">
+            <ul>
+                {block:TrackName}<li><b>Title:</b> {TrackName}</li>{/block:TrackName}
+                {block:Artist}<li><b>Artist:</b> {Artist}</li>{/block:Artist}
+                {block:Album}<li><b>Album:</b> {Album}</li>{/block:Album}
+                <li><b>Plays:</b> {PlayCountWithLabel}</li>
+            </ul>
+            </div>
+        </div>
+            {block:Caption}
+    	    <div class="p">
+                <div class="caption">{Caption}</div>
+            </div>
+            {/block:Caption}
+        {/block:Audio}
+        
+        {block:Chat}
+            <div class="chat">
+             {block:Title}
+                <h2><a href="{Permalink}">{Title}</a></h2>
+            {/block:Title}
+
+                <ul class="chat">
+                        {block:Lines}
+                        <li class="{Alt} user_{UserNumber}">
+                            {block:Label}
+                                <b>{Label}</b>
+                            {/block:Label}{Line}
+                        </li>
+                    {/block:Lines}
+                </ul>
+            </div>
+        {/block:Chat}
+        
+        {block:Answer}
+        <div class="p" style="{color:Question Background}">{Question}</div>
+<meta name="color:Question Background" content="#ecf7fd"/>
+        <div class="askerd fa fa-comments-o"><span> Asked By {Asker}</span></div>
+        <div class="p">{Answer}</div>
+        {/block:Answer}
+        
+        {block:IndexPage}{block:HasTags}<div class="ptags"><b>Label:</b> {block:Tags}<a href="{TagURL}" class="fa fa-tag"> <span>{Tag}</span></a> {/block:Tags}</div>{/block:HasTags}{/block:IndexPage}
+        
+        {block:PermalinkPage}<div class="pinfo">
+            {block:Date}<div class="pinfos"><b>Posted On:</b> {DayOfWeek}, {Month} {DayOfMonthWithZero}{DayOfMonthSuffix} {Year}</div>{/block:Date}
+            {block:NoteCount}
+                <div class="pinfos"><b>Note Count:</b> {NoteCountWithLabel}</div>
+                {/block:NoteCount}
+                {block:RebloggedFrom}
+                    <div class="pinfos"><b>Source:</b> <a href="{ReblogRootURL}">{ReblogRootName}</a></div>
+                    <div class="pinfos"><b>Via:</b> <a href="{ReblogParentURL}">{ReblogParentName}</a></div>
+                {/block:RebloggedFrom}
+            {block:HasTags}<div class="pinfos"><b>Label:</b> {block:Tags}<a href="{TagURL}" class="fa fa-tag"> <span>{Tag}</span></a> {/block:Tags}</div>{/block:HasTags}
+        </div>
+        {block:PermalinkPage}
+    </div>
+    
+    {block:PostNotes}
+        <div id="notes">
+            {PostNotes}
+        </div>
+    {/block:PostNotes}
+    
+    {/block:Posts}
+    </div>
+</div>
+    </body>
+</html>
