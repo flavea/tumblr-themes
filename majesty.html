@@ -1,0 +1,786 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{title}</title>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+            <meta name="description" content="{MetaDescription}" />
+        </head>
+        
+        <script type="text/javascript"
+src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+        {block:IfInfiniteScroll}<script type="text/javascript" src="http://codysherman.com/tools/infinite-scrolling/code"></script> {/block:IfInfiniteScroll}
+        <script src="http://static.tumblr.com/ikeq9mi/DfYl6o46t/scrolltotop.min.js"></script>
+        <script type="text/javascript">
+        jQuery(document).ready(function() {
+        jQuery(".tagged").hide();
+        //toggle the componenet with class msg_body
+        jQuery(".tags").click(function()
+        {
+        jQuery(this).next(".tagged").slideToggle(500);
+        });});
+        </script>
+        {block:IndexPage}
+        {block:ifMultiColumns}
+        <script src="http://static.tumblr.com/twte3d7/H8Glm663z/masonry.js"></script>
+        {block:ifInfiniteScroll}<script src="http://static.tumblr.com/twte3d7/qNulm663d/infinite.js"></script>{/block:ifInfiniteScroll}
+        <script type="text/javascript">
+         $(window).load(function () {
+         $('#content').masonry(),
+        $('.masonryWrap').infinitescroll({ 
+        itemSelector : ".post", 
+         navSelector : "div.navigation",
+         nextSelector : ".navigation a#next",
+         bufferPx : 10000,
+         extraScrollPx: 10000,
+         loadingImg : "",
+         loadingText : "",
+         },
+         function() { $('#content').masonry({ appendedContent: $(this) }); 
+        });
+         });</script>
+        {/block:ifMultiColumns}
+        {/block:IndexPage}
+        <script src="http://static.tumblr.com/iuw14ew/VSQma1786/jquery.style-my-tooltips.js"></script>
+        <script>
+        (function($){
+        $(document).ready(function(){
+        $("a[title]").style_my_tooltips({
+        tip_follows_cursor:true,
+        tip_delay_time:0,
+        tip_fade_speed:0,
+        attribute:"title"
+        });
+        });
+        })(jQuery);
+        </script>
+        <meta name="text:Grayscale" content="0%"/>
+        <meta name="text:Link1URL" content=""/>
+        <meta name="text:Link1" content=""/>
+        <meta name="text:Link2URL" content=""/>
+        <meta name="text:Link2" content=""/>
+        <meta name="text:Link3URL" content=""/>
+        <meta name="text:Link3" content=""/>
+        <meta name="text:Link4URL" content=""/>
+        <meta name="text:Link4" content=""/>
+        <meta name="text:Link5URL" content=""/>
+        <meta name="text:Link5" content=""/>
+        
+        <meta name="if:Multi Columns" content="1"/>
+        <meta name="if:Infinite Scroll" content="0"/>
+        <meta name="if:Show Captions" content="0"/>
+        <meta name="if:Fading Images" content="1"/>
+        
+        <meta name="color:Background" content="#f9f9f9"/>
+        <meta name="color:Text" content="#7d7d7d"/>
+        <meta name="color:Links" content="#cccccc"/>
+        <meta name="color:Description Background" content="#f2f2f2"/>
+        <meta name="color:Description Text" content="#999999"/>
+        <meta name="color:Portrait Border" content="#f9f9f9"/>
+        <meta name="color:Posts" content="#ffffff"/>
+        <meta name="color:Post Title" content="#666666"/>
+        <meta name="color:Posts Border" content="#f2f2f2"/>
+        <meta name="color:Post Info Background" content="#fcfcfc"/>
+        <meta name="color:Post Info Dots" content="#dcdcdc"/>
+        <meta name="color:Menu Background" content="#cccccc"/>
+        <meta name="color:Menu Links" content="#ffffff"/>
+        <meta name="color:Tooltips Background" content="#7d7d7d"/>
+        <meta name="color:Tooltips" content="#ffffff"/>
+        <meta name="color:Question Background" content="#f9f9f9"/>
+        <meta name="color:Blockquote" content="#cccccc"/>
+        <meta name="color:Chat" content="#f9f9f9"/>
+        <meta name="color:Audio Info Background" content="#f9f9f9"/>
+        <meta name="color:Audio Info Border" content="#f2f2f2"/>
+        <meta name="color:Tags Toogle Background" content="#ffffff"/>
+        <meta name="color:Tags Toogle" content="#7d7d7d"/>
+        <meta name="color:Pagination Background" content="#ffffff"/>
+        <meta name="color:Pagination Color" content="#cccccc"/>
+        
+    <style>
+    
+        .tumblrAutoPager_page_info, .tumblrAutoPager_page_separator {display:none;}
+        #infscr-loading {display:none;}
+        .navigation {display:none!important;} 
+
+        .tagged {
+            font-size:9px;
+        }
+        .image_thumbnail {
+            float:left;
+            border:2px solid {color:Background};
+            margin:2px;
+            width:20px;
+        }
+        
+        body {
+            background:url({image:background}) fixed {color:Background};
+            background-size:100%;
+            padding:0px;
+            margin:0px;
+            text-align:justify;
+            font-family:Roboto;
+            font-size:11px;
+            color:{color:text};
+        }
+        
+        a {
+            color:{color:Links};
+            text-decoration:none;
+        }
+        
+        #header {
+            background:{color:Description Background};
+            width:100%;
+            color:{color:Description Text};
+            padding:20px 0px;
+            min-height:136px;
+        }
+        
+        menu {
+            position:fixed;
+            top:0;
+            left:0;
+            background:{color:Menu Background};
+            padding:5px 0px 7px 0px;
+            margin:0px;
+            font-size:14px;
+            text-align: center;
+            opacity:.8;
+            width:100%;
+            z-index:999999;
+    		-webkit-transition:all 1s ease-in-out;
+    		-moz-transition:all 1s ease-in-out;
+    		-o-transition:all 1s ease-in-out;
+    		-ms-transition:all 1s ease-in-out;
+    		transition:all 1s ease-in-out;
+        }
+        
+        menu:hover {
+            opacity:1;
+        }
+        
+        menu a {
+            color:{color:Menu Links};
+            font-size:9px;
+            text-transform:uppercase;
+            padding:0px 5px 0px 9px;
+            border-left:1px solid {color:Menu Links};
+        }
+        
+        menu a:first-child {
+            border-left:none;
+        }
+        
+        #de {
+            width:600px;
+            margin:25px auto 0px auto;
+            text-align:center;
+        }
+        
+        .ava {
+            width:100px;
+            border:8px solid {color:Portrait Border};
+            border-radius:10px;
+            float:left;
+            margin-right:10px;
+        }
+        
+        #title {
+            padding:5px;
+            border-bottom:5px solid {color:Portrait Border};
+            text-align:right;
+            font-family:cambria;
+            font-style:italic;
+            font-size:14px;
+        }
+        
+        .quoted {
+            margin:5px;
+        }
+        
+        .blog {
+            width:500px;
+            margin:20px 125px;
+        }
+        
+        .round {
+            border-radius:100px;
+            width:8px;
+            height:8px;
+            padding:2px;
+            display:inline-block;
+            margin-right:30px;
+    		-webkit-transition:all 1s ease-in-out;
+    		-moz-transition:all 1s ease-in-out;
+    		-o-transition:all 1s ease-in-out;
+    		-ms-transition:all 1s ease-in-out;
+    		transition:all 1s ease-in-out;
+    		vertical-align:top;
+        }
+        
+        .dot {
+            display:block;
+            width:8px;
+            height:8px;
+            border-radius:100%;
+    		-webkit-transition:all 1s ease-in-out;
+    		-moz-transition:all 1s ease-in-out;
+    		-o-transition:all 1s ease-in-out;
+    		-ms-transition:all 1s ease-in-out;
+    		transition:all 1s ease-in-out;
+        }
+        
+        .round:hover {
+            opacity:.5;
+        }
+        
+        #header img {
+            display:block;
+        }
+        
+        .post {
+            background:{color:Posts};
+            padding:20px;
+            border:1px solid {color:Posts Border};
+            width:500px;
+            {block:ifMultiColumns}width:250px;{/block:ifMultiColumns}
+            {block:PermalinkPage}width:500px;{/block:PermalinkPage}
+            margin:10px;
+            z-index:999;
+            {block:IndexPage}float:left;{/block:IndexPage}
+        }
+        
+        #content {
+            width:562px;
+            {block:ifMultiColumns}width:936px;{/block:ifMultiColumns}
+            margin:25px auto;
+        }
+        
+        .permali {
+            margin:20px 20px -21px -21px;
+            padding:10px;
+            width:520px;
+            {block:ifMultiColumns}width:270px;{/block:ifMultiColumns}
+            text-align:center;
+            background:{color:Post Info Background};
+            border:1px solid {color:Posts Border};
+        }
+        
+        .permali .round {
+            border:1px solid {color:Post Info Dots};
+        }
+        
+        .permali .dot {
+            background:{color:Post Info Dots};
+        }
+        
+        #s-m-t-tooltip {
+            padding:5px;
+            background:{color:Tooltips Background};
+            color:{color:Tooltips};
+            font:9px Roboto;
+            text-transform:uppercase;
+            text-align:center;
+            z-index:1000;
+            margin:15px;
+        }
+        
+        .askd {
+    	    background:{color:Question Background};
+    	    padding:10px;
+    	    text-align:justify;
+    	}
+    	
+    	.avad {
+    	    float:left;
+    	    margin:5px;
+    	    width:50px;
+    	    border:5px solid {color:Question Background};
+    	}
+    	
+    	.askerd {
+    	    font-family: 'Oswald', sans-serif;
+    	    font-size:18px;
+    	    text-transform:lowercase;
+    	}
+    	
+    	.askerd a {
+    	    text-transform:lowercase;
+    	}
+    	
+    	.infod {
+    	    padding:10px;
+    	    display:block;
+    	    background:{color:Posts};
+    		-webkit-transition:all 1s ease-in-out;
+    		-moz-transition:all 1s ease-in-out;
+    		-o-transition:all 1s ease-in-out;
+    		-ms-transition:all 1s ease-in-out;
+    		transition:all 1s ease-in-out;
+    		position:absolute;
+    		margin-left:550px;
+    		margin-top:-21px;
+    		width:350px;
+    	    z-index:888;
+    	    border:1px solid {color:Posts Border};
+    	}
+    	
+    	
+    	.infod .date, .infod .other {
+    	    width:320px;
+            text-transform:uppercase;
+    	    text-align:center;
+    	}
+    	
+    	.information {
+            margin-top:10px;
+            display:block;
+            font-size:10px;
+        }
+            
+        .information a {
+            color:{color:text};
+        }
+        
+        .lineinf {
+            display:block;
+            margin-bottom:2px;
+            padding:3px 0px;
+            background:{color:Post Info Background};
+        }
+        .lab {
+            padding:3px;
+            background:{color:text};
+            color:{color:posts};
+            text-transform:uppercase;
+            font-family:Oswald;
+        }
+        
+        blockquote {
+            border-left:2px solid {color:Blockquote};
+            padding-left:5px;
+            margin-right:0px;
+        }
+        
+        {block:IndexPage}
+        {block:ifMultiColumns}
+        .audio {
+            background:#e5e5e5;
+        }
+        
+        .music {
+            background:{color:Audio Info Background};
+            border:1px solid {color:Audio Info Border};
+            padding:5px;
+            font-family:georgia;
+            text-transform:uppercase;
+            font-size:9px;
+        }
+        
+        .music ul {
+            list-style:none;
+            margin-left:-40px;
+        }
+        {/block:ifMultiColumns}
+        
+        {block:ifNotMultiColumns}
+        .music {
+            height:150px;
+            position:absolute;
+            margin-left:150px;
+            width:240px;
+            margin-top:-190px;
+        }
+        
+        #musicaudio {
+            border:15px solid {color:Audio Info Background};
+            margin-right:5px;
+            width:150px;
+            height:150px;
+        }
+        
+        .audio {
+            position:absolute;
+            width:15px;
+            height:15px;
+            padding:5px 10px 10px 5px;
+            opacity:.7;
+            border-radius:100%;
+            margin:55px;
+            overflow:hidden;
+            background:#e5e5e5;
+        }
+        
+        .music ul {
+            list-style:none;
+        }
+        
+        .music .chat li {
+            width:280px;
+            padding:14px;
+        }
+        {/block:ifNotMultiColumns}
+        {/block:IndexPage}
+        
+        {block:PermalinkPage}
+        .music {
+            height:150px;
+            position:absolute;
+            margin-left:150px;
+            width:240px;
+            margin-top:-190px;
+        }
+        
+        #musicaudio {
+            border:15px solid rgba(0,0,0,.1);
+            margin-right:5px;
+            width:150px;
+            height:150px;
+        }
+        
+        .audio {
+            position:absolute;
+            width:15px;
+            height:15px;
+            padding:5px 10px 10px 5px;
+            opacity:.7;
+            border-radius:100%;
+            margin:55px;
+            overflow:hidden;
+            background:#e5e5e5;
+        }
+        
+        .music ul {
+            list-style:none;
+        }
+        
+        .music .chat li {
+            width:280px;
+            padding:14px;
+        }
+        {/block:PermalinkPage}
+        
+        .tags {
+            font-family:georgia;
+            font-size:8px;
+            text-transform:uppercase;
+            background:{color:Tags Toogle Background};
+            color:{color:Tags Toogle};
+            padding:3px;
+            margin:5px 10px 0px 5px;
+        }
+        
+        h2 {
+            margin-top:0;
+            font-size:28px;
+            text-transform:uppercase;
+            font-family: 'Oswald', sans-serif;
+            color:{color:Post Title};
+            text-align:center;
+        }
+        
+        .quote {
+            font-family:georgia;
+            font-size:16px;
+        }
+        
+        img {
+    	    max-width:100%;
+    	}
+    	
+    	pre {
+    	    word-break:break-word;
+    	    padding:5px;
+    	    background:{color:Chat};
+    	}
+    	
+    	.chat ul {
+    	    margin-left:-40px;
+    	    list-style:none;
+    	}
+    	
+        .chat li {
+            background:{color:Chat};
+            padding:10px;
+            margin-bottom:2px;
+        }
+    	
+    	#pagination {
+            width:500px;
+            text-align:center;
+            margin:100px auto;
+            display:block;
+        }
+    
+        #pagination a, #pagination span {
+            background:{color:Pagination Background};
+            color:{color:Pagination Color};
+            padding:10px 13px 16px 13px;
+            width:10px;
+            display:inline-block;
+            margin-right:2px;
+            height:10px;
+        }
+    
+        #pagination span {
+            background:transparent;
+        }
+        
+        #tumblr_controls { top:32px!important; }
+        
+        #scrollToTop:link,#scrollToTop:visited {
+            font-size:9px;
+            text-transform:uppercase;
+            background:{color:Tooltips Background};
+            color:{color:Tooltips};
+            padding:5px;
+            display:none;
+            position:fixed;
+            bottom:0px;
+            right:0px;
+            z-index:999999999;
+        }
+        
+    .post img,.photoset, #sidebar img {
+        filter:gray;
+        -webkit-filter:grayscale({text:grayscale});
+        -webkit-transition:all 1s ease-in-out;
+        -moz-transition:all 1s ease-in-out;
+        -o-transition:all 1s ease-in-out;
+        -ms-transition:all 1s ease-in-out;
+        transition:all 1s ease-in-out;
+    }
+    
+    .post:hover img,.post:hover .photoset, #sidebar:hover img {
+        filter:gray;
+        -webkit-filter:grayscale(0%);
+    }
+    
+    {block:ifFadingImages}
+    .post img, .html_photoset {
+        opacity:.7;
+        -webkit-transition:all .5s ease-in-out;
+        -moz-transition:all .5s ease-in-out;
+        -o-transition:all .5s ease-in-out;
+        -ms-transition:all .5s ease-in-out;
+        transition:all .5s ease-in-out;
+    }
+    
+    .post:hover img, .post:hover .html_photoset {
+        opacity:1;
+    }
+    {/block:ifFadingImages}
+    </style>
+        <link href='http://fonts.googleapis.com/css?family=Dosis|Lobster|Roboto+Slab:400,100|Oswald|Source+Sans+Pro|Roboto' rel='stylesheet' type='text/css'>
+    <body>
+        <div class="topp">
+          <a href="javascript:;" id="scrollToTop">
+            back to top
+          </a>
+        </div>
+        <div class="navigation">
+        {block:Pagination} 
+        {block:NextPage}<p id="page_nav"><a style="float:right" href="{NextPage}" id="next">Older ?</a>{/block:NextPage}
+        {block:PreviousPage}<a style="float:left" href="{PreviousPage}">? Newer</a></p>{/block:PreviousPage}
+        {/block:Pagination}
+        </div>
+        <div id="header">
+            <menu>
+                <a href="/">refresh</a>
+                <a href="/ask">message</a>
+                <a href="/archive">archive</a>
+                {block:iflink1}<a href="{text:Link1URL}">{text:Link1}</a>{/block:iflink1}
+                {block:iflink2}<a href="{text:Link2URL}" class="two">{text:Link2}</a>{/block:iflink2}
+                {block:iflink3}<a href="{text:Link3URL}">{text:Link3}</a>{/block:iflink3}
+                {block:iflink4}<a href="{text:Link4URL}" class="two">{text:Link4}</a>{/block:iflink4}
+                {block:iflink5}<a href="{text:Link5URL}">{text:Link5}</a>{/block:iflink5}
+                <a href="http://41days.org">Theme</a>
+            </menu>
+            <div id="de">
+            <div class="ava">
+                <img src="{PortraitURL-128}">
+            </div>
+            
+                <div id="title">
+                    {title}
+                </div>
+                
+                <div class="quoted">
+                {description}
+                </div>
+            </div>
+        </div>
+                
+        <div id="content">
+        {block:posts}
+
+    {block:ContentSource}
+    <!-- {SourceURL}{block:SourceLogo}<img src="{BlackLogoURL}"
+    width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
+    {/block:SourceLogo}
+    {block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+    {/block:ContentSource}{block:ReblogParent}{/block:ReblogParent}
+
+        <div class="post">
+            {block:PermalinkPage}
+			<div class="infod">
+			{block:Caption}{Caption}{/block:Caption}
+			<div class="information">
+                <div class="lineinf">
+                    <span class="lab">Posted On:</span> {block:Date}
+				    <a href="{permalink}">{Month}
+					{DayOfMonthWithZero}<sup>{DayOfMonthSuffix}</sup>
+					{Year}</a>
+				{/block:Date}
+                </div>
+                {block:NoteCount}
+                <div class="lineinf">
+                     <span class="lab">Notes:</span> {NoteCountWithLabel}
+                </div>
+                {/block:NoteCount}
+                {block:HasTags}
+                <div class="lineinf">
+                     <span class="lab">Tagged as:</span> {block:Tags}<a href="{TagURL}">{Tag}, </a>{/block:Tags}
+                </div>
+                {/block:HasTags}
+                </div>
+			</div>
+            {/block:PermalinkPage}
+            
+            {block:Text}
+            {block:Title}<a href="{permalink}"><h2>{Title}</h2></a>
+            {/block:Title}{Body}
+            {/block:Text}
+
+            {block:Photo}
+            {block:IndexPage}{block:ifMultiColumns}{LinkOpenTag}<img src="{PhotoURL-250}">{LinkCloseTag}{/block:ifMultiColumns}
+            {block:ifNotMultiColumns}{LinkOpenTag}<img src="{PhotoURL-500}">{LinkCloseTag}{/block:ifNotMultiColumns}{/block:IndexPage}
+            {block:PermalinkPage}{LinkOpenTag}<img src="{PhotoURL-500}">{LinkCloseTag}{block:PermalinkPage}
+            {block:IndexPage}{block:IfShowCaptions}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:IfShowCaptions}{/block:IndexPage}
+            {/block:Photo}
+
+            {block:Link}
+            <a href="{URL}" {Target}><h2>{Name} »</h2></a>
+            {block:Description}{Description}{/block:Description}
+            {/block:Link}
+
+            {block:Photoset}
+            {block:IndexPage}{block:ifNotMultiColumns}{Photoset-500}{/block:ifNotMultiColumns}
+            {block:ifMultiColumns}{Photoset-250}{/block:ifMultiColumns}{/block:IndexPage}
+            {block:PermalinkPage}{Photoset-500}{block:PermalinkPage}
+            {block:IndexPage}{block:IfShowCaptions}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:IfShowCaptions}{/block:IndexPage}
+            {/block:Photoset}
+
+            {block:quote}
+            <div class="quote">
+                  “{Quote}" <span style="font-weight:300">— {Source}</span>
+                </div>
+             {/block:quote}
+
+            {block:Audio}
+            <div class="ask">
+                <div id="musicaudio">
+                {block:AlbumArt}
+                    <img src="{AlbumArtURL}" width="100%" align="left">
+                {/block:AlbumArt}
+
+                <div class="audio">
+                {AudioPlayerGrey}
+                </div>
+                </div>
+
+                <div class="music">
+                    <ul {block:PermalinkPage}class="chat"{/block:PermalinkPage}{block:ifNotMultiColumns}class="chat"{/block:ifNotMultiColumns}>
+                    {block:TrackName}<li><b>Title:</b> {TrackName}</li>{/block:TrackName} 
+                    {block:Artist}<li><b>Artist:</b> {Artist}</li>{/block:Artist}
+                    {block:Album}<li><b>Album:</b> {Album}</li>{/block:Album}
+                    <li><b>Played:</b> {PlayCountWithLabel}</li>
+                    </ul>
+                </div>
+            </div>
+            {block:IndexPage}{block:IfShowCaptions}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:IfShowCaptions}{/block:IndexPage}
+        {/block:Audio} 
+
+            {block:Video}
+            {block:IndexPage}{block:ifMultiColumns}{Video-250}{/block:ifMultiColumns}
+            {block:ifNotMultiColumns}{Video-500}{/block:ifNotMultiColumns}{/block:IndexPage}
+            {block:PermalinkPage}{Video-500}{/block:IndexPage}{/block:PermalinkPage}
+            {block:IndexPage}{block:IfShowCaptions}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:IfShowCaptions}{/block:IndexPage}
+            {/block:Video}
+
+            {block:Chat}
+            {block:title}<a href="{permalink}"><h2>{Title}</h2></a>{/block:title}
+            <div class="chat">
+              <ul>
+                {block:Lines}
+                <li class="{Alt}">
+                  {block:Label}
+                  <b>
+                    {Label}
+                  </b>
+                  {/block:Label}{Line}
+                </li>
+                {/block:Lines}
+              </ul>
+            </div>
+            {/block:Chat}
+
+            {block:Answer}
+            <img src="{askerPortraitURL-96}" class="avad">
+			        <div class="askerd">{asker} asked:</div>
+			   <div class="askd">
+                	{Question}
+                </div> 
+                {Answer}
+            {/block:Answer}
+            
+            {block:IndexPage}
+            <div class="permali">
+                <a href="{Permalink}" title="{Month} {DayOfMonthWithZero}{DayOfMonthSuffix} {Year}" class="round" style="margin-left:25px"><div class="dot"></div></a>
+                    <a href="{ReblogURL}" class="round" title="Reblog This Post"><div class="dot"></div></a>
+                    <a class="round" href="{permalink}#note" title="{NoteCountWithLabel}"><div class="dot"></div></a>
+                    {block:HasTags}
+                    <div class="tags">view tags</div>
+                    <div class="tagged">{block:Tags}<a href="{TagURL}">{Tag}, </a>{/block:Tags}</div>
+                    {/block:HasTags}
+            </div>
+            {/block:IndexPage}
+        </div>
+            
+        {block:PostNotes}
+        <div id="note" class="post">
+            {PostNotes-16}
+        </div>
+        {/block:PostNotes}
+
+        {/block:Posts}
+</div>
+
+ {block:ifNotInfiniteScroll}{block:Pagination}
+      <div id="pagination">
+        {block:PreviousPage}
+        <a href="{PreviousPage}">
+          «
+        </a>
+        &nbsp;&nbsp;{/block:PreviousPage} {block:JumpPagination length="4"} {block:CurrentPage}
+        <span class="current_page">
+          ✘
+        </span>
+        &nbsp;&nbsp;{/block:CurrentPage} {block:JumpPage}
+        <a class="jump_page" href="{URL}">
+          {PageNumber}
+        </a>
+        &nbsp;&nbsp;{/block:JumpPage} {/block:JumpPagination} {block:NextPage}
+        <a href="{NextPage}">
+          »
+        </a>
+        {/block:NextPage}
+      </div>
+      {/block:Pagination}
+      {/block:ifNotInfiniteScroll}
+    </body>
+</html>
