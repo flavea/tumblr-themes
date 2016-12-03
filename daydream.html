@@ -1,0 +1,580 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{title}</title>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        <meta name="description" content="{MetaDescription}" />
+        </script>
+        <link href='http://fonts.googleapis.com/css?family=Karla|Lato' rel='stylesheet' type='text/css'>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script src="http://static.tumblr.com/ikeq9mi/DfYl6o46t/scrolltotop.min.js"></script>
+<script src="http://static.tumblr.com/iuw14ew/VSQma1786/jquery.style-my-tooltips.js"></script>
+<script>
+(function($){
+$(document).ready(function(){
+$("a[title]").style_my_tooltips({
+tip_follows_cursor:true,
+tip_delay_time:0,
+tip_fade_speed:0,
+attribute:"title"
+});
+});
+})(jQuery);
+</script>
+
+        <meta name="image:Background" content=""/>
+        <meta name="image:Sidebar" content=""/>
+        <meta name="color:Background" content="#ffffff"/>
+        <meta name="color:Posts" content="#ffffff"/>
+        <meta name="color:Body Border" content="#f2f2f2"/>
+        <meta name="color:Border Text" content="#7d7d7d"/>
+        <meta name="color:Title Background" content="#ffbebe"/>
+        <meta name="color:Title Color" content="#ffffff"/>
+        <meta name="color:Description Background" content="#ffffff"/>
+        <meta name="color:Description Border" content="#f2f2f2"/>
+        <meta name="color:Description Text" content="#7d7d7d"/>
+        <meta name="color:Post Info Border" content="#f2f2f2"/>
+        <meta name="color:Post Title" content="#7d7d7d"/>
+        <meta name="color:Post Info Background" content="#ffffff"/>
+        <meta name="color:Post Info Link" content="#7d7d7d"/>
+        <meta name="color:Question Box" content="#f2f2f2"/>
+        <meta name="color:Question" content="#7d7d7d"/>
+        <meta name="color:Blockquote" content="#7d7d7d"/>
+        <meta name="color:Links" content="#ffbebe"/>
+        <meta name="text:Title 1" content="Day"/>
+        <meta name="text:Title 2" content="Dream"/>
+        <meta name="text:Link1URL" content="/ask"/>
+        <meta name="text:Link1" content="message"/>
+        <meta name="text:Link2URL" content=""/>
+        <meta name="text:Link2" content=""/>
+        <meta name="text:Link3URL" content=""/>
+        <meta name="text:Link3" content=""/>
+        <meta name="text:Link4URL" content=""/>
+        <meta name="text:Link4" content=""/>
+        <meta name="text:Link5URL" content=""/>
+        <meta name="text:Link5" content=""/>
+        <meta name="text:Link6URL" content=""/>
+        <meta name="text:Link6" content=""/>
+        <meta name="text:Link7URL" content=""/>
+        <meta name="text:Link7" content=""/>
+        <meta name="text:Link8URL" content=""/>
+        <meta name="text:Link8" content=""/>
+        <meta name="text:Link9URL" content=""/>
+        <meta name="text:Link9" content=""/>
+        <meta name="text:Link10URL" content=""/>
+        <meta name="text:Link10" content=""/>
+        <meta name="if:Show Description" content="1"/>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    </head>
+    <style>
+    
+    html {
+        border-left:30px solid {color:Body Border};
+        border-right:30px solid {color:Body Border};
+    }
+    
+    a {
+        text-decoration:none;
+        color:{color:Links};
+    }
+    
+    body {
+        font-family:Lato;
+        font-size:11px;
+        color:#7d7d7d;
+        letter-spacing:0.5px;
+        line-height:15px;
+        background:url{image:Background} fixed {color:Background};
+    }
+    
+    #content {
+        width:690px;
+        margin-top:51px;
+        margin-left:400px;
+    }
+    
+    .post {
+        width:500px;
+        margin:70px 0px;
+        {block:permalinkpage}margin:30px 0px;{/block:permalinkpage}
+        overflow:hidden;
+        padding:40px;
+        background:{color:Posts};
+    }
+    
+    img {
+        max-width:100%;
+    }
+    
+    #scrollToTop {
+        padding:5px;
+        color:{color:Border Text};
+        background:{color:Body Border};
+        bottom:5px;
+        right:35px;
+        position:fixed;
+        text-transform:uppercase;
+        font-family:Karla;
+    }
+    
+    #topBar {
+        background:{color:Body Border};
+        color:{color:Border Text};
+        padding:5px 30px;
+        position:fixed;
+        top:0;
+        left:0;
+        font-family:Karla;
+        text-transform:uppercase;
+        width:100%;
+        font-size:13px;
+        letter-spacing:1px;
+    }
+    
+    #topBar a {
+        color:{color:Border Text};
+        padding:3px;
+        display:inline-block;
+    }
+    
+    .title {
+        background:{color:Title Background};
+        padding:3px 5px;
+        color:{color:Title Color};
+        font-weight:700;
+    }
+    
+    #topBar a span {
+        display:none;
+    }
+    
+    #topBar a:hover span {
+        display:inline-block;
+        color:{color:Title Color};
+    }
+    
+    #topBar a:hover {
+        background:{color:Title Background};
+        padding:3px 5px;
+        color:rgba(0,0,0,.2);
+    }
+    
+    #description {
+        position:fixed;
+        margin-left:-165px;
+        width:128px;
+        padding:15px;
+        background:{color:Description Background};
+        border-right:1px solid {color:Description Border};
+        color:{color:Description Text};
+        bottom:0px;
+        text-align:justify;
+    }
+    
+    .icon {
+        display:block;
+        margin-bottom:10px;
+        border-radius:100%;
+        width:100px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    
+    #pagination {
+        position:fixed;
+        right:0px;
+        bottom:30px;
+    }
+    
+    #pagination a {
+        display:block;
+        color:{color:Border Text};
+        text-align:center;
+        width:11px;
+        height:11px;
+        padding:8px;
+        border-left:1px solid {color:Border Text};
+        margin-top:-12px;
+    }
+    
+    #pagination span {
+        display:block;
+        color:{color:Title Background};
+        border-left:1px solid {color:Title Background};
+        text-align:center;
+        width:11px;
+        height:11px;
+        padding:9px;
+        margin-top:-12px;
+    }
+    
+    #musicplayer {
+        padding:10px;
+        border:1px solid {color:Post Info Border};
+    }
+    
+    h2 {
+        text-align:center;
+        font-family:Karla;
+        font-size:20px;
+        padding-bottom:10px;
+        border-bottom:1px solid {color:Post Info Border};
+        color:{color:Post Title};
+        margin-bottom:10px;
+        line-height:20px;
+    }
+    
+    h2 a {
+        color:{color:Post Title};
+    }
+    #pinfo {
+        margin-top:10px;
+        border:1px solid {color:Post Info Border};
+        background:{color:Post Info Background};
+        padding:10px;
+        text-transform:uppercase;
+        font-family:Karla;
+    }
+    
+    #pinfo a, .tags a {
+        color:{color:Post Info Link};
+    }
+    
+    .tags {
+        text-transform:lowercase;
+    }
+    .reblog {
+        float:right;
+    }
+    
+    #quote span {
+        display:block;
+        font-family:Karla;
+        font-size:20px;
+    }
+    
+    #quote small {
+        text-transform:uppercase;
+        text-align:center;
+    }
+    
+    #musicplayer {
+        height:80px;
+        overflow:hidden;
+    }
+    
+    #tplayer {
+        width:20px;
+        height:20px;
+        overflow:hidden;
+        padding:25px 30px 35px 30px;
+        float:left;
+        margin-right:10px;
+        border-right:1px solid {color:Post Info Border};
+        background:#ffffff;
+        outline:5px solid #fff;
+    }
+    
+    #musicplayer span {
+        padding:6px;
+        display:block;
+        border-bottom:1px solid {color:Post Info Border};
+    }
+    
+    .ask-box {
+        background:{color:Question Box};
+        padding:15px;
+        color:{color:Question};
+        margin-bottom:10px;
+    }
+    
+    .ask-box .asker, .ask-box .asker a {
+        color:{color:Question};
+        font-size:14px;
+        font-family:Karla;
+    }
+    
+    .chat ul, .chat ol {
+        padding:0px;
+        list-style:none;
+    }
+    
+    .chat li {
+        border-bottom:1px solid {color:Post Info Border};
+        padding:10px;
+        display:block;
+        float:none;
+    }
+    
+    .chat img {
+        display:none;
+    }
+    
+    #tumblr_controls {
+        margin-top:3px!important;
+        right:30px!important;
+    }
+    
+    #s-m-t-tooltip {
+        padding:5px;
+        background:{color:Title Background};
+        color:{color:Title Color};
+        font:10px Karla;
+        text-transform:uppercase;
+        text-align:center;
+        z-index:1000;
+        margin:15px;
+        border-radius:3px;
+    }
+    
+    
+    blockquote {
+        border-left:1px solid {color:Blockquote};
+        padding-left:5px;
+    }
+    
+    pre {
+        background:#f8f8f8;
+        padding:10px;
+        overflow:auto;
+        word-break:break-word;
+    }
+    #sbar {
+        width:400px;
+        height:510px;
+        padding-top:250px;
+        left:30px;
+        bottom:0px;
+        position:fixed;
+        z-index:0;
+        background:url({image:Sidebar}) bottom;
+    }
+    
+    #icons {
+        position:fixed;
+        top:31px;
+        left:0px;
+        z-index:22;
+        text-align:center;
+        width:30px;
+    }
+    
+    #icons a {
+        color:{color:Border Text};
+        opacity:.6;
+        font-size:20px;
+        display:block;
+        background:#ffffff;
+        padding:5px;
+        margin-bottom:2px ;
+    }
+    </style>
+    
+    <body>
+    <div id="sbar">
+           
+
+    </div>
+    
+    <div id="icons">
+    
+            <meta name="text:Twitter Username" content=""/>
+            {block:ifTwitterUsername}<a class="fa fa-twitter-square" href="http://twitter.com/{text:Twitter Username}"></a>{/block:ifTwitterUsername}
+            <meta name="text:Facebook Name" content=""/>
+            {block:ifFacebookName}<a class="fa fa-facebook" href="https://facebook.com/{text:Facebook Name}"></a>{block:ifFacebookName}
+            <meta name="text:Youtube Link" content=""/>
+            {block:ifYoutubeLink}<a class="fa fa-youtube-play" href="{text:Youtube Link}"></a>{block:ifYoutubeLink}
+            <meta name="text:GooglePlus Link" content=""/>
+            {block:ifGooglePlusLink}<a class="fa fa-google-plus" href="{text:GooglePlus Link}"></a>{/block:ifGooglePlusLink}
+            <meta name="text:Instagram Username" content=""/>
+            {block:ifInstagramUsername}<a class="fa fa-instagram" href="http://instagram.com/{text:Instagram Username}"></a>{block:ifInstagramUsername}
+            <a class="fa fa-coffee" href="http://41days.org" title="theme by 41days.org"></a>
+        </div>
+        
+    {block:Pagination}
+      <div id="pagination">
+        {block:PreviousPage}
+        <a href="{PreviousPage}">
+          «
+        </a>
+        &nbsp;&nbsp;{/block:PreviousPage} {block:JumpPagination length="4"} {block:CurrentPage}
+        <span class="current_page">
+          ✘
+        </span>
+        &nbsp;&nbsp;{/block:CurrentPage} {block:JumpPage}
+        <a class="jump_page" href="{URL}">
+          {PageNumber}
+        </a>
+        &nbsp;&nbsp;{/block:JumpPage} {/block:JumpPagination} {block:NextPage}
+        <a href="{NextPage}">
+          »
+        </a>
+        {/block:NextPage}
+      </div>
+      {/block:Pagination}
+      
+        <div id="topBar">
+            <a href="/" class="title" style="color:#fff;padding:3px 5px"><span style="display:inline-block;color:rgba(0,0,0,.2)">{text:title 1}</span>{text:title 2}</a>
+            {block:ifLink1}<a href="{text:Link1URL}">01. <span>{text:Link1}</span></a>{block:ifLink1}
+            {block:ifLink2}<a href="{text:Link2URL}">02. <span>{text:Link2}</span></a>{block:ifLink2}
+            {block:ifLink3}<a href="{text:Link3URL}">03. <span>{text:Link3}</span></a>{block:ifLink3}
+            {block:ifLink4}<a href="{text:Link4URL}">04. <span>{text:Link4}</span></a>{block:ifLink4}
+            {block:ifLink5}<a href="{text:Link5URL}">05. <span>{text:Link5}</span></a>{block:ifLink5}
+            {block:ifLink6}<a href="{text:Link6URL}">06. <span>{text:Link6}</span></a>{block:ifLink6}
+            {block:ifLink7}<a href="{text:Link7URL}">07. <span>{text:Link7}</span></a>{block:ifLink7}
+            {block:ifLink8}<a href="{text:Link8URL}">08. <span>{text:Link8}</span></a>{block:ifLink8}
+            {block:ifLink9}<a href="{text:Link9URL}">09. <span>{text:Link9}</span></a>{block:ifLink9}
+            {block:ifLink10}<a href="{text:Link10URL}">10. <span>{text:Link10}</span></a>{block:ifLink10}
+        </div>
+        <a href="javascript:;" id="scrollToTop">
+            back to top
+        </a>
+        
+        <div id="content" class="autopagerize_page_element">
+        
+        {block:ifShowDescription}
+            <div id="description">
+                <img src="{PortraitURL-128}" class="icon">
+                {description}
+                
+            </div>
+        {/block:ifShowDescription}
+            {block:posts}
+            {block:ContentSource}<!-- {SourceURL}
+{block:SourceLogo}<img src="{BlackLogoURL}"width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />{/block:SourceLogo}
+{block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+{/block:ContentSource}
+            <div class="post">
+                
+			<!-- text post -->
+            {block:Text}
+            <div class="caption">
+				{block:Title}
+					<a href="{Permalink}">
+					  <h2>{Title}</h2>
+					</a>
+					<div class="bar"></div>
+				{/block:Title}
+				{Body}
+			</div>
+			{/block:Text}
+			
+			<!-- quote post -->
+			{block:Quote}
+				<div class="caption" id="quote">
+				  <span>{Quote}</span>
+				<small>— {Source}</small>
+				</div>
+			{/block:Quote}
+    
+             <!-- link post -->
+			{block:Link}
+				<a href="{URL}">
+				  <h2>{Name} »</h2>
+				</a>
+					<div class="bar"></div>
+				{block:Description}{Description}{/block:Description}
+			{/block:Link}
+			
+			<!-- photo post -->
+			{block:Photo}
+				<center>
+				    <a href="{PhotoURL-HighRes}"><img src="{PhotoURL-HighRes}"/></a>
+				</center>
+				{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+			{/block:Photo}
+    
+            <!-- photoset post -->
+			{block:Photoset}
+				<center>
+				  {Photoset}
+				</center>
+				{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+			{/block:Photoset}
+			
+			<!-- chat post -->
+			{block:Chat}
+				<div class="caption chat">
+				  <ul>
+					{block:Lines}
+					<li>
+					   {block:Label}<b>{Label}</b>{/block:Label}
+					  {Line}
+					</li>
+					{/block:Lines}
+				  </ul>
+				</div>
+			{/block:Chat}
+			
+            <!-- video post -->
+			{block:Video}
+				  {Video-500}
+				{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+			{/block:Video}
+			    
+			<!-- audio post -->
+			{block:Audio}
+			<div id="musicplayer">
+    			{block:AudioPlayer}
+    				<div id="tplayer">{AudioPlayer}</div>
+    			{/block:AudioPlayer}
+				{block:TrackName}
+                    <span><b>Title:</b> {TrackName}</span>
+                {/block:TrackName}
+                {block:Artist}
+                    <span><b>Artist:</b> {Artist}</span>
+                {/block:Artist}<span style="border-bottom:none"><b>Album:</b> {block:Album}
+{Album}</span>
+{/block:Album}
+			</div>
+				{block:Caption}{Caption}{/block:Caption}
+			{/block:Audio}
+			
+			<!-- ask post -->
+			{block:Answer}
+			   <div class="ask-box">
+			        <div class="asker">{Asker}:</div>
+                	<span>{Question}</span>
+                </div> 
+                <div id="answer">{Answer}</div>
+			{/block:Answer}
+			
+			{block:IndexPage}
+			<div id="pinfo">
+			    <a href="{Permalink}">{block:Date}{ShortMonth} {DayOfMonthWithZero}{DayOfMonthSuffix} {year}{/block:Date} {block:NoteCount}+{NoteCount}{/block:NoteCount}</a>{block:RebloggedFrom} <a href="{ReblogParentURL}" title="{ReblogParentName}">Via</a>/<a href="{ReblogRootURL}" title="{ReblogRootName}">Source</a>{/block:RebloggedFrom}
+			    <div class="reblog">
+			        <div style="display:inline-block;">{ReblogButton size="15"}</div>
+			        <div style="display:inline-block;">{LikeButton size="15"} </div>
+			    </div>
+			    {block:HasTags}<div class="tags">{block:Tags}<a href="{TagURL}">#{tag}</a>{/block:Tags}</div>{/block:HasTags}
+			</div>
+			{/block:IndexPage}
+			
+			{block:PermalinkPage}
+			<div id="musicplayer" class="post">
+			    {block:Date}
+                <b>Posted On:</b> {Month} {DayOfMonthWithZero}{DayOfMonthSuffix} {year}<br>
+                {/block:Date}
+                {block:NoteCount}
+                <b>Note Count:</b> {NoteCountWithLabel}<br>
+                {/block:NoteCount}
+                {block:RebloggedFrom}
+                    <b>Source:</b> <a href="{ReblogRootURL}">{ReblogRootName}</a><br>
+                    <b>Via:</b> <a href="{ReblogParentURL}">{ReblogParentName}</a><br>
+                {/block:RebloggedFrom}
+                {block:HasTags}<b>Tagged as:</b> {block:Tags}<a href="{TagURL}">{tag},</a> {/block:Tags}{/block:HasTags}
+			</div>
+			    {/block:PermalinkPage}
+			{block:PostNotes}<div class="chat">{PostNotes}</div>{/block:PostNotes}
+			</div>
+        {/block:posts}
+            
+        </div>
+        </div>
+    </body>
+</html>
