@@ -91,7 +91,7 @@ attribute:"title"
 <style>
     
     
-	@import url(https://weloveiconfonts.com/api/?family=entypo);
+	@import url(http://weloveiconfonts.com/api/?family=entypo);
 
 	/* entypo */
 	[class*="entypo-"]:before {
@@ -759,10 +759,10 @@ document.addEventListener( 'click', function ( event ) {
         {block:NextPage}<a href="{NextPage}">Next</a>{/block:NextPage}
     </div>
     {/block:Pagination}
-    {block:ifNotShowSecondSidebar}
-    <div class="desc">{description}</div>
-    {/block:ifNotShowSecondSidebar}
     {/block:ifNotInfiniteScroll}
+    {block:ifNotShowDescription}
+    <div class="desc">{description}</div>
+    {/block:ifNotShowDescription}
 </div>
 
 {block:IfShowSecondSidebar}
