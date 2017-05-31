@@ -1,0 +1,514 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{Title} {block:PostSummary} - {PostSummary}{/block:PostSummary}{block:SearchPage} - {lang:Search results for SearchQuery}{/block:SearchPage}</title>
+		<name="author" content="41days.org" />
+		<link rel="apple-touch-icon" href="{PortraitURL-128}">
+		<link rel="shortcut icon" href="{Favicon}">
+		<link rel="alternate" type="application/rss+xml" href="{RSS}">
+		<link href="https://fonts.googleapis.com/css?family=Arimo|Rubik|Lora" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	</head>
+	<style>
+	
+	::selection {
+	    background: #ffffff;
+		color: #000000;
+	}
+	
+	body {
+		background: #eaeaea;
+		font-size: 0.8em;font-family: 'Rubik', sans-serif;
+	}
+
+	a {
+		color: #222222;
+		text-decoration: none;
+	    transition: 0.5s;
+	}
+	
+	a:hover {
+      color: #000000;
+      position: relative;
+    }
+    
+	pre {
+	    background: #cccccc;
+	    word-wrap: break-word;
+	}
+
+	#posts {
+		margin-left: 580px;
+		margin-top: 8em;
+		padding: 2em;
+		width: calc(500px + 5em);
+	}
+	
+	.caption {
+	    padding:0 2em 1em 2em;
+	}
+	
+	.img {
+	    /*-webkit-filter: grayscale(1);*/
+	    transition: 0.5s;
+	    padding:2em;
+	}
+	
+	.img:hover {
+	    -webkit-filter: grayscale(0);
+	}
+
+	.post {
+		margin: 0 0 10em 0em;
+		width: calc(500px + 5em);
+		position:relative;
+		border-left:1px solid #000000;
+		border-right:1px solid #000000;
+	}
+	
+	.permalink-info {
+	    padding:1em;
+	    border-top:1px solid #000000;
+	    border-bottom:1px solid #000000;
+	}
+	
+	.tumblr_blog, .source_link {
+	    margin-top:1em;
+	    margin-bottom:-1em;
+	    background:#eaeaea;
+	}
+
+	blockquote {
+		padding: 1em;
+		border:1px solid #000000;
+		position:relative;
+		margin-left:0;
+		width: calc(100% - 2em);
+	}
+	
+	#pagination {
+	    position:fixed;
+	    bottom: 1em;
+	    right:1em;
+	    font-weight:bolder;
+	}
+	
+	#pagination a {
+	    color:rgba(0,0,0,.5);
+	    padding:0.5em 1em;
+	    font-size:1.2em;
+	    float:left;
+	    display:inline-block;
+	}
+	
+	.prev {
+	    background: #cccccc;
+	}
+	
+	.next {
+	    background: #aaaaaa;
+	}
+	
+	a h2, .quote, h2 {
+	    font-size:2em;
+	    font-family:"Lora", Sans-Serif;
+	    font-style:italic;
+	    color: #000000;
+	    margin:.5em 1em;
+	    font-size:3em;
+	    text-align:center;
+	}
+	
+	.chat ul, .chat li {
+	    list-style:none;
+	    padding:0;
+	    margin:0;
+	}
+	
+	.chat ul li {
+	    padding:0.5em;
+	    border-bottom:1px solid #000000;
+	}
+	
+	blockquote > blockquote {
+	    border-left:1px solid #000000;
+	}
+	
+	#header {
+	    position: fixed;
+	    top: 2em;
+	    left: 2em;
+	    width: calc(100%-4em);
+	    z-index: 5;
+	    height:1em;
+	}
+	
+	#header > h1 {
+	    font-family: 'Arima', sans-serif;
+	    text-transform:uppercase;
+	    margin-top: 0;
+	    font-size:5em;
+	    float: left;
+	    margin-right:1em;
+	}
+	
+	#header > span {
+	    margin-top:1.5em;
+	    float:right;
+	}
+	
+	#nav {
+	    position:fixed;
+	    left:2em;
+	    bottom:0em;
+	    width:610px;
+	    height:100%;
+	    background:url(http://i.imgur.com/JswC2B1.png) bottom right no-repeat;
+	    position:fixed;
+	}
+	
+	#nav > #links {
+	    position: absolute;
+	    left:1em;
+	    bottom:1em;
+	    width: 100%;
+	}
+	
+	#nav > #links > a {
+	    color: #000000;
+	    display: block;
+	    margin-bottom:2em;
+	    width:150px;
+	}
+	
+	#nav > #links > a span {
+	    border-top:1px solid #000000;
+	    width:1em;
+	    background:#000000;
+	    display:inline-block;
+	    padding-top:-10px;
+	    -webkit-transform: rotate(-55deg);
+	    -moz-transform: rotate(-55deg);
+	    -o-transform: rotate(-55deg);
+	    -ms-transform: rotate(-55deg);
+	    transform: rotate(-55deg);
+	    transition:0.2s;
+	    margin:3px 0px;
+	}
+	
+	#nav > #links > h1 {
+	    font-family:"Lora", Sans-Serif;
+	    float:left;
+	    margin-right: 1em;
+	}
+	
+	#nav > #links > h1 > a {
+	    color: #000000;
+	}
+	
+	#nav > #links > h1 > .line {
+	    width: 150px;
+	    height:1px;
+	    margin-left:-30px;
+	    background: #000000;
+	    -webkit-transform: rotate(-35deg);
+	    -moz-transform: rotate(-35deg);
+	    -o-transform: rotate(-35deg);
+	    -ms-transform: rotate(-35deg);
+	    transform: rotate(-35deg);
+	}
+	
+	#nav > #links > p {
+	    margin-top: 50px;
+	}
+	
+	#nav > #links > h1 > a {
+	    margin-left: 50px;
+	}
+	
+	#nav > #links > h1 > a:first-child {
+	    margin-left: 0px;
+	}
+	
+	#nav > #links > a:hover span {
+	    -webkit-transform: rotate(0deg);
+	    -moz-transform: rotate(0deg);
+	    -o-transform: rotate(0deg);
+	    -ms-transform: rotate(0deg);
+	    transform: rotate(0deg);
+	    margin:3px 5px;
+	    
+	}
+	
+	
+	.info {
+	    border-top: 1px solid #000000;
+	    margin-bottom:2em;
+	    padding-right:20px;
+	}
+	
+	.info a {
+	    float: right;
+	    padding:10px;
+	    background: #eaeaea;
+	    margin-top:-1.5em;
+	}
+	
+	.tag {
+	    margin-top: 2em;
+	    font-size: 0.8em;
+	    padding-left:15px;
+	}
+	
+	.tag a {
+	    float:left;
+	    padding:5px;
+	    margin-bottom:6px;
+	    margin-right:5px;
+	    display:inline-block;
+	}
+	
+	p .fa {
+	    color:#000000;
+	    font-size:1.5em;
+	    margin-top: 0.5em;
+	}
+	
+	.linked {
+	    position:absolute;
+	    -webkit-transform: rotate(-90deg);
+	    -moz-transform: rotate(-90deg);
+	    -o-transform: rotate(-90deg);
+	    -ms-transform: rotate(-90deg);
+	    transform: rotate(-90deg);
+	    background: #eaeaea;
+	    left:-30px;
+	    padding:5px 10px;
+	    transition:1s;
+	}
+
+	
+	@media (max-width: 900px) {
+    	#header span, #nav p { display:none }
+    	
+    	#posts {
+    	    margin-left:150px;
+    	    margin-top:100%;
+    	}
+    	
+    	.post {
+    	    background:#eaeaea;
+    	}
+    }
+	
+	</style>
+	<body>
+		
+		<div id="header">
+		    <h1> coming home.</h1>
+		    <span>
+		        All those times which made me smile till now<br>
+		        I will sing a song with those times
+		    </span>
+		</div>
+		
+		<div id="nav">
+    		<div id="links">
+    		    <a href="/"><b>01 <span></span> </b> Index</a>
+    		    <a href="/mssg"><b>02 <span></span> </b> Message</a>
+    		    <a href="/archive"><b>03 <span></span> </b> Archive</a>
+    		    <a href="/tagged/edits"><b>04 <span></span> </b> Edits</a>
+    		    <a href="/tagged/gifs"><b>05 <span></span> </b> Gifs</a>
+    		    <a href="http://hellolittlered.org/themes"><b>06 <span></span> </b> Themes</a>
+    		    <a href="http://archiveofourown.org/users/kittensoo"><b>07 <span></span> </b> Fanfic</a>
+    		    <a href="http://hellolittlered.org/commissions"><b>08 <span></span> </b> Commissions</a>
+    		    <a href="/links"><b>09 <span></span> </b> More Links</a>
+    		    
+    		    <h1>
+    		        <a href="http://hellolittlered.org">site</a>
+    		        <div class="line"></div>
+    		        <a href="http://fyeah-infinite.tumblr.com">fyeah</a>
+    		    </h1>
+    		    <p>
+    		    theme by gyuseu<br>
+    		    design inspired by <a href="https://www.behance.net/gallery/37328629/OCTAPHILOSOPHY">OCTAPHILOSOPHY™</a><br>
+    		    <a href="http://twitter.com/_kittensoo" class="fa fa-twitter"></a>
+    		    <a href="http://instagram.com/l.ifnt" class="fa fa-instagram"></a>
+    		    <a href="http://behance.com/iarifiany" class="fa fa-behance"></a>
+    		</div>
+		</div>
+		{block:Pagination}
+		<div id="pagination">
+		    <a href="{block:PreviousPage}{PreviousPage}/{block:PreviousPage}" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+		    <a href="{block:NextPage}{NextPage}{/block:NextPage}" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+		</div>
+		{/block:Pagination}
+		
+		<div id="content">
+			<div id="posts">
+			    <div id="background"></div>
+                {block:posts}
+            <!-- {block:NoRebloggedFrom}
+{block:RebloggedFrom}{ReblogParentName}{/block:RebloggedFrom}
+{/block:NoRebloggedFrom} -->
+            {block:ContentSource}<!-- {SourceURL}
+{block:SourceLogo}<img src="{BlackLogoURL}"width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />{/block:SourceLogo}
+{block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+{/block:ContentSource}
+				<div class="post">
+					<div class="info">
+					{block:IndexPage}
+					    {block:Date}
+						<a href="{Permalink}"><b>#{Year}{MonthNumberWithZero}{DayOfMonthWithZero} </b>
+						{block:NoteCount} <b>/</b> {NoteCountWithLabel}{/block:NoteCount}</a> 
+						{/block:Date}
+						{/block:IndexPage}
+					</div>
+					
+					<div class="linked">
+					<a href="{ReblogURL}" target="_blank">reblog</a>
+					</div>
+				
+					{block:Text}
+        				{block:Title}
+                        <div class="img">
+        					<a href="{Permalink}">
+        					  <h2>{Title}</h2>
+        					</a>
+        			    </div>
+        				{/block:Title}
+        			    <div class="caption">
+        				{Body}
+        			    </div>
+        		
+        			{/block:Text}
+        			
+        			<!-- quote post -->
+        			{block:Quote}
+                    <div class="img quote">
+        				  <span>{Quote}</span>
+        			</div>
+        				<div class="caption">
+        				<small>— {Source}</small>
+        				</div>
+        			{/block:Quote}
+        			
+        			<!-- link post -->
+        			{block:Link}
+                    <div class="img">
+        				<a href="{URL}">
+        				  <h2>{Name} »</h2>
+        				</a>
+        		    </div>
+        			{block:Description}
+            			<div class="caption">{Description}
+            			</div>
+        			{/block:Description}
+        			{/block:Link}
+        			
+        			<!-- photo post -->
+        			{block:Photo}
+        			<div class="img">
+        			    <a href="{PhotoURL-HighRes}"><center><img src="{PhotoURL-500}"style="display:block" /></center></a>
+        			</div>
+            		{block:Caption}
+        			<div class="caption">
+        			{Caption}
+        			</div>
+        			{/block:Caption}
+        			{/block:Photo}
+            
+                    <!-- photoset post -->
+        			{block:Photoset}
+        			<div class="img">
+                        {Photoset-500}
+        			</div>
+        			{block:Caption}
+        				<div class="caption">
+        				{Caption}
+        				</div>
+        			{/block:Caption}
+        				
+                    {/block:Photoset}
+                    
+        			{block:Audio}
+        			    <div class="img">
+        			        {AudioEmbed-500}
+        			    </div>
+        			{block:Caption}
+        				<div class="caption">
+        				{Caption}
+        				</div>
+        			{/block:Caption}
+        			{/block:Audio}
+        			
+        			<!-- ask post -->
+        			{block:Answer}
+                       <div class="img">
+        			        <h2>{Asker} wondered:</h2>
+        			        <p>{Question}</p>
+                        </div> 
+                    <div class="caption">
+                        {Answer}
+                    </div>
+        			{/block:Answer}
+        			
+        			{block:Chat}	
+        			{block:Title}
+                        <div class="img">
+        					<a href="{Permalink}">
+        					  <h2>{Title}</h2>
+        					</a>
+        			    </div>
+        				{/block:Title}
+    				<div class="chat">
+    				  <ul>
+    					{block:Lines}
+    					<li>
+    					   {block:Label}<b>{Label}</b>{/block:Label}
+    					  {Line}
+    					</li>
+    					{/block:Lines}
+    				  </ul>
+    				</div>{block:IndexPage}
+    				{/block:IndexPage}
+    			{/block:Chat}
+    			{block:PermalinkPage}<div class="info tag"></div>{/block:PermalinkPage}
+    			
+    			{block:IndexPage}
+    			
+    			<div class="info tag">
+    			    
+						{block:HasTags}{block:Tags}<a href="{TagURL}">#{tag} </a>{/block:Tags}{/block:HasTags}
+    			</div>
+    			{/block:IndexPage}
+
+				</div>
+				
+				{block:PermalinkPage}
+				
+				<div class="permalink-info">
+				    <div class="caption">
+				        
+				        {block:Date}<div class="pinfos"><b>Posted On:</b> {DayOfWeek}, {Month} {DayOfMonthWithZero}{DayOfMonthSuffix} {Year}</div>{/block:Date}
+                        {block:NoteCount}
+                            <div class="pinfos"><b>Note Count:</b> {NoteCountWithLabel}</div>
+                            {/block:NoteCount}
+                            {block:RebloggedFrom}
+                                <div class="pinfos"><b>Source:</b> <a href="{ReblogRootURL}">{ReblogRootName}</a></div>
+                                <div class="pinfos"><b>Via:</b> <a href="{ReblogParentURL}">{ReblogParentName}</a></div>
+                                
+                            {/block:RebloggedFrom}
+                        {block:HasTags}<div class="pinfos"><b>Label:</b> {block:Tags}<a href="{TagURL}" class="fa fa-tag"> <span>{Tag}</span></a> {/block:Tags}</div>{/block:HasTags}
+				    </div>
+				</div>
+				{/block:PermalinkPage}
+				{/block:posts}
+
+			</div>
+		<div>
+	</body>
+</html>
