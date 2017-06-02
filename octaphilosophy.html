@@ -11,35 +11,62 @@
 		<link rel="alternate" type="application/rss+xml" href="{RSS}">
 		<link href="https://fonts.googleapis.com/css?family=Arimo|Rubik|Lora" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <meta name="color:MainColor" content="#eaeaea"/>
+        <meta name="color:SecondaryColor" content="#000000"/>
+        <meta name="image:Sidebar" content="http://i.imgur.com/JswC2B1.png"/>
+        <meta name="text:Link1URL" content=""/>
+        <meta name="text:Link1" content=""/>
+        <meta name="text:Link2URL" content=""/>
+        <meta name="text:Link2" content=""/>
+        <meta name="text:Link3URL" content=""/>
+        <meta name="text:Link3" content=""/>
+        <meta name="text:Link4URL" content=""/>
+        <meta name="text:Link4" content=""/>
+        <meta name="text:Link5URL" content=""/>
+        <meta name="text:Link5" content=""/>
+        <meta name="text:Link6URL" content=""/>
+        <meta name="text:Link6" content=""/>
+        <meta name="text:TwitterUsername" content=""/>
+        <meta name="text:FacebookUsername" content=""/>
+        <meta name="text:InstagramUsername" content=""/>
+        <meta name="if:grayscale" content="1"/>
 	</head>
 	<style>
+	.tmblr-iframe {
+	    position: fixed;
+	}
 	
 	::selection {
-	    background: #ffffff;
-		color: #000000;
+	    background: {color:SecondaryColor};
+		color: #ffffff;
 	}
 	
 	body {
-		background: #eaeaea;
-		font-size: 0.8em;font-family: 'Rubik', sans-serif;
+		background: {color:MainColor};
+		font-size: 0.8em;
+		font-family: 'Rubik', sans-serif;
+		color: {color:SecondaryColor};
 	}
-
 	a {
-		color: #222222;
+	    color: {color:SecondaryColor};
+		opacity: .8;
 		text-decoration: none;
 	    transition: 0.5s;
 	}
 	
+	.info a, #pagination a {
+	    opacity: 1;
+	}
+	
 	a:hover {
-      color: #000000;
+      opacity: 1;
       position: relative;
     }
     
 	pre {
-	    background: #cccccc;
+	    background: rgba(0,0,0,.5);
 	    word-wrap: break-word;
 	}
-
 	#posts {
 		margin-left: 580px;
 		margin-top: 8em;
@@ -52,38 +79,44 @@
 	}
 	
 	.img {
-	    /*-webkit-filter: grayscale(1);*/
+	    {block:ifgrayscale}
+	    filter: grayscale(1);
+	    -o-filter: grayscale(1);
+	    -moz-filter: grayscale(1);
+	    -webkit-filter: grayscale(1);
+	    {/block:ifgrayscale}
 	    transition: 0.5s;
 	    padding:2em;
 	}
 	
 	.img:hover {
+	    filter: grayscale(0);
+	    -o-filter: grayscale(0);
+	    -moz-filter: grayscale(0);
 	    -webkit-filter: grayscale(0);
 	}
-
 	.post {
 		margin: 0 0 10em 0em;
 		width: calc(500px + 5em);
 		position:relative;
-		border-left:1px solid #000000;
-		border-right:1px solid #000000;
+		border-left:1px solid {color:SecondaryColor};
+		border-right:1px solid {color:SecondaryColor};
 	}
 	
 	.permalink-info {
 	    padding:1em;
-	    border-top:1px solid #000000;
-	    border-bottom:1px solid #000000;
+	    border-top:1px solid {color:SecondaryColor};
+	    border-bottom:1px solid {color:SecondaryColor};
 	}
 	
 	.tumblr_blog, .source_link {
 	    margin-top:1em;
 	    margin-bottom:-1em;
-	    background:#eaeaea;
+	    background:{color:MainColor};
 	}
-
 	blockquote {
 		padding: 1em;
-		border:1px solid #000000;
+		border:1px solid {color:SecondaryColor};
 		position:relative;
 		margin-left:0;
 		width: calc(100% - 2em);
@@ -105,36 +138,37 @@
 	}
 	
 	.prev {
-	    background: #cccccc;
+	    background: rgba(0,0,0,.5);
 	}
 	
 	.next {
-	    background: #aaaaaa;
+	    background: rgba(0,0,0,.7);
 	}
 	
 	a h2, .quote, h2 {
 	    font-size:2em;
 	    font-family:"Lora", Sans-Serif;
 	    font-style:italic;
-	    color: #000000;
+	    color: {color:SecondaryColor};
 	    margin:.5em 1em;
 	    font-size:3em;
 	    text-align:center;
 	}
 	
-	.chat ul, .chat li {
-	    list-style:none;
+	.chat ul {
 	    padding:0;
-	    margin:0;
+	    margin:0 2em;
 	}
 	
 	.chat ul li {
-	    padding:0.5em;
-	    border-bottom:1px solid #000000;
+	    list-style:none;
+	    padding:1em;
+	    border-bottom:1px solid {color:SecondaryColor};
+	    width: calc(100% - 3em);
 	}
 	
 	blockquote > blockquote {
-	    border-left:1px solid #000000;
+	    border-left:1px solid {color:SecondaryColor};
 	}
 	
 	#header {
@@ -166,7 +200,7 @@
 	    bottom:0em;
 	    width:610px;
 	    height:100%;
-	    background:url(http://i.imgur.com/JswC2B1.png) bottom right no-repeat;
+	    background:url({image:Sidebar}) bottom right no-repeat;
 	    position:fixed;
 	}
 	
@@ -178,16 +212,16 @@
 	}
 	
 	#nav > #links > a {
-	    color: #000000;
+	    color: {color:SecondaryColor};
 	    display: block;
 	    margin-bottom:2em;
 	    width:150px;
 	}
 	
 	#nav > #links > a span {
-	    border-top:1px solid #000000;
+	    border-top:1px solid {color:SecondaryColor};
 	    width:1em;
-	    background:#000000;
+	    background:{color:SecondaryColor};
 	    display:inline-block;
 	    padding-top:-10px;
 	    -webkit-transform: rotate(-55deg);
@@ -206,14 +240,14 @@
 	}
 	
 	#nav > #links > h1 > a {
-	    color: #000000;
+	    color: {color:SecondaryColor};
 	}
 	
 	#nav > #links > h1 > .line {
 	    width: 150px;
 	    height:1px;
 	    margin-left:-30px;
-	    background: #000000;
+	    background: {color:SecondaryColor};
 	    -webkit-transform: rotate(-35deg);
 	    -moz-transform: rotate(-35deg);
 	    -o-transform: rotate(-35deg);
@@ -245,7 +279,7 @@
 	
 	
 	.info {
-	    border-top: 1px solid #000000;
+	    border-top: 1px solid {color:SecondaryColor};
 	    margin-bottom:2em;
 	    padding-right:20px;
 	}
@@ -253,7 +287,7 @@
 	.info a {
 	    float: right;
 	    padding:10px;
-	    background: #eaeaea;
+	    background: {color:MainColor};
 	    margin-top:-1.5em;
 	}
 	
@@ -272,7 +306,7 @@
 	}
 	
 	p .fa {
-	    color:#000000;
+	    color:{color:SecondaryColor};
 	    font-size:1.5em;
 	    margin-top: 0.5em;
 	}
@@ -284,66 +318,71 @@
 	    -o-transform: rotate(-90deg);
 	    -ms-transform: rotate(-90deg);
 	    transform: rotate(-90deg);
-	    background: #eaeaea;
+	    background: {color:MainColor};
 	    left:-30px;
 	    padding:5px 10px;
 	    transition:1s;
 	}
-
 	
-	@media (max-width: 900px) {
-    	#header span, #nav p { display:none }
-    	
-    	#posts {
-    	    margin-left:150px;
-    	    margin-top:100%;
-    	}
-    	
-    	.post {
-    	    background:#eaeaea;
-    	}
-    }
+	.q {
+	    display:block;
+	    border: 1px solid {color:SecondaryColor};
+	    padding: 1em;
+	    margin: 0 2em;
+	    position: relative
+	}
+	
+	.qasker {
+	    position: absolute;
+	    top: -1.3em;
+	    background: {color:MainColor};
+	    padding: .5em;
+	    display: inline-block;
+	    font-weight: bold;
+	    font-size: 1.3em;
+	    
+	}
+	
 	
 	</style>
 	<body>
 		
 		<div id="header">
-		    <h1> coming home.</h1>
+		    <h1>{title}</h1>
 		    <span>
-		        All those times which made me smile till now<br>
-		        I will sing a song with those times
+		        {description}
 		    </span>
 		</div>
 		
 		<div id="nav">
     		<div id="links">
     		    <a href="/"><b>01 <span></span> </b> Index</a>
-    		    <a href="/mssg"><b>02 <span></span> </b> Message</a>
+    		    <a href="/ask"><b>02 <span></span> </b> Message</a>
     		    <a href="/archive"><b>03 <span></span> </b> Archive</a>
-    		    <a href="/tagged/edits"><b>04 <span></span> </b> Edits</a>
-    		    <a href="/tagged/gifs"><b>05 <span></span> </b> Gifs</a>
-    		    <a href="http://hellolittlered.org/themes"><b>06 <span></span> </b> Themes</a>
-    		    <a href="http://archiveofourown.org/users/kittensoo"><b>07 <span></span> </b> Fanfic</a>
-    		    <a href="http://hellolittlered.org/commissions"><b>08 <span></span> </b> Commissions</a>
-    		    <a href="/links"><b>09 <span></span> </b> More Links</a>
+    		    
+            {block:iflink1}<a href="{text:Link1URL}"><b>04 <span></span> </b> {text:Link1}</a>{/block:iflink1}
+            {block:iflink2}<a href="{text:Link2URL}"><b>05 <span></span> </b> {text:Link2}</a>{/block:iflink2}
+            {block:iflink3}<a href="{text:Link3URL}"><b>06 <span></span> </b> {text:Link3}</a>{/block:iflink3}
+            {block:iflink4}<a href="{text:Link4URL}"><b>07 <span></span> </b> {text:Link4}</a>{/block:iflink4}
+            {block:iflink5}<a href="{text:Link5URL}"><b>08 <span></span> </b> {text:Link5}</a>{/block:iflink5}
+            {block:iflink6}<a href="{text:Link6URL}"><b>09 <span></span> </b> {text:Link6}</a>{/block:iflink6}
+            {block:iflink7}<a href="{text:Link7URL}"><b>10 <span></span> </b> {text:Link7}</a>{/block:iflink7}
     		    
     		    <h1>
-    		        <a href="http://hellolittlered.org">site</a>
+    		        <a href="http://hellolittlered.org">thm</a>
     		        <div class="line"></div>
-    		        <a href="http://fyeah-infinite.tumblr.com">fyeah</a>
+    		        <a href="https://www.behance.net/gallery/37328629/OCTAPHILOSOPHY">ins</a>
     		    </h1>
-    		    <p>
-    		    theme by gyuseu<br>
-    		    design inspired by <a href="https://www.behance.net/gallery/37328629/OCTAPHILOSOPHY">OCTAPHILOSOPHY™</a><br>
-    		    <a href="http://twitter.com/_kittensoo" class="fa fa-twitter"></a>
-    		    <a href="http://instagram.com/l.ifnt" class="fa fa-instagram"></a>
-    		    <a href="http://behance.com/iarifiany" class="fa fa-behance"></a>
+    		    <p>Visit Me On:<br>
+                {block:ifTwitterUsername}<a href="http://twitter.com/{text:TwitterUsername}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>{/block:ifTwitterUsername}
+                {block:ifInstagramUsername}<a href="http://instagram.com/{text:InstagramUsername}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>{/block:ifInstagramUsername}
+                {block:ifFacebookUsername}<a href="http://facebook.com/{text:FacebookUsername}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>{/block:ifFacebookUsername}
     		</div>
 		</div>
 		{block:Pagination}
 		<div id="pagination">
-		    <a href="{block:PreviousPage}{PreviousPage}/{block:PreviousPage}" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
-		    <a href="{block:NextPage}{NextPage}{/block:NextPage}" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+		    {block:PreviousPage}<a href="{PreviousPage}" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>{/block:PreviousPage}
+		    {block:NextPage}<a href="{NextPage}" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>{/block:NextPage}
 		</div>
 		{/block:Pagination}
 		
@@ -392,7 +431,7 @@
         				  <span>{Quote}</span>
         			</div>
         				<div class="caption">
-        				<small>— {Source}</small>
+        				<center><small>— {Source}</small></center>
         				</div>
         			{/block:Quote}
         			
@@ -447,8 +486,8 @@
         			
         			<!-- ask post -->
         			{block:Answer}
-                       <div class="img">
-        			        <h2>{Asker} wondered:</h2>
+        			    <div class="q">
+        			        <div class="qasker">{Asker} wondered:</div>
         			        <p>{Question}</p>
                         </div> 
                     <div class="caption">
@@ -489,23 +528,32 @@
 				</div>
 				
 				{block:PermalinkPage}
-				
-				<div class="permalink-info">
-				    <div class="caption">
-				        
-				        {block:Date}<div class="pinfos"><b>Posted On:</b> {DayOfWeek}, {Month} {DayOfMonthWithZero}{DayOfMonthSuffix} {Year}</div>{/block:Date}
-                        {block:NoteCount}
-                            <div class="pinfos"><b>Note Count:</b> {NoteCountWithLabel}</div>
-                            {/block:NoteCount}
-                            {block:RebloggedFrom}
-                                <div class="pinfos"><b>Source:</b> <a href="{ReblogRootURL}">{ReblogRootName}</a></div>
-                                <div class="pinfos"><b>Via:</b> <a href="{ReblogParentURL}">{ReblogParentName}</a></div>
-                                
-                            {/block:RebloggedFrom}
-                        {block:HasTags}<div class="pinfos"><b>Label:</b> {block:Tags}<a href="{TagURL}" class="fa fa-tag"> <span>{Tag}</span></a> {/block:Tags}</div>{/block:HasTags}
+				{block:PostNotes} 
+				    <div class="post">
+        				<div class="permalink-info">
+        				    <div class="caption">
+        				        
+        				        {block:Date}<div class="pinfos"><b>Posted On:</b> {DayOfWeek}, {Month} {DayOfMonthWithZero}{DayOfMonthSuffix} {Year}</div>{/block:Date}
+                                {block:NoteCount}
+                                    <div class="pinfos"><b>Note Count:</b> {NoteCountWithLabel}</div>
+                                    {/block:NoteCount}
+                                    {block:RebloggedFrom}
+                                        <div class="pinfos"><b>Source:</b> <a href="{ReblogRootURL}">{ReblogRootName}</a></div>
+                                        <div class="pinfos"><b>Via:</b> <a href="{ReblogParentURL}">{ReblogParentName}</a></div>
+                                        
+                                    {/block:RebloggedFrom}
+                                {block:HasTags}<div class="pinfos"><b>Label:</b> {block:Tags}<a href="{TagURL}" class="fa fa-tag"> <span>{Tag}</span></a> {/block:Tags}</div>{/block:HasTags}
+        				    </div>
+        				</div>
+				        <div class="chat">
+    				        {PostNotes-16}
+    				        
+    				    </div>
+				    <div class="info tag"></div>
 				    </div>
-				</div>
+			    {/block:PostNotes}
 				{/block:PermalinkPage}
+				{/block:posts}
 				{/block:posts}
 
 			</div>
