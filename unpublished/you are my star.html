@@ -1,0 +1,594 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>{title}</title>
+  <link rel="apple-touch-icon" href="{PortraitURL-128}">
+  <link rel="shortcut icon" href="{Favicon}">
+  <link rel="alternate" type="application/rss+xml" href="{RSS}">
+  <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+  <link rel="stylesheet" href="https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?cp0z2c">
+</head>
+<style>
+html, body {
+    background: url(http://68.media.tumblr.com/tumblr_lsdjv9k5E21r2gm7fo4_400.jpg) #ffffff;
+    font-family: 'Cabin', sans-serif;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    color: #333333;
+}
+
+a {
+    text-decoration: none;
+    background: #01dddd;
+    color: #ffffff;
+    display: inline-block;
+    padding: .1em .4em;
+    border-radius: 2px;
+}
+
+img, .iframe, .photoset { max-width: 100%; }
+
+.title {
+    background: #fd8a5e;
+    padding: 0 2em;
+    border-radius: 5px;
+}
+
+b, strong, i, em { color: #e0e300; }
+
+.bg1 { background: #ff598f; }
+.bg2 { background: #fd8a5e; }
+.bg3 { background: #e0e300; }
+.bg4 { background: #01dddd; }
+blockquote { 
+    border-left: 1px solid #fd8a5e;
+    padding-left: 1em;
+}
+
+blockquote > blockquote {
+    border-left: 1px solid #e0e300;
+    padding-left: 1em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding-left: 1em; 
+  text-indent: -.7em;
+}
+
+li::before {
+  content: "•  ";
+  color: #e0e300;
+}
+
+#menu {
+    text-align: right;
+    padding: 1em;
+}
+
+#menu a {
+    display: inline-block;
+    padding: .2em 1em;
+    font-size: .9em;
+    text-transform: lowercase;
+    font-weight:bold;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+#header:after, #content:after, #posts:after, #post-info:after {
+    display: table;
+    content: "";
+    clear: both;
+}
+
+#header {
+    position: relative;
+}
+
+#header > #headerimg {
+    background:url(http://i.imgur.com/jCUVPMX.png) center #dba8c1;
+    min-height: 350px;
+    width: 70%;
+    float: right;
+}
+
+#header > #desc {
+    position: absolute;
+    width: 25%;
+    left: 10%;
+    top: 10%;
+    color: #ffffff;
+    text-align: right;
+}
+
+#header > #desc > h1 > span{
+    padding: .2em;
+    border-radius: 5px;
+}
+#header > #desc > span {
+    line-height: 1.7em;
+    padding: .2em;
+    border-radius: 3px;
+}
+
+.tmblr-iframe {
+    position: fixed;
+    top: 1em!important;
+    left: 1em!important;
+}
+
+.link {
+    text-align: right;
+}
+.link a {
+    display: inline-block;
+    padding: .5em;
+    border-radius: 0px;
+    font-weight: bold;
+}
+
+#content {
+    margin: 1em 0;
+}
+
+#posts {
+    width: 70%;
+    float: right;
+}
+
+.post {
+    background: #ffffff;
+    padding: 2em;
+    width: 540px;
+    margin: 2em 0;
+    float: right;
+    position: relative;
+    min-height: 180px;
+}
+
+
+.quote {
+    font-size: 2em;
+}
+
+.quote:first-letter {
+    font-size: 1.6em;
+    float: left;
+    padding: 0 .2em;
+    background: #e0e300;
+    color: rgba(0,0,0,.6);
+    margin-right: 2px;
+    border-radius: 5px;
+}
+
+.source {
+    float: right;
+    padding: .2em .5em;
+    border-radius: 3px;
+}
+
+#post-info {
+    position: absolute;
+    left: -200px;
+    width: 200px;
+    top: 2em;
+}
+
+#icons {
+    width: 150px;
+    margin: 20px 0px 20px 50px;
+    position: relative;
+}
+
+#icons:before {
+    display:block;
+    content: "";
+    background: #e0e300;
+    height: 7px;
+    margin-bottom: 7px;
+}
+
+#icons:after {
+    display:block;
+    content: "";
+    background: #01dddd;
+    height: 7px;
+}
+
+.icon {
+    position: absolute;
+    left: 35px;
+    top: -12px;
+    width: 20px;
+    height: 20px;
+    padding: 10px 16px 10px 4px;
+    text-align: center;
+    border-radius: 100%;
+    border: 2px solid #ff598f;
+}
+
+.icon:first-child {
+    left: -12px;
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    border: 2px solid #01dddd;
+}
+
+.icon a {
+    background: transparent;
+}
+
+#tags a {
+    text-align: right;
+    background: transparent;
+    display:block;
+    margin-right: -5px;
+    margin-bottom: 1px;
+}
+
+#tags a:nth-child(odd) span {
+    background: #ff598f;
+    padding: 2px 5px;
+}
+#tags a:nth-child(even) span {
+    background: #e0e300;
+    padding: 2px 5px;
+}
+.ask-icon {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    border: 4px solid #ff598f;
+    left: 50%;
+    margin-left: -37px;
+    top: -37px;
+    border-radius: 100%;
+}
+.q {
+    padding: 1em 0;
+    margin-bottom: 1em;
+    border-bottom: 1px dashed #ff598f;
+}
+
+.chat {
+    margin-bottom: 10px;
+}
+
+.chat b {
+    color: #ffffff;
+    padding: 2px 5px;
+    text-transform:uppercase;
+    font-size: .6em;
+}
+
+.chat:nth-child(odd) b {
+    background: #ff598f;
+}
+.chat:nth-child(even) b {
+    background: #01dddd;
+}
+
+.notes {
+    
+    padding-left: 0;
+    margin-left: 0;
+}
+.notes li {
+    list-style: none;
+    background: #01dddd;
+    padding: 5px;
+    color: #ffffff;
+    margin-bottom: 3px;
+}
+
+.notes li:nth-child(even) {
+    background: #fd8a5e;
+}
+
+.notes li:before, .chat li:before {
+    content: "";
+}
+
+.notes li blockquote {
+    display: none;
+}
+
+#sidebar {
+    width: 25%;
+    float: left;
+}
+
+#sidebar .side-post {
+    padding: 1em;
+    margin-bottom: 1em;
+    background:#ffffff;
+    font-size: .8em;
+}
+
+#sidebar > .stitle {
+    display: inline-block;
+    padding: .5em;
+    text-transform: uppercase;
+    font-size: .8em;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#pagination {
+    position: fixed;
+    left: 27%;
+    bottom: 0;
+    z-index: 9999;
+    width:10%;
+}
+
+#pagination a {
+    display: inline-block;
+    font-size: .9em;
+    font-weight: bold;
+    padding: 1em;
+}
+
+#socials {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+}
+
+#socials a {
+    display: block;
+    font-size: 1.4em;
+    width: 1em;
+    height: 1em;
+    padding: .3em;
+    margin-bottom: .2em;
+}
+</style>
+</style>
+<body>
+
+    <div id="pagination">
+        {block:PreviousPage}
+        <a href="{PreviousPage}" class="bg3">PREV</a>
+        {/block:PreviousPage}
+        {block:NextPage}
+        <a href="{NextPage}" class="bg4">NEXT</a>
+        {/block:NextPage}
+    </div>
+  <div id="menu">
+      <a href="/" class="bg1">home</a>
+      <a href="/ask" class="bg2">questions</a>
+      <a href="/tagged/edits" class="bg3">edits</a>
+      <a href="/tagged/gifs" class="bg4">gifs</a>
+      <a href="http://hellolittlered.org/themes" class="bg1">themes</a>
+      <a href="http://archiveofourown.org/users/kittensoo" class="bg2">writings</a>
+      <a href="http://hellolittlered.org/" class="bg3">website</a>
+      <a href="/links" class="bg4">more</a>
+  </div>
+  
+  <div id="header">
+      <div id="desc">
+            <h1><span class="bg4">{title}</span></h1>
+            <span class="bg2">{description}</span>
+      </div>
+      <div id="headerimg">
+          
+      </div>
+      <div id="socials">
+          <a href="https://www.flickr.com/photos/113411780@N03/" class="bg1 socicon-flickr"></a>
+          <a href="http://github.com/flavea" class="bg2 socicon-github"></a>
+          <a href="https://www.goodreads.com/user/show/3593336-ilma-a" class="bg3 socicon-goodreads"></a>
+          <a href="http://instagram.com/l.ifnt" class="bg4 socicon-instagram"></a>
+          <a href="http://last.fm/user/ibear2" class="bg1 socicon-lastfm"></a>
+          <a href="http://twitter.com/_kittensoo" class="bg2 socicon-twitter"></a>
+          <a href="https://www.youtube.com/channel/UCQAHtKc4qFnmtC0lNnEZLKQ" class="bg3 socicon-youtube"></a>
+      </div>
+  </div>
+  
+  <div id="content">
+      <div id="sidebar">
+          <span class="stitle bg4">Current Statuses</span>
+          <div class="side-post">
+              <ul class="chat">
+                  <li><b>Status:</b> <br>Semi-Hiatus</li>
+                  <li><b>Last Book Read:</b> <br>The Dark Prophecy (The Trials of Apollo, #2) by Rick Riordan</li>
+                  <li><b>Current Dramas Watched:</b> <br>Ruler: Master Of The Mask</li>
+                  <li><b>Last Song Listened:</b> <br> <span id="song"></span></li>
+              </ul>
+          </div>
+          
+          <span class="stitle bg1">Latest Gif</span>
+          <div id="gifs" class="side-post">
+              
+          </div>
+          <span class="stitle bg2">Latest Edits</span>
+          <div id="edit" class="side-post">
+              
+          </div>
+          <span class="stitle bg3">Latest Theme</span>
+          <div id="theme" class="side-post">
+              
+          </div>
+          <span class="stitle bg3">Latest Photos</span>
+          <div class="side-post">
+              <script src="//lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/44b9cec9004e5116ad09361b7bed65db.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
+
+          </div>
+      </div>
+      <div id="posts">
+          {block:posts}
+            <!-- {block:NoRebloggedFrom}
+{block:RebloggedFrom}{ReblogParentName}{/block:RebloggedFrom}
+{/block:NoRebloggedFrom} -->
+            {block:ContentSource}<!-- {SourceURL}
+{block:SourceLogo}<img src="{BlackLogoURL}"width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />{/block:SourceLogo}
+{block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+{/block:ContentSource}
+				<div class="post">
+				    <div id="post-info">
+				        
+                        <div class="link">
+                        {block:Date}<h3 style="margin-bottom:0"><a href="{permalink}" class="bg2">{12HourWithZero}:{Minutes} {CapitalAmPm}</a></h3>
+                        </div>
+                        <div class="link">
+                        <a href="{permalink}" class="bg3">{DayOfWeek}, {Month} {DayOfMonth}{DayOfMonthSuffix} {Year}</a>{/block:Date}
+                        </div>{/block:Date}
+                        <div class="link">
+                        {block:NoteCount}<a href="{permalink}" class="bg4">{NoteCountWithLabel}</a>{/block:NoteCount}
+                        </div>
+                        <div id="icons" class="bg1">
+                            <div class="icon bg1">{LikeButton color="white" size="20"}</div>
+                            <div class="icon bg4">{ReblogButton color="white" size="20"}</div>
+                        </div>
+                        <div id="tags">
+                            {block:HasTags}
+                                {block:Tags}
+                                        <a href="{TagURL}"><span>{Tag}</span></a>
+                                {/block:Tags}
+                        {/block:HasTags}
+                        </div>
+				    </div>
+			
+					{block:Text}
+        				{block:Title}
+                        <div class="img">
+        					<a href="{Permalink}" class="title">
+        					  <h2>{Title}</h2>
+        					</a>
+        			    </div>
+        				{/block:Title}
+        			    <div class="caption">
+        				{Body}
+        			    </div>
+        		
+        			{/block:Text}
+        			
+        			<!-- quote post -->
+        			{block:Quote}
+                    <div class="quote">
+        				  <span>{Quote}</span>
+        			</div>
+        			<span class="source bg1">{Source}</span>
+        			{/block:Quote}
+        			
+        			<!-- link post -->
+        			{block:Link}
+                    <div class="img">
+        				<a href="{URL}" class="title">
+        				  <h2>{Name} »</h2>
+        				</a>
+        		    </div>
+        			{block:Description}
+            			<div class="caption">{Description}
+            			</div>
+        			{/block:Description}
+        			{/block:Link}
+        			
+        			<!-- photo post -->
+        			{block:Photo}
+        			<div class="img">
+        			    <a href="{PhotoURL-HighRes}"><center><img src="{PhotoURL-HighRes}"style="display:block" /></center></a>
+        			</div>
+            		{block:Caption}
+        			<div class="caption">
+        			{Caption}
+        			</div>
+        			{/block:Caption}
+        			{/block:Photo}
+            
+                    <!-- photoset post -->
+        			{block:Photoset}
+        			<div class="img">
+                        {Photoset}
+        			</div>
+        			{block:Caption}
+        				<div class="caption">
+        				{Caption}
+        				</div>
+        			{/block:Caption}
+        				
+                    {/block:Photoset}
+                    
+        			{block:Audio}
+        			    <div class="img">
+        			        {AudioEmbed-500}
+        			    </div>
+        			{block:Caption}
+        				<div class="caption">
+        				{Caption}
+        				</div>
+        			{/block:Caption}
+        			{/block:Audio}
+        			
+        			<!-- ask post -->
+        			{block:Answer}
+        			        <img src="{AskerPortraitURL-96}" class="ask-icon"><br>
+        			        <center>{Asker}</center>
+        			        <div class="q">{Question}</div>
+                    <div class="caption">
+                        {Answer}
+                    </div>
+        			{/block:Answer}
+        			
+        			{block:Chat}	
+        			{block:Title}
+                        <div class="img">
+        					<a href="{Permalink}" class="title">
+        					  <h2>{Title}</h2>
+        					</a>
+        			    </div>
+        				{/block:Title}
+    					{block:Lines}
+            				<div class="chat">
+            					   {block:Label}<b>{Label}</b>{/block:Label}
+            					  {Line}
+            				</div>
+    					{/block:Lines}
+    			{/block:Chat}
+    			{block:PermalinkPage}<div class="info tag"></div>{/block:PermalinkPage}
+    			
+				</div>
+				{block:PermalinkPage}
+				{block:PostNotes} 
+				    <div class="post">
+				        {PostNotes-16}
+				    </div>
+			    {/block:PostNotes}
+				{/block:PermalinkPage}
+				{/block:posts}
+      </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script>
+        $(document).ready(function() {
+            $.getJSON('http://gyuseu.tumblr.com/api/read/json?callback=?&num=1&tagged=gifs', function(result) {
+                $('#gifs').html('<center><a href="'+ result.posts[0].url +'"><img src="' + result.posts[0]["photo-url-1280"] + '"></a><br></center>' + result.posts[0]["photo-caption"]);
+            });
+            
+            
+            $.getJSON('http://gyuseu.tumblr.com/api/read/json?callback=?&num=1&tagged=edits', function(result) {
+                $('#edit').html('<center><a href="'+ result.posts[0].url +'"><img src="' + result.posts[0]["photo-url-1280"] + '"></a><br></center>' + result.posts[0]["photo-caption"]);
+            });
+            
+            $.getJSON('http://gyuseu.tumblr.com/api/read/json?callback=?&num=1&tagged=themes', function(result) {
+                $('#theme').html('<center><a href="'+ result.posts[0].url +'"><img src="' + result.posts[0]["photo-url-500"] + '"></a><br></center>');
+            });
+            $.getJSON('http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=iBear2&format=json&api_key=a25573a1905bb755bbe3e4d2d1894d7c&limit=1', function(result) {
+                $('#song').html(result.recenttracks.track[0].artist['#text'] + ' - ' +result.recenttracks.track[0].name);
+            });
+        });
+
+  </script>
+</body>
+</html>
