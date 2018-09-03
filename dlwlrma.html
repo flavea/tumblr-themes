@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<title>{Title}</title>
+	<meta content="{Description}" name="description">
+	<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Abril+Fatface|Poppins" rel="stylesheet">
+	<link href="https://hellolittlered.org/material/valthm/css/font-awesome.css" rel="stylesheet" type="text/css">
+	<script src="https://hellolittlered.org/material/valthm/js/jquery.min.js">
+	</script>
+	<script src="https://hellolittlered.org/material/valthm/js/script.js">
+	</script>
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js">
+	</script>
+	<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js">
+	</script>
+	<link rel="shortcut icon" href="{Favicon}"> 
+	<meta content="#ffffff" name="color:background">
+	<meta content="#ffffff" name="color:postbackground">
+	<meta content="#222222" name="color:text">
+	<meta content="#facac0" name="color:accent1">
+	<meta content="#a9e7da" name="color:accent2">
+	<meta content="#dec2d5" name="color:accent3">
+	<meta content="#468b7d" name="color:colorlink1">
+	<meta content="#be1818" name="color:colorlink2">
+	<meta content="title" name="text:Second Link Box Title">
+	<meta content="" name="text:Link1URL">
+	<meta content="" name="text:Link1">
+	<meta content="" name="text:Link2URL">
+	<meta content="" name="text:Link2">
+	<meta content="" name="text:Link3URL">
+	<meta content="" name="text:Link3">
+	<meta content="" name="text:Link4URL">
+	<meta content="" name="text:Link4">
+	<meta content="" name="text:Link5URL">
+	<meta content="" name="text:Link5">
+	<meta content="" name="text:Link6URL">
+	<meta content="" name="text:Link6">
+	<meta content="" name="text:Link7URL">
+	<meta content="" name="text:Link7">
+	<meta content="" name="text:Link8URL">
+	<meta content="" name="text:Link8">
+	<meta content="" name="text:Link9URL">
+	<meta content="" name="text:Link9">
+	<meta content="" name="text:Link10URL">
+	<meta content="" name="text:Link10">
+	<meta content="" name="text:Link11URL">
+	<meta content="" name="text:Link11">
+	<meta content="" name="text:Link12URL">
+	<meta content="" name="text:Link12">
+	<meta content="" name="text:Link13URL">
+	<meta content="" name="text:Link13">
+	<meta content="" name="text:Link14URL">
+	<meta content="" name="text:Link14">
+	<meta content="" name="text:TwitterUsername">
+	<meta content="" name="text:InstagramUsername">
+	<meta content="" name="text:FacebookUsername">
+	<style type="text/css">
+	       :root {
+	           --bg: {color:background}; 
+	           --post-bg: {color:postbackground}; 
+	           --text: {color:text}; 
+	           --one: {color:accent1}; 
+	           --two: {color:accent2}; 
+	           --three: {color:accent3}; 
+	           --link: {color:colorlink1}; 
+	           --link-2: {color:colorlink2};
+	       }
+	       
+	           article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+	       display: block;
+	   }
+	   audio, canvas, video {
+	       display: inline-block;
+	   }
+	   audio:not([controls]) {
+	       display: none;
+	       height: 0;
+	   }
+	   [hidden] {
+	       display: none;
+	   }
+	   html {
+	       font-family: sans-serif;
+	       -ms-text-size-adjust: 100%;
+	       -webkit-text-size-adjust: 100%;
+	   }
+	   body {
+	       margin: 0;
+	   }
+	   a:focus {
+	       outline: thin dotted;
+	   }
+	   a:active, a:hover {
+	       outline: 0;
+	   }
+	   h1 {
+	       font-size: 2em;
+	       margin: 0.67em 0;
+	   }
+	   abbr[title] {
+	       border-bottom: 1px dotted;
+	   }
+	   b, strong {
+	       font-weight: bold;
+	   }
+	   dfn {
+	       font-style: italic;
+	   }
+	   hr {
+	       -moz-box-sizing: content-box;
+	       box-sizing: content-box;
+	       height: 0;
+	   }
+	   mark {
+	       background: #ff0;
+	       color: #000;
+	   }
+	   code, kbd, pre, samp {
+	       font-family: monospace, serif;
+	       font-size: 1em;
+	   }
+	   pre {
+	       white-space: pre-wrap;
+	   }
+	   q {
+	       quotes: "\201C" "\201D" "\2018" "\2019";
+	   }
+	   small {
+	       font-size: 80%;
+	   }
+	   sub, sup {
+	       font-size: 75%;
+	       line-height: 0;
+	       position: relative;
+	       vertical-align: baseline;
+	   }
+	   sup {
+	       top: -0.5em;
+	   }
+	   sub {
+	       bottom: -0.25em;
+	   }
+	   img {
+	       border: 0;
+	   }
+	   svg:not(:root) {
+	       overflow: hidden;
+	   }
+	   figure {
+	       margin: 0;
+	   }
+	   fieldset {
+	       border: 1px solid #c0c0c0;
+	       margin: 0 2px;
+	       padding: 0.35em 0.625em 0.75em;
+	   }
+	   legend {
+	       border: 0;
+	       padding: 0;
+	   }
+	   button, input, select, textarea {
+	       font-family: inherit;
+	       font-size: 100%;
+	       margin: 0;
+	   }
+	   button, input {
+	       line-height: normal;
+	   }
+	   button, select {
+	       text-transform: none;
+	   }
+	   button, html input[type="button"], input[type="reset"], input[type="submit"] {
+	       -webkit-appearance: button;
+	       cursor: pointer;
+	   }
+	   button[disabled], html input[disabled] {
+	       cursor: default;
+	   }
+	   input[type="checkbox"], input[type="radio"] {
+	       box-sizing: border-box;
+	       padding: 0;
+	   }
+	   input[type="search"] {
+	       -webkit-appearance: textfield;
+	       -moz-box-sizing: content-box;
+	       -webkit-box-sizing: content-box;
+	       box-sizing: content-box;
+	   }
+	   input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+	       -webkit-appearance: none;
+	   }
+	   button::-moz-focus-inner, input::-moz-focus-inner {
+	       border: 0;
+	       padding: 0;
+	   }
+	   textarea {
+	       overflow: auto;
+	       vertical-align: top;
+	   }
+	   table {
+	       border-collapse: collapse;
+	       border-spacing: 0;
+	   }
+	   *, *::after, *::before {
+	       box-sizing: border-box;
+	   }
+	   body {
+	       font-family: 'Poppins', monospace;
+	       font-weight: 500;
+	       height: 100vh;
+	       background: var(--bg);
+	       color: var(--text);
+	       line-height: 1.5em;
+	       -webkit-font-smoothing: antialiased;
+	       -moz-osx-font-smoothing: grayscale;
+	       overflow-x: hidden;
+	   }
+	   img {
+	       max-width: 100%;
+	   }
+	   body:before, body:after {
+	       position: fixed;
+	       left: 0;
+	       height: 5em;
+	       width: 100%;
+	       z-index: 99;
+	       content: "";
+	   }
+	   body:before {
+	       top: 0;
+	       background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+	       background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+	       background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+	       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--three)', endColorstr='#00ffffff', GradientType=0);
+	   }
+	   body:after {
+	       bottom: 0;
+	       background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+	       background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+	       background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+	       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='var(--three)', GradientType=0);
+	   }
+	   h1, h2, h3, h4, h5, h6 {
+	       font-family: 'Abril Fatface', sansserif;
+	   }
+	   a {
+	       text-decoration: none;
+	       color: var(--link);
+	       outline: none;
+	   }
+	   a:hover, a:focus {
+	       color: var(--link-2);
+	       outline: none;
+	       cursor: crosshair;
+	   }
+	   .close, #open {
+	       cursor: crosshair;
+	   }
+	   .header {
+	       position: relative;
+	       display: grid;
+	       justify-content: center;
+	       align-items: center;
+	       align-content: center;
+	       margin: 40vh auto;
+	       z-index: 999;
+	   }
+	   .header-inner p {
+	       width: 50%;
+	       text-align: center;
+	       margin: 9vh auto;
+	       position: block;
+	   }
+	   .header-inner p span {
+	       background: var(--one);
+	       padding: .1em .3em;
+	       line-height: 1.8em;
+	   }
+	   .header-title {
+	       font-family: 'Abril Fatface', sansserif;
+	       font-weight: normal;
+	       text-align: center;
+	       margin: 0;
+	       pointer-events: none;
+	       color: var(--text);
+	       font-size: 10vw;
+	   }
+	   #menu {
+	       background: var(--two);
+	       position: fixed;
+	       top: 4em;
+	       height: calc(100% - 8em);
+	       width: 4em;
+	       left: 50%;
+	       margin-left: -2.3em;
+	       z-index: 999;
+	   }
+	   #loading {
+	       width: 100%;
+	       display: block;
+	       height: 0;
+	       background: var(--one);
+	       position: absolute;
+	       top: 0;
+	       z-index: -1;
+	   }
+	   .full {
+	       left: 20%!important;
+	       width: 60%!important;
+	       z-index: 999999999999999999!important;
+	       margin-left: 0!important;
+	   }
+	   .menu, .close, .child-menu, #menu canvas, .full .ham, .full #loading, .full #sectionn {
+	       display: none;
+	   }
+	   .full .menu, .full .close, .full .child-menu, .full canvas {
+	       display: block!important;
+	   }
+	   .menu {
+	       grid-area: 1 / 1 / 1 / 1;
+	       position: relative;
+	       width: 100%;
+	       margin: 2em;
+	       font-family: 'Abril Fatface', sansserif;
+	       font-size: 2em;
+	   }
+	   .menu span {
+	       display: block;
+	       margin: 1em 0;
+	   }
+	   .menu a, .excerpt h2 a, .blog-excerpt h2 a {
+	       color: var(--link);
+	       position: relative;
+	   }
+	   .child-menu a {
+	       position: relative;
+	       color: var(--link-2);
+	   }
+	   .menu a:before, .child-menu a:before, .excerpt h2 a:before, .blog-excerpt:nth-child(odd) h2 a:before {
+	       width: 50%;
+	       display: block;
+	       content: "";
+	       position: absolute;
+	       height: .5em;
+	       bottom: 0;
+	       left: 0;
+	       background: var(--one);
+	       z-index: -1;
+	       transition: width .5s;
+	   }
+	   .child-menu a:before, .blog-excerpt:nth-child(even) h2 a:before {
+	       width: 50%;
+	       display: block;
+	       content: "";
+	       position: absolute;
+	       height: .5em;
+	       bottom: 0;
+	       left: 0;
+	       z-index: 0;
+	       transition: width .5s;
+	       background: var(--two);
+	   }
+	   .menu a:hover:before, .child-menu a:hover:before, .excerpt h2 a:hover:before {
+	       width: 100%;
+	   }
+	   .child-menu {
+	       width: calc(50% - 2em);
+	       right: 2em;
+	       background: var(--one);
+	       padding: 1em;
+	       height: calc(100% - 4em);
+	       position: absolute;
+	       top: 2em;
+	       font-size: 1.5em;
+	       font-family: 'Abril Fatface', sans-serif;
+	   }
+	   .child-menu h2 {
+	       position: absolute;
+	       top: 1em;
+	       left: -1.5em;
+	       transform: rotate(-90deg);
+	       color: #468b7d;
+	   }
+	   .child-menu span {
+	       display: block;
+	       margin: 1em;
+	   }
+	   .close:before, .close:after {
+	       width: 2em;
+	       height: 10px;
+	       border-radius: 2px;
+	       background: rgba(0, 0, 0, .5);
+	       content: "";
+	       display: block;
+	   }
+	   .close:after {
+	       transform: rotate(-45deg);
+	       position: absolute;
+	       top: 0;
+	   }
+	   .close:before {
+	       transform: rotate(45deg);
+	   }
+	   .ham {
+	       position: absolute;
+	       width: 2em;
+	       height: 5px;
+	       border-radius: 2px;
+	       background: rgba(0, 0, 0, .5);
+	       margin: 2em auto;
+	       position: relative;
+	   }
+	   .ham:before, .ham:after {
+	       width: 2em;
+	       height: 5px;
+	       border-radius: 2px;
+	       background: rgba(0, 0, 0, .5);
+	       content: "";
+	       display: block;
+	       margin-top: -10px;
+	       position: absolute;
+	   }
+	   .ham:after {
+	       margin-top: 10px;
+	   }
+	   .scene {
+	       position: absolute;
+	   }
+	   .scene--full {
+	       width: 100%;
+	       height: 100vh;
+	   }
+	   .close {
+	       position: absolute;
+	       top: 1.5em;
+	       right: 1em;
+	   }
+	   .line-vertical {
+	       width: 2px;
+	       position: fixed;
+	       top: 2em;
+	       height: calc(100vh - 4em);
+	   }
+	   .line-horizontal {
+	       height: 2px;
+	       position: fixed;
+	       width: calc(100vw - 5em);
+	   }
+	   .fixedleft {
+	       left: 2em;
+	   }
+	   .fixedright {
+	       right: 2em;
+	   }
+	   .fixedtop {
+	       top: 2em;
+	       margin-left: -2px;
+	   }
+	   .fixedbottom {
+	       bottom: 2em!important;
+	       margin-left: -2px;
+	   }
+	   .real-line-vertical {
+	       width: 2px;
+	       height: 100%;
+	       background: var(--two);
+	       display: block;
+	       margin: auto;
+	   }
+	   .real-line-horizontal {
+	       height: 2px;
+	       width: 100%;
+	       background: var(--two);
+	       display: block;
+	       margin: auto;
+	   }
+	   .socials {
+	       position: fixed;
+	       margin: 10px 5px;
+	       z-index: 999;
+	   }
+	   .socials a {
+	       display: inline-block;
+	       width: 2em;
+	       height: 2em;
+	       background: var(--two);
+	       padding: .5em;
+	       margin: 5px 0px 0px 2px;
+	       text-align: center;
+	   }
+	   @media screen and (max-width: 55em) {
+	       .content__title {
+	           font-size: 3.5em;
+	       }
+	       .content__subtitle {
+	           font-size: 0.85em;
+	       }
+	       .demo-4 {
+	           background-position: 50% 20em;
+	       }
+	   }
+	   .ball {
+	       pointer-events: none;
+	       position: absolute;
+	       width: 120px;
+	       height: 120px;
+	       top: 5px;
+	       left: 5px;
+	       border-radius: 50%;
+	       background: rgba(250, 202, 192, .6);
+	       border: 5px solid rgba(250, 202, 192, 1);
+	       opacity: .5;
+	       z-index: 999999;
+	   }
+	   .bg {
+	       position: fixed;
+	       top: 0;
+	       left: 0;
+	       width: 100%;
+	       height: 100%;
+	       border: none;
+	       opacity: .8;
+	       z-index: -1;
+	   }
+	   .container {
+	       width: 80%;
+	       margin: 2em auto;
+	   }
+	   .excerpt {
+	       width: calc((100% / 2) - 7em);
+	       font-size: .9em;
+	       vertical-align: top;
+	       margin-left: 3em;
+	       margin-right: 4em;
+	       margin-top: 2em;
+	   }
+	   .excerpt-post {
+	       background: var(--three);
+	       -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+	       -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+	       box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+	       border-radius: 1em;
+	       background: var(--post-bg);
+	       overflow: hidden;
+	       margin-top: 1.5em;
+	   }
+	   .excerpt h2 {
+	       font-size: 2.5em;
+	       margin: 0 0 .5em 0;
+	   }
+	   .excerpt-content {
+	       padding: 1em;
+	   }
+	   .excerpt:nth-child(even) {
+	       margin-top: 5em;
+	   }
+	   .excerpt-image {
+	       border-radius: 1em 1em 0 0;
+	       overflow: hidden;
+	   }
+	   #themes {
+	       margin: 0 2em 4em 2em;
+	   }
+	   #themes:after {
+	       display: table;
+	       clear: both;
+	       content: "";
+	   }
+	   .excerpt-image img {
+	       display: block;
+	       margin: 0;
+	   }
+	   .iframe-controls-container.iframe-controls-container--unified.iframe-controls-container--compact {
+	       min-width: 0;
+	       top: -.7em;
+	       transform: scale(.8);
+	   }
+	   ul li {
+	       list-style-type: square;
+	   }
+	   .quote {
+	       font-family: "Abril Fatface";
+	       font-size: 1.5em;
+	       text-align: center;
+	   }
+	   .source {
+	       font-size: .9em;
+	       text-align: center;
+	   }
+	   .source:before {
+	       content: "—";
+	   }
+	   blockquote {
+	       border-left: 1px solid var(--one);
+	       padding-left: 1em;
+	   }
+	   blockquote blockquote {
+	       border-left: 1px solid var(--three);
+	   }
+	   blockquote blockquote blockquote {
+	       border-left: 1px solid var(--two);
+	   }
+	   .excerpt {
+	       float: left;
+	   }
+	   #date {
+	       font-size: 2em;
+	       font-weight: bolder;
+	       font-style: italic;
+	       color: var(--one);
+	       font-family: arial;
+	       text-shadow: 2px 2px 0px var(--two);
+	   }
+	   .chat, .notes {
+	       margin: 0;
+	       padding-left: 0;
+	   }
+	   .chat li, .note {
+	       list-style: none;
+	       margin: 0!important;
+	       padding: 1em;
+	   }
+	   .chat li:nth-child(odd), .note:nth-child(odd) {
+	       border-bottom: 1px solid var(--two);
+	   }
+	   .chat li:nth-child(even), .note:nth-child(even) {
+	       border-bottom: 1px solid var(--one);
+	   }
+	   .chat li:nth-child(odd) .label {
+	       font-weight: bold;
+	       color: var(--two);
+	   }
+	   .chat li:nth-child(even) .label {
+	       font-weight: bold;
+	       color: var(--one);
+	   }
+	   .note img {
+	       border-radius: 100%;
+	       margin-right: .5em;
+	       display: inline-block;
+	   }
+	   .tmblr-iframe-compact .tmblr-iframe--unified-controls {
+	       transform: scale(.8)!important;
+	       top: -10px!important;
+	   }
+	   .excerp-info {
+	       float: right;
+	       margin-top: -.5em;
+	   }
+	   .excerp-info>div, #tags a {
+	       padding: .5em;
+	       background: var(--two);
+	       border-radius: .5em;
+	       display: inline-block;
+	       transform: scale(.8);
+	   }
+	   .excerp-info>div {
+	       width: 2.5em;
+	       height: 2.5em;
+	   }
+	   #tags {
+	       margin: .5em 0;
+	   }
+	   .excerp-info>div:nth-child(even), #tags a:nth-child(odd) {
+	       background: var(--one);
+	   }
+	       
+	</style>
+</head>
+<body>
+	<iframe class="bg"></iframe>
+	<div class="line-vertical fixedleft fixedtop">
+		<div class="real-line-vertical"></div>
+	</div>
+	<div class="line-vertical fixedright fixedtop">
+		<div class="real-line-vertical"></div>
+	</div>
+	<div class="line-horizontal fixedleft fixedtop">
+		<div class="real-line-horizontal"></div>
+	</div>
+	<div class="line-horizontal fixedright fixedbottom">
+		<div class="real-line-horizontal"></div>
+	</div>
+	<div class="socials fixedtop fixedright" style="margin-top: 3px;margin-right:7px">
+		{block:ifTwitterUsername}<a class="fa fa-twitter" href="https://twitter.com/{text:TwitterUsername}"></a>{/block:ifTwitterUsername} {block:ifInstagramUsername}<a class="fa fa-instagram" href="https://instagram.com/{text:InstagramUsername}"></a><br>
+		{/block:ifInstagramUsername} {block:ifFacebookUsername}<a class="fa fa-facebook" href="http://facebook.com/{text:FacebookUsername}" style="float: right"></a>{/block:ifFacebookUsername}
+	</div>
+	<div class="socials fixedbottom fixedleft">
+		<a class="fa fa-angle-up" href="#"></a><br>
+		{block:Pagination} {block:PreviousPage}<a class="fa fa-angle-left" href="{PreviousPage}"></a>{/block:PreviousPage} {block:NextPage}<a class="fa fa-angle-right" href="{NextPage}"></a>{/block:NextPage} {/block:Pagination}
+	</div>
+	<div id="menu">
+		<canvas class="scene scene--full" id="scene"></canvas>
+		<div class="menu">
+			<span><a href="/">Home</a></span> <span><a href="/ask">Message</a></span> <span><a href="/archive">Archive</a></span> {block:ifLink1URL}<span><a href="{text:Link1URL}">{text:Link1}</a></span>{/block:ifLink1URL} {block:ifLink2URL}<span><a href="{text:Link2URL}">{text:Link2}</a></span>{/block:ifLink2URL} {block:ifLink3URL}<span><a href="{text:Link3URL}">{text:Link3}</a></span>{/block:ifLink3URL} {block:ifLink4URL}<span><a href="{text:Link4URL}">{text:Link4}</a></span>{/block:ifLink4URL} {block:ifLink5URL}<span><a href="{text:Link5URL}">{text:Link5}</a></span>{/block:ifLink5URL} <span><a href="http://hellolittlered.org">Theme</a></span>
+		</div>{block:ifLink6URL}
+		<div class="child-menu" id="child-menu">
+			{block:ifSecondLinkBoxTitle}
+			<h2>{text:Second Link Box Title}</h2>{/block:ifSecondLinkBoxTitle}{/block:ifLink6URL} {block:ifLink6URL}<span><a href="{text:Link6URL}">{text:Link6}</a></span>{/block:ifLink6URL} {block:ifLink7URL}<span><a href="{text:Link7URL}">{text:Link7}</a></span>{/block:ifLink7URL} {block:ifLink8URL}<span><a href="{text:Link8URL}">{text:Link8}</a></span>{/block:ifLink8URL} {block:ifLink9URL}<span><a href="{text:Link9URL}">{text:Link9}</a></span>{/block:ifLink9URL} {block:ifLink10URL}<span><a href="{text:Link10URL}">{text:Link10}</a></span>{/block:ifLink10URL} {block:ifLink11URL}<span><a href="{text:Link11URL}">{text:Link11}</a></span>{/block:ifLink11URL} {block:ifLink12URL}<span><a href="{text:Link12URL}">{text:Link12}</a></span>{/block:ifLink12URL} {block:ifLink13URL}<span><a href="{text:Link13URL}">{text:Link13}</a></span>{/block:ifLink13URL} {block:ifLink14URL}<span><a href="{text:Link14URL}">{text:Link14}</a></span>{/block:ifLink14URL} {block:ifLink6URL}
+		</div>{/block:ifLink6URL}
+		<div class="close"></div>
+		<div class="ham" id="open"></div>
+		<div id="loading"></div>
+	</div>
+	<div class="header">
+		<div class="header-inner">
+			<h2 class="header-title">{Title}</h2>
+			<p><span>{Description}</span></p>
+		</div>
+	</div>
+	<div id="themes">
+		<div class="container">
+			{block:Posts}
+			<div class="excerpt">
+				{block:Date}<a href="{Permalink}" id="date" target="_blank">{ShortMonth} {DayOfMonthWithZero} {Year}</a>{/block:Date}
+				<div class="excerp-info">
+					<div>
+						{ReblogButton}
+					</div>
+					<div>
+						{LikeButton}
+					</div>
+				</div>
+				<div class="excerpt-post">
+					{block:Text}
+					<div class="excerpt-content">
+						{block:Title}
+						<h2 style="margin-top: .5em"><a href="{Permalink}">{Title}</a></h2>{/block:Title} {Body}
+					</div>
+					{block:Text} 
+					
+					{block:Photo}
+					<div class="excerpt-image"><img alt="{PhotoAlt}" src="{PhotoURL-HighRes}"></div>{block:Caption}
+					<div class="excerpt-content">
+						{Caption}
+					</div>{/block:Caption} 
+					{/block:Photo} 
+					
+					{block:Photoset}
+					<div class="excerpt-content">
+						{Photoset} 
+						{block:Caption}
+						<div class="caption">
+							{Caption}
+						</div>
+						{/block:Caption}
+					</div>
+					{/block:Photoset} 
+					
+					{block:Quote}
+					<div class="excerpt-content">
+						<div class="quote">
+							"{Quote}"
+						</div>
+						{block:Source}
+						<div class="source">
+							{Source}
+						</div>
+						{/block:Source}
+					</div>
+					{/block:Quote} 
+					
+					{block:Link}
+					<div class="excerpt-content">
+						{block:Title}
+						<h2 style="margin-top: .5em"><a class="link" href="{URL}">{Name}</a></h2>{/block:Title} {block:Description}
+						<div class="description">
+							{Description}
+						</div>{/block:Description}
+					</div>
+					{/block:Link} 
+
+					{block:Chat}
+					<div class="excerpt-content">
+						{block:Title}<h2><a href="{Permalink}">{Title}</a></h2>{/block:Title}
+						<ul class="chat">
+							<li style="list-style: none">{block:Lines}</li>
+							<li class="{Alt} user_{UserNumber}">{block:Label} <span class="label">{Label}</span> {/block:Label}{Line}</li>
+							<li style="list-style: none">{/block:Lines}</li>
+						</ul>
+					</div>
+					{/block:Chat} 
+					
+					{block:Video}
+					<div class="excerpt-content">
+						{Video-500} 
+						{block:Caption}
+						<div class="caption">
+							{Caption}
+						</div>{/block:Caption}
+					</div>
+					{/block:Video} 
+
+					{block:Audio} 
+					{block:AlbumArt}<img class="excerpt-image" src="{AlbumArtURL}" width="100%">{/block:AlbumArt} {block:AudioEmbed}
+					<div style="width:100%;overflow:hidden">
+						{AudioEmbed}
+					</div>
+					{/block:AudioEmbed} 
+					{block:Caption}
+					<div class="excerpt-content">
+						{Caption}
+					</div>
+					{/block:Caption} 
+					{/block:Audio} 
+					
+					{block:Answer}
+					<div class="excerpt-content" style="background:var(--one);font-size: .9em">
+						<div class="excerpt-content" style="background: var(--two);padding:.5em;font-weight:bold">
+							{Asker} wondered:
+						</div>{Question}
+					</div>
+					<div class="excerpt-content">
+						{Answer}
+					</div>
+					{/block:Answer}
+				</div>
+
+				{block:HasTags}
+				<div id="tags">
+					{block:Tags}<a href="{TagURL}">#{tag}</a>{/block:Tags}
+				</div>
+				{/block:HasTags} 
+
+				{block:PermalinkPage}
+				<div class="excerpt-post">
+					<ul class="chat">
+						<li style="list-style: none">{block:NoteCount}</li>
+						<li><b>Note Count:</b> {NoteCountWithLabel}{/block:NoteCount} {block:RebloggedFrom}</li>
+						<li>
+							<b>Reblogged from:</b> <a href="{ReblogParentURL}">{ReblogParentName}</a>
+						</li>
+						<li>
+							<b>Originally From:</b> <a href="{ReblogRootURL}">{ReblogRootName}</a>
+						</li>
+						<li style="list-style: none">{/block:RebloggedFrom} {block:HasTags}</li>
+						<li>
+							<b>Tagged as:</b> {block:Tags}<a href="{TagURL}">{tag},</a> {/block:Tags}{/block:HasTags}
+						</li>
+					</ul>
+				</div>
+				{/block:PermalinkPage}
+			</div>
+			
+			{block:PostNotes}
+			<div class="excerpt">
+				<div class="excerpt-post">
+					{PostNotes}
+				</div>
+			</div>
+			{/block:PostNotes} 
+			{/block:Posts}
+		</div>
+	</div>
+	<footer></footer>
+	<script src="https://hellolittlered.org/material/valthm/js/three.min.js">
+	</script> 
+	<script src="https://hellolittlered.org/material/valthm/js/perlin.js">
+	</script> 
+	<script src="https://hellolittlered.org/material/valthm/js/TweenMax.min.js">
+	</script> 
+	<script type="text/javascript">
+	   $(document).ready(() => {
+	       var bg = "{color:background}";
+	       var color = "{color:accent1}";
+	       var color2 = "{color:accent2}";
+	       var color3 = "{color:accent3}";
+	       
+	       const li = `https://hellolittlered.org/material/valthm/index.html?one=${color.replace("#", "")}&two=${color2.replace("#", "")}&three=${color3.replace("#", "")}&bg=${bg.replace("#", "")}`;
+
+	       $('.bg').attr("src", li);
+	       
+	       const canvas = $('canvas')[0];
+	       let width = 70/100*$('body').outerHeight();
+	       let height = $('#menu').outerHeight();
+	       
+	       const renderer = new THREE.WebGLRenderer({
+	           canvas,
+	           antialias: true,
+	           alpha: true
+	       });
+	       renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
+	       renderer.setSize(width, height);
+	       renderer.setClearColor(color,0);
+	       
+	       const scene = new THREE.Scene();
+	       
+	       const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 1000);
+	       camera.position.set(0, 0, 350);
+	       
+	       const sphere = new THREE.Group();
+	       scene.add(sphere);
+	       const material = new THREE.LineBasicMaterial({
+	           color: color3
+	       });
+	       const linesAmount = 18;
+	       const radius = 100;
+	       const verticesAmount = 50;
+	       for(let j=0;j<linesAmount;j++){
+	           const index = j;
+	           const geometry = new THREE.Geometry();
+	           geometry.y = (index/linesAmount) * radius*2;
+	           for(let i=0;i<=verticesAmount;i++) {
+	               const vector = new THREE.Vector3();
+	               vector.x = Math.cos(i/verticesAmount * Math.PI*2);
+	               vector.z = Math.sin(i/verticesAmount * Math.PI*2);
+	               vector._o = vector.clone();
+	               geometry.vertices.push(vector);
+	           }
+	           const line = new THREE.Line(geometry, material);
+	           sphere.add(line);
+	       }
+	       
+	       function updateVertices (a) {
+	           for (const line of sphere.children) {
+	               line.geometry.y += 0.3;
+	               if(line.geometry.y > radius*2) {
+	                   line.geometry.y = 0;
+	               }
+	               const radiusHeight = Math.sqrt(line.geometry.y * (2*radius-line.geometry.y));
+	               for(let i=0;i<=verticesAmount;i++) {
+	                   const vector = line.geometry.vertices[i];
+	                      const ratio = noise.simplex3(vector.x*0.009, vector.z*0.009 + a*0.0006, line.geometry.y*0.009) * 15;
+	                      vector.copy(vector._o);
+	                      vector.multiplyScalar(radiusHeight + ratio);
+	                      vector.y = line.geometry.y - radius;
+	                  }
+	               line.geometry.verticesNeedUpdate = true;
+	           }
+	       }
+	       
+	       function render(a) {
+	           requestAnimationFrame(render);
+	           updateVertices(a);
+	           renderer.render(scene, camera);
+	       }
+	       
+	       function onResize() {
+	           canvas.style.width = '';
+	           canvas.style.height = '';
+	           width = canvas.offsetWidth;
+	           height = canvas.offsetHeight;
+	           camera.aspect = width / height;
+	           camera.updateProjectionMatrix();
+	           renderer.setSize(width, height);
+	       }
+	       
+	       const mouse = new THREE.Vector2(0.8, 0.5);
+	       function onMouseMove(e) {
+	           mouse.y = e.clientY / window.innerHeight;
+	           TweenMax.to(sphere.rotation, 2, {
+	               x : (mouse.y * 1),
+	               ease:Power1.easeOut
+	           });
+	       }
+	       
+	       requestAnimationFrame(render);
+	       window.addEventListener("mousemove", onMouseMove);
+	       let resizeTm;
+	       window.addEventListener("resize", () => {
+	           resizeTm = clearTimeout(resizeTm);
+	           resizeTm = setTimeout(onResize, 200);
+	       });
+	       
+	       
+	       var $grid = $('.container').imagesLoaded( function() {
+	         $grid.masonry({
+	           itemSelector: '.excerpt'
+	         });
+	       });
+	       
+
+	       
+	   });
+	</script> 
+</body>
+</html>
