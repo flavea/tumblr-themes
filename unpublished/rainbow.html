@@ -17,6 +17,7 @@
     <meta name="color:sidebars" content="#ffffff" />
     <meta name="color:sidebar title" content="#ffffff" />
     <meta name="color:posts" content="#ffffff" />
+    <meta name="color:general text" content="#333333" />
     <meta name="color:description" content="#ffffff" />
     <meta name="color:permalink notes" content="#ffffff" />
     <meta name="color:chat label" content="#ffffff" />
@@ -89,7 +90,7 @@ html, body {
     font-size: 1em;
     margin: 0;
     padding: 0;
-    color: #333333;
+    color: {color:general text};
 }
 
 a {
@@ -389,6 +390,7 @@ li::before {
 #sidebar {
     width: calc(100% - 900px);
     float: left;
+    margin-top: -300px;
 }
 
 #sidebar .side-post {
@@ -487,8 +489,11 @@ li::before {
             <a href="{text:link9url}" class="stitle bg1">{text:link9}</a>{/block:iflink9url}<br> {block:iflink10url}
             <a href="{text:link10url}" class="stitle bg2">{text:link10}</a>{/block:iflink10url}<br> {block:iflink11url}
             <a href="{text:link11url}" class="stitle bg3">{text:link11}</a>{/block:iflink11url}<br> {block:iflink12url}
-            <a href="{text:link12url}" class="stitle bg4">{text:link12}</a>{/block:iflink12url}<br>
-            <br><br><br> {block:IfShowStatus}
+            <a href="{text:link12url}" class="stitle bg4">{text:link12}</a>{/block:iflink12url}
+            
+            <br><br><br><br> 
+            
+            {block:IfShowStatus}
             <span class="stitle bg4">Current Statuses</span>
             <div class="side-post">
                 <ul class="chat">
@@ -498,7 +503,9 @@ li::before {
                     <li><b>Latest Watched:</b> <br>{text:Latest Watched}</li>{/block:ifLatestWatched} {block:ifLastFM}
                     <li><b>Last Song Listened:</b> <br> <span id="song"></span></li>{/block:ifLastFM}
                 </ul>
-            </div>{/block:IfShowStatus} {block:ifSidebarTag}
+            </div>{/block:IfShowStatus} 
+            
+            {block:ifSidebarTag}
             <span class="stitle bg1">Latest #{text:Sidebar Tag}</span>
             <div id="lastpost" class="side-post">
             </div>{/block:ifSidebarTag}
@@ -514,14 +521,15 @@ li::before {
             <span class="stitle bg3">{text:second custom sidebar title}</span>{block:ifsecondcustomsidebartitle}
             <div class="side-post">
                 {text:second custom sidebar content}
-            </div>{/block:ifsecondcustomsidebarcontent}
-            
+            </div>
+            {/block:ifsecondcustomsidebarcontent}
             
             {block:ifthirdcustomsidebarcontent}{block:ifthirdcustomsidebartitle}
-            <span class="stitle bg3">{text:third custom sidebar title}</span>{block:ifthirdcustomsidebartitle}
+            <span class="stitle bg4">{text:third custom sidebar title}</span>{block:ifthirdcustomsidebartitle}
             <div class="side-post">
                 {text:third custom sidebar content}
-            </div>{/block:ifthirdcustomsidebarcontent}
+            </div>
+            {/block:ifthirdcustomsidebarcontent}
 
         </div>
         <div id="posts">
