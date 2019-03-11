@@ -1,9 +1,9 @@
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "//www.w3.org/TR/html4/loose.dtd">
 <html>
  <head>
   <title>{title}</title>
-  <link  href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:regular,bold" rel="stylesheet" type="text/css" />
+  <link  href="//fonts.googleapis.com/css?family=PT+Sans+Narrow:regular,bold" rel="stylesheet" type="text/css" />
   <link rel="shortcut icon" href="{Favicon}">
  </head>
 
@@ -41,8 +41,8 @@
 	<meta name="color:music" content="#fff">
 
 
-	<meta name="image:background" content="https://i.imgur.com/w8RJ7VC.png">
-	<meta name="image:sidebar" content="https://i.imgur.com/NIMDkwy.png">
+	<meta name="image:background" content="//i.imgur.com/w8RJ7VC.png">
+	<meta name="image:sidebar" content="//i.imgur.com/NIMDkwy.png">
 
 	<meta name="text:Link1" content="" />
 	<meta name="text:Link1URL" content=""/>
@@ -733,7 +733,7 @@ max-width:100%;
 
 <!-- JAVASCRIPTS -->
 
-	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="//code.jquery.com/jquery-latest.min.js"></script>
 
 	<script>
 	window.onload = function () {
@@ -747,7 +747,7 @@ max-width:100%;
 				reblog = myLike.getAttribute( 'data-reblog' ),
 				id = myLike.getAttribute( 'data-id' ),
 				oauth = reblog.slice( -8 );
-			frame.src = 'https://www.tumblr.com/' + command + '/' + oauth + '?id=' + id;
+			frame.src = '//www.tumblr.com/' + command + '/' + oauth + '?id=' + id;
 			liked ? myLike.className = 'my-like' : myLike.className = 'my-liked';
 		};
 	}, false );
@@ -805,8 +805,8 @@ max-width:100%;
 	});
 	</script>
 
-	{block:IfInfiniteScroll}<script type="text/javascript" src="https://codysherman.com/tools/infinite-scrolling/code"></script> {/block:IfInfiniteScroll}
-	<script src="https://static.tumblr.com/ikeq9mi/DfYl6o46t/scrolltotop.min.js"></script>
+	{block:IfInfiniteScroll}<script type="text/javascript" src="//codysherman.com/tools/infinite-scrolling/code"></script> {/block:IfInfiniteScroll}
+	<script src="//static.tumblr.com/ikeq9mi/DfYl6o46t/scrolltotop.min.js"></script>
 
 <!-- BODY -->
 
@@ -815,7 +815,7 @@ max-width:100%;
 	<!-- CREDIT -->
 
 		<div id="credit">
-		<a href="https://hellolittlered.org">❄ the match girl</a>
+		<a href="//hellolittlered.org">❄ the match girl</a>
 		</div>
 
 	<!-- MUSIC PLAYER -->
@@ -824,7 +824,7 @@ max-width:100%;
 			<table><tr><td>
 				<div id="info"><b>{text:artist}</b> - {text:song title}</div></td>
 			<td><table id="button">
-				<tr><td><img src="https://media.tumblr.com/tumblr_m7vzdsjaAz1r6o8v2.gif"></td>
+				<tr><td><img src="//media.tumblr.com/tumblr_m7vzdsjaAz1r6o8v2.gif"></td>
 				<td>{text:music}
 			</td></tr></table>
 			</td></tr></table>
@@ -846,52 +846,52 @@ max-width:100%;
 
 			<div id="links">
 				<div class="1">
-				<a class="links" href="/" title="refresh"><img src="https://i.imgur.com/o15fBdr.gif"></a>
+				<a class="links" href="/" title="refresh"><img src="//i.imgur.com/o15fBdr.gif"></a>
 				</div>
 				{block:ifblogroll}<div class="2">
-				<a class="links" title="blogroll"><img src="https://i.imgur.com/C6nzKl9.gif"></a>
+				<a class="links" title="blogroll"><img src="//i.imgur.com/C6nzKl9.gif"></a>
 				</div>{block:ifblogroll}
 				{block:iftwitter}<div class="3">
-				<a class="links" title="twitter"><img src="https://i.imgur.com/PuPPszP.gif"></a>
+				<a class="links" title="twitter"><img src="//i.imgur.com/PuPPszP.gif"></a>
 				</div>{block:iftwitter}
 				{block:iflikedposts}<div class="4">
-				<a class="links" title="liked posts"><img src="https://i.imgur.com/Uvuj99v.gif"></a>
+				<a class="links" title="liked posts"><img src="//i.imgur.com/Uvuj99v.gif"></a>
 				</div>{block:iflikedposts}
 				<a class="link" href="/ask" title="send a message">
-				<span class="doom"><img src="https://i.imgur.com/kw3CofX.gif"></span>
+				<span class="doom"><img src="//i.imgur.com/kw3CofX.gif"></span>
 				<span class="die">ask me!</span>
 				</a>
 				<a class="link" href="/archive" title="archive">
-				<span class="doom"><img src="https://i.imgur.com/yUVa3h1.gif"></span>
+				<span class="doom"><img src="//i.imgur.com/yUVa3h1.gif"></span>
 				<span class="die">archive</span>
 				</a>
 				{block:iflink1}<a class="link" href="{text:Link1URL}">
-				<span class="doom"><img src="https://i.imgur.com/WB9uk5R.gif"></span>
+				<span class="doom"><img src="//i.imgur.com/WB9uk5R.gif"></span>
 				<span class="die">{text:Link1}</span>
 				</a>{/block:iflink1}
 				{block:iflink2}<a class="link" href="{text:Link2URL}">
-				<span class="doom"><img src="https://i.imgur.com/WB9uk5R.gif"></span>
+				<span class="doom"><img src="//i.imgur.com/WB9uk5R.gif"></span>
 				<span class="die">{text:Link2}</span>
 				</a>{/block:iflink2}
 				{block:iflink3}<a class="link" href="{text:Link3URL}">
-				<span class="doom"><img src="https://i.imgur.com/WB9uk5R.gif"></span>
+				<span class="doom"><img src="//i.imgur.com/WB9uk5R.gif"></span>
 				<span class="die">{text:Link3}</span>
 				</a>{/block:iflink3}
 				{block:iflink4}<a class="link" href="{text:Link4URL}">
-				<span class="doom"><img src="https://i.imgur.com/WB9uk5R.gif"></span>
+				<span class="doom"><img src="//i.imgur.com/WB9uk5R.gif"></span>
 				<span class="die">{text:Link4}</span>
 				</a>{/block:iflink4}
 				{block:iflink5}<a class="link" href="{text:Link5URL}">
-				<span class="doom"><img src="https://i.imgur.com/WB9uk5R.gif"></span>
+				<span class="doom"><img src="//i.imgur.com/WB9uk5R.gif"></span>
 				<span class="die">{text:Link5}</span>
 				</a>{/block:iflink5}
 				{block:iflink6}<a class="link" href="{text:Link6URL}"><span class="doom">
-				<img src="https://i.imgur.com/WB9uk5R.gif"></span>
+				<img src="//i.imgur.com/WB9uk5R.gif"></span>
 				<span class="die">{text:Link6}</span>
 				</a>{/block:iflink6}
 
 				{block:iflink7}<a class="link" href="{text:Link7URL}">
-				<span class="doom"><img src="https://i.imgur.com/WB9uk5R.gif"></span>
+				<span class="doom"><img src="//i.imgur.com/WB9uk5R.gif"></span>
 				<span class="die">{text:Link7}</span>
 				</a>{/block:iflink7}
 			</div>
@@ -922,7 +922,7 @@ max-width:100%;
 				{block:Likes}
 				<div class="item">
 					{Likes limit="5" summarize="0" width="220"}
-					<a href="https://www.tumblr.com/liked/by/{Name}">
+					<a href="//www.tumblr.com/liked/by/{Name}">
 					{lang:More liked posts}
 					</a>
 				</div>
@@ -940,8 +940,8 @@ max-width:100%;
 
 		<!-- REBLOG AND LIKE BUTTON -->
 		{block:indexpage}<div id="opt">
-			<a href="{ReblogURL}"><div class="opt1"><img src="https://i.imgur.com/WB9uk5R.gif"> reblog!</div></a>
-			<div class="opt2"><div class="my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like"><img src="https://i.imgur.com/C6nzKl9.gif"> like!</div></div>
+			<a href="{ReblogURL}"><div class="opt1"><img src="//i.imgur.com/WB9uk5R.gif"> reblog!</div></a>
+			<div class="opt2"><div class="my-like" data-reblog="{ReblogURL}" data-id="{PostID}" title="Like"><img src="//i.imgur.com/C6nzKl9.gif"> like!</div></div>
 		</div>{/block:indexpage}
  
 		<!-- Text -->
